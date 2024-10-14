@@ -76,9 +76,11 @@ def get_args():
     parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
     parser.add_argument('--dataset', 	    help='choice of dataset', 			        type=str, default='indore')
 
-    parser.add_argument("--batch_size", 										        type=int, default=4)
-    parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama')
+    parser.add_argument("--batch_size", 										        type=int, default=32)
+    parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
     parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza')
+    parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')
+    parser.add_argument('--mode',           help='mode', 	                            type=str, default='zshot')
 
     # default parameters
     
@@ -94,7 +96,7 @@ if __name__ =='__main__':
     with open(annot_file) as f:
         data = json.load(f)
 
-    validation_data = data.get("validation", [])
+    split_data = data.get(args.split, [])
 
     # List of possible labels
     with open(f"../data/{args.dataset}/relation_dict.json") as f:
@@ -106,9 +108,7 @@ if __name__ =='__main__':
 
     # Create the dataset
     dataset = LabelDatasetSingleChoice(
-        data=validation_data[:10],
-
-
+        data=split_data,
         labels=labels,
         prompt_func=construct_prompt_single_choice
     )
@@ -118,7 +118,10 @@ if __name__ =='__main__':
     # Define DataLoader
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
-    model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+    if args.model_name == 'llama3':
+        model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+    elif args.model_name == 'gemma2':
+        model_id = 'google/gemma-2-9b-it'
     
     tokenizer = AutoTokenizer.from_pretrained(model_id)
 
@@ -135,7 +138,7 @@ if __name__ =='__main__':
     )
 
     model.eval()  # Set model to evaluation moder
-    results = {}
+    results = []
     count = 0
     for batch in tqdm(dataloader, desc="Generating Responses"):
         count       += 1
@@ -150,13 +153,21 @@ if __name__ =='__main__':
         # Map responses
         for ex_id, gen_text in enumerate(generated_texts):
             # Clean and normalize the generated text
-            results[ex_id] = gen_text
-            print(f"Prompt : {prompts[ex_id]}")
-            print(f"True Label : {true_labels[ex_id]}")
-            print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
-            print()
+            curr_data = {}
+            curr_data['id']              = count
+            curr_data['true_label']      = true_labels[ex_id]
+            curr_data['gen_text']        = gen_text.replace(prompts[ex_id], '')
+            curr_data['prompt']          = prompts[ex_id]
+            count += 1
+            results.append(curr_data)
+
+            # print(f"Prompt : {prompts[ex_id]}")
+            # print(f"True Label : {true_labels[ex_id]}")
+            # print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
+            # print()
+            
         
     print("Generation completed.")
 
-    with open('out.txt', 'w') as f:
-        print('Results:', results, file=f)
+    with open(f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_simple_prompt-{args.split}.json', 'w') as f:
+        json.dump(results, f, indent=4)
