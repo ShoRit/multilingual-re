@@ -1,0 +1,850 @@
+id,doc_text,true_rel,pred_rel
+0,"Anastasia was the youngest child and youngest daughter of Frederick Francis IV, Grand Duke of Mecklenburg-Schwerin and his wife Princess Alexandra of Hanover and Cumberland.",spouse,spouse
+1,"The flag of Yukon, is a green, white, and blue tricolour with the coat of arms of Yukon at the centre above a wreath of fireweed, the territorial flower.",color,color
+2,"The Nativity of the Blessed Virgin Mary, the Nativity of Mary, or the Birth of the Virgin Mary, refers to a Christian feast day celebrating the birth of Mary, mother of Jesus.",mother,mother
+3,"This work of art features a wood-carved altarpiece, decorated with gold leaf and framing a painting depicting the Assumption of the Virgin Mary.",material_used,material_used
+4,"In the second half, a Huth free-kick was deflected into the goal by Kevin Doyle, while Peter Crouch scored the winning goal for Stoke in a 2–1 win, marking the first time that Stoke had won four Premier League matches in a row.",league,league
+5,"In 1967, Israel captured the West Bank from Jordan in the Six-Day War.",participant,participant
+6,His position is in the Centre and he currently plays for Stade Rochelais in the Top 14.,league,league
+7,"The Czech Republic joined NATO in 1999 and the European Union in 2004; it is a member of the United Nations, the OECD, the OSCE, and the Council of Europe.",member_of,member_of
+8,"Sévère Dumoulin (February 4, 1829 – May 17, 1910) was a politician from Quebec, Canada.",country_of_citizenship,country_of_citizenship
+9,Star Over Bethlehem is an illustrated book of poetry and short stories on a religious theme by crime writer Agatha Christie.,genre,genre
+10,"The Metis system (named for Metis the Titan who was the mother of Athena in Greek mythology) was designed to encourage productive independent browsing by children, as well as allowing for successful catalog searching by elementary school students.",child,discoverer_or_inventor
+11,"NGC 4570 was discovered by astronomer William Herschel on April 13, 1784 and is a member of the Virgo Cluster.",discoverer_or_inventor,discoverer_or_inventor
+12,"Birds of Tokyo subsequently debuted a new song, ""I'd Go with You Anywhere"", confirming the release of a compilation album, ""Playlist"", which was released in November 2015 and peaked at number 4.",performer,performer
+13,"He has been married to singer Françoise Hardy since 30 March 1981 and the two have a son (jazz guitarist Thomas Dutronc, born 1973).",mother,mother
+14,"Two days after signing, José Enrique made his debut in Liverpool's first game of the 2011–12 Premier League, starting at left back in a 1–1 draw against Sunderland.",league,league
+15,Sevastopol was awarded the title Hero City in 1965.,winner,winner
+16,"An associate of Theodor Herzl, he was the first president of the Zionist Federation of Germany and one of the founders of the Jewish National Fund.",founded_by,founded_by
+17,"This article is the Electoral history of John Diefenbaker, the thirteenth Prime Minister of Canada.",country_of_citizenship,country_of_citizenship
+18,Julia Livilla ( – ) was the youngest child of Germanicus and Agrippina the Elder and the youngest sister of the Emperor Caligula.,child,child
+19,It flows from Szczecin Lagoon to the Baltic Sea between the islands of Uznam and Wolin.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+20,Shahnawaz Hussain (born 9 September 1993) is an Indian first-class cricketer who plays for Chhattisgarh.,member_of_sports_team,member_of_sports_team
+21,"Seymour River continues for another 19 kilometers below the dam before emptying into the Burrard Inlet, traveling a total distance of 39 km.",tributary,tributary
+22,Abkhaz has used the Cyrillic script since 1862.,writing_system,writing_system
+23,Golden Sun is a 2001 Japanese role-playing video game developed by Camelot Software Planning and published by Nintendo.,publisher,publisher
+24,"SilkAir is the regional wing of Singapore Airlines and operates scheduled passenger services from Singapore to 37 cities in the region of Southeast Asia, South Asia and China.",parent_organization,parent_organization
+25,"""All Shook Up"" is a song recorded by Elvis Presley, published by Elvis Presley Music, and composed by Otis Blackwell.",composer,composer
+26,"Stefan Drzewiecki (; 26 July 1844, Kunka, Podolia, Russian Empire (today Ukraine) – 23 April 1938, Paris) was a Polish scientist, journalist, engineer, constructor and inventor, working in France and the Russian Empire.",occupation,occupation
+27,"Vino Nobile di Montepulciano is a red wine with a Denominazione di Origine Controllata e Garantita status produced in the vineyards surrounding the town of Montepulciano, Italy.",color,color
+28,He is a scientist working for the High Evolutionary at his base in the Savage Land.,occupation,occupation
+29,He was the father of novelist Marcel Proust and doctor Robert Proust.,sibling,sibling
+30,"Michael Palaiologos (; died 1376/77) was a son of Byzantine emperor John V Palaiologos (reigned 1341–1391), governor of Mesembria and claimant of the Empire of Trebizond.",sibling,father
+31,Monsieur de Pourceaugnac is a 1985 French drama film directed by Michel Mitrani that is based on the 1669 play of the same name by Molière.,director,director
+32,"It is from Qusar to Baku, the capital of Azerbaijan.",capital_of,capital_of
+33,"Also involved were the ""curopalates"" Varaztirots, son of Smbat Bagratuni; David Saharuni, Athalarichos' cousin; and Heraclius' nephew, the ""magister"" Theodore.",sibling,sibling
+34,"Erica Alfridi won three medals, at individual level, at the International athletics competitions.",sport,sport
+35,"Chilocorus circumdatus, the red chilocorus, is a species of lady beetle in the family Coccinellidae.",color,color
+36,"Head first gained popularity by playing Bo Miller, a young boy befriended by Tim Riggins on the television series ""Friday Night Lights"".",present_in_work,present_in_work
+37,"TalonSoft started in 1995 with a similar focus, until purchased and later closed down by Take-Two Interactive in 2002.",parent_organization,parent_organization
+38,"Heroes and Hobgoblins is a 1981 collection of poetry by science fiction and fantasy author L. Sprague de Camp, illustrated by Tim Kirk.",genre,genre
+39,"It was used as a setting for the BBC's 1980 ""Pride and Prejudice"" as Longbourn Hall.",production_company,production_company
+40,"The miner's apron was a triangular or, more rarely, semi-circular piece of leather and was supported by the body belt.",material_used,material_used
+41,"It is a tributary of the Connecticut River, which flows to Long Island Sound.",tributary,tributary
+42,"Illingen is a municipality in the district of Neunkirchen, in Saarland, Germany.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+43,"Based at Fort Bragg, North Carolina, the 82nd Airborne Division is part of the XVIII Airborne Corps.",subsidiary,subsidiary
+44,Clash of the Titans is a 2010 action fantasy film and remake of the 1981 film of the same name produced by MGM (the rights to which had been acquired by Warner Bros. in 1996).,production_company,production_company
+45,In 2004 Google's CFO George Reyes said that fraud is the biggest threat to internet economy with the first research paper covering the topic in 1999 or earlier.,employer,employer
+46,She served as Flight Director with NASA’s Lyndon B. Johnson Space Center from 2005 to 2012.,parent_organization,parent_organization
+47,"Blaesilla died young, under the influence of Jerome.",student_of,ethnic_group
+48,"Holy Cross Church, Września (pl. ""Kościół Świętego Krzyża we Wrześni"") - is a wooden church (to 1966 likes chapel) in the north-western part of Września, Poland, located in the Lipówka district, on Świętokrzyska street, next to the storage reservoir Wrześnica.",material_used,material_used
+49,"""West of Memphis"" (2012), produced by Peter Jackson and Damien Echols, documents the story of the West Memphis Three, who were convicted as teenagers of the 1993 murder of three boys in West Memphis, Arkansas.",producer,director
+50,"Daylight Records was an American record label and subsidiary of Sony Music Entertainment, operated through Epic Records.",subsidiary,subsidiary
+51,"The Pacific Ocean boundary is formed by a line between Cape Flattery and Tatoosh Island, Washington, and Carmanah Point (Vancouver Island), British Columbia.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+52,"Bacon was the eldest son of Sir Nicholas Bacon, Lord Keeper of the Great Seal, by his first wife, Jane Ferneley, and was the half brother of Sir Francis Bacon.",child,child
+53,"In 2008 they released the two-CD set ""The Lost Tapes"", with songs recorded at concerts between 1966 and 1967 in San Francisco, and featuring Janis Joplin as lead singer.",performer,performer
+54,"On television Ginty has appeared in hit shows such as ""Grey's Anatomy"", ""ER"""", Chuck, Blue Bloods, Deadbeat,"" and the Stephen Frears directed movie ""Muhammad Ali's Greatest Fight"" for HBO Films (nominated for a Primetime Emmy in the category of Outstanding Television Movie).",production_company,production_company
+55,"Marilyn Harris' début short story ""Icarus Again"", published in the April 1967 issue, and the 2000 ""Malahat Review"" Novella Prize winner ""The Deep"", by Mary Swan, won the O. Henry Awards.",award_received,award_received
+56,"The Svetambaras state that the final Tirthankara, Lord Mahavira, was born and raised in Kshatriyakund district, Vaiśālī to King Siddhartha. and Queen Trishala.",child,child
+57,Satyabhama gives Syamantaka to Prasanajita and marries Krishna.,spouse,child
+58,"This species occurs in the Atlantic Ocean off the island of São Nicolau, Cape Verde.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+59,"She was named after the River Enns, a tributary of the Danube.",tributary,tributary
+60,Lewis Hamilton came into the race with a 7-point lead over McLaren teammate Fernando Alonso after Hamilton's controversial victory in the 2007 Hungarian Grand Prix.,winner,winner
+61,Anthony Fontana is an American professional soccer player who plays for the Philadelphia Union in Major League Soccer.,league,league
+62,"When Wakhi is written in Cyrillic, the sounds are usually represented by these letters",writing_system,writing_system
+63,Le Dernier des fous (also titled The Last of the Crazy People and Demented) is a 2006 French drama film directed by Laurent Achard.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+64,"""Sad Eyes"" is a song written and performed by Bruce Springsteen.",performer,performer
+65,"Kopparstenarna is a shoal off the coast of Sweden in the Baltic Sea, north of the island of Gotska Sandön, in the northern end of the Gotland Basin.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+66,"Tantai Mieming or Dantai Mieming (; born 512 BC), also known by his courtesy name Ziyu (), was a major disciple of Confucius.",student_of,student_of
+67,"In mathematics, the transcendental law of homogeneity (TLH) is a heuristic principle enunciated by Gottfried Wilhelm Leibniz most clearly in a 1710 text entitled ""Symbolismus memorabilis calculi algebraici et infinitesimalis in comparatione potentiarum et differentiarum, et de lege homogeneorum transcendentali"".",discoverer_or_inventor,discoverer_or_inventor
+68,He is currently contracted to Top 14 team Section Paloise (Pau).,league,league
+69,Baisingen is a suburban district of Rottenburg am Neckar in the administrative district of Tübingen in Baden-Württemberg (Germany).,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+70,"""Never Dreamed You'd Leave in Summer"" is a 1971 song by Stevie Wonder, featured on his album ""Where I'm Coming From"".",performer,performer
+71,"Sin & Punishment: Star Successor, released in Europe as Sin and Punishment: Successor of the Skies, and in Japan as is a 2009 rail shooter video game for Wii developed by Treasure and published by Nintendo.",publisher,publisher
+72,"Den Helder () is a municipality and a city in the Netherlands, in the province of North Holland.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+73,"Steve McQueen is the only black director to win an Academy Award for Best Picture, which was for the film 12 Years a Slave.",award_received,award_received
+74,"Pollux was the son of Zeus, who seduced Leda, while Castor was the son of Tyndareus, king of Sparta and Leda's husband.",father,father
+75,"Hemer is a town in the Märkischer Kreis (District), in North Rhine-Westphalia, Germany.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+76,"The next year, a group led by Owen Chamberlain and Emilio Segrè detected antiprotons, for which they were awarded Nobel Prize in Physics in 1960.",award_received,award_received
+77,"As of 2008, Google's Peter Norvig denied that their search engine exclusively relies on machine-learned ranking.",employer,employer
+78,With the band Lordi he went on to win the 2006 Eurovision Song Contest.,award_received,award_received
+79,"In 2017, he appeared in the Kathryn Bigelow-directed film ""Detroit"".",director,director
+80,"Bruce Springsteen performed on 8 June 2003 at the stadium during his The Rising Tour and on 10 June 2012 for the Wrecking Ball World Tour, in front of 42,658 people.",performer,performer
+81,"Şehzade Mehmed (; 31 October 1522 – 7 November 1543) was an Ottoman prince (""şehzade""), the son of Sultan Suleiman the Magnificent and his consort Hurrem Sultan.",father,father
+82,The Wesenitz river joins the Elbe river near Pirna.,tributary,tributary
+83,"Digte (English: ""Poems"") is a collection of poetry by Henrik Ibsen, published on 3 May 1871.",genre,genre
+84,"In 2006 Microsoft launched its CodePlex open source code hosting site, to provide hosting for open-source developers targeting Microsoft platforms.",creator,creator
+85,"In December 1996, Bulgaria joined the World Trade Organization.",member_of,member_of
+86,"In Faroese the euro is called evra, a feminine noun derived from the Faroese name of Europe, ""Evropa""; this makes Faroese (with Icelandic) one of only two European languages in which the word for the euro is feminine.",named_after,continent
+87,"However, his partnership with Per Mertesacker saw the Gunners achieve the joint-best defensive record in the Premier League at the halfway point of the season, as the team topped the table.",league,league
+88,Polish union leader Lech Wałęsa (Nobel Peace 1983) nominated Shih Ming-teh for the 1984 Nobel Peace Prize..,winner,winner
+89,"In the same year, he received a Sci. Tech Prize for Best Television Documentary Science Programme of the Year for his work on the BBC's ""Horizon"" episode ""The Blind Watchmaker"".",production_company,production_company
+90,"Charles Orlando, Dauphin of France (11 October 1492 – 16 December 1495) was the eldest son and heir of Charles VIII of France and Anne of Brittany.",mother,mother
+91,"Sevastopol (, ) is a railway station in the city of Sevastopol in Crimea, a territory recognized by a majority of countries as part of Ukraine, but ""de facto"" under control and administration of Russia.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+92,"Michel Dard (1908, Pas-de-Calais – 3 July 1979) was a French writer and winner of the Prix Femina, 1973, for ""Juan Maldonne"".",award_received,award_received
+93,"The film features the song ""Black and Tan Fantasy"" by Duke Ellington and His Orchestra.",performer,performer
+94,Beats Music was a subscription-based online music streaming service owned by the Beats Electronics division of Apple Inc.,owned_by,parent_organization
+95,"""Schindler's List"" won the Academy Award for Best Picture.",award_received,award_received
+96,"The seven stars on a red background of the flag of the Community of Madrid, Spain, may be the stars of the Plough asterism (or of Ursa Minor).",color,color
+97,"Guinea-Bissau (; ), officially the Republic of Guinea-Bissau ( ), is a country in West Africa ",continent,continent
+98,The Olney interpretation (also known as the Olney corollary or Olney declaration) was United States Secretary of State Richard Olney's interpretation of the Monroe Doctrine.,position_held,position_held
+99,Tana Tidung Regency is a regency of North Kalimantan Province in Indonesia.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+100,"The musician Prince refers to ""Let a Woman be a Woman"" in his song ""Gett Off.""",performer,performer
+101,"On February 1, 1968, the Royal Canadian Navy, the Royal Canadian Air Force and the Canadian Army were unified into a single entity called the Canadian Armed Forces.",subsidiary,subsidiary
+102,"""Deeper and Deeper"" is a song by Madonna.",performer,performer
+103,"To achieve alcoholic fermentation via the bacterial strain acetobacter, then the ethanol produced yields acetic acid and vinegar.",material_used,material_used
+104,"The U.S. Federal Reserve Police is the law enforcement unit of the Federal Reserve System, the central banking system of the United States.",subsidiary,subsidiary
+105,Alan Turing describes this type of computer in his concept of a Turing machine.,discoverer_or_inventor,discoverer_or_inventor
+106,"At the age of twelve Persius came to Rome, where he was taught by Remmius Palaemon and the rhetor Verginius Flavus.",student_of,student_of
+107,"Instead he became state attorney in the capital of the South African Republic, Pretoria.",capital,capital
+108,"There, Sato earned a B.S. in theoretical physics, a popular academic field at the time due to the recent Nobel Prize in Physics awarded in 1949 to Hideki Yukawa.",award_received,award_received
+109,Catherine of Bulgaria ( ; died after 1059) was Empress-consort to Byzantine emperor Isaac I Komnenos and co-regent of Constantine X for a period after the abdication of her spouse in 1059.,spouse,sibling
+110,"He is a native of the town of Malolos, the capital of the province of Bulacan in the Philippines.",capital,capital
+111,"Cyrillic and Glagolitic were used for the Church Slavonic language, especially the Old Church Slavonic variant.",writing_system,writing_system
+112,"Volisios was a local ruler or king based in the English East Midlands, around the time of the Roman conquest of Britain.",position_held,position_held
+113,"John Shortland (1739–1803), naval officer, was born near Plymouth, England, the son of Thomas Shortland.",place_of_birth,place_of_birth
+114,Both India and Sri Lanka are republics within the Commonwealth of Nations.,member_of,member_of
+115,"""Let's Call the Whole Thing Off"" is then played, described as a ""burlesque rendering"" of Robert Siodmak's 1944 film ""Cobra Woman"".",director,director
+116,"The baseball bats which are legal for use in Major League Baseball are frequently made of ash wood or hickory, and in recent years have been constructed from maple even though that wood is somewhat more fragile.",material_used,material_used
+117,"It is located north-west of Oskemen (), also known as Ust-Kamenogorsk (), the capital of the East Kazakhstan Region.",capital_of,capital_of
+118,"It is situated at the western border of Bolivia, sharing Lake Titicaca with adjacent Peru.",shares_border_with,shares_border_with
+119,"Lang proved to be a dominant force in defence paired with Emily Zurrer, and Canada captured the tournament title with a 2–1 extra-time victory over the United States.",country_of_citizenship,country_of_citizenship
+120,"Sega Studios USA, formerly Sonic Team USA, was a division of Sega and of Sonic Team while Sonic Team was a subsidiary company.",subsidiary,subsidiary
+121,"""Wash All Over Me"" is a song recorded by American singer Madonna for her thirteenth studio album, ""Rebel Heart"" (2015).",performer,performer
+122,"As winners, Chelsea took part in the 2012 UEFA Super Cup, losing 4–1 to Atlético Madrid, the winners of the 2011–12 UEFA Europa League.",winner,winner
+123,"Robert F. Kennedy Memorial Stadium in Washington, D.C., the home of D.C. United, was chosen to host MLS Cup 2000.",owned_by,owned_by
+124,"France owns Briars Pavilion, Napoleon's initial exile residence, Longwood House and its properties, where he lived during most of his time on the island, and his original grave, but the United Kingdom retains ultimate sovereignty over these properties.",owned_by,owned_by
+125,"In November 2008, he replaced the party leader Borut Pahor, who was elected Prime Minister of Slovenia, as member of the European Parliament.",position_held,position_held
+126,"The coordination is the same in protactinium(V) chloride, but the color is yellow.",color,color
+127,"On the western shore of the Black Sea region the Megarans founded the cities of Selymbria and a little later, Nesebar.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+128,"The Niger River (; , ) is the principal river of West Africa, extending about .",continent,continent
+129,"""American Graffiti"" was nominated for the Academy Award for Best Picture but lost to ""The Sting"".",nominated_for,nominated_for
+130,"Fredericton is the capital city of New Brunswick, Canada.",capital,capital
+131,"Arvid Järnefelt (16 November 1861 in Saint Petersburg, Russian Empire – 27 December 1932 in Helsinki, Finland) was a Finnish judge and writer.",position_held,occupation
+132,"Canada's Robert Wickens lost one position at turn one, while Great Britain's Oliver Jarvis and France's Loïc Duval collided.",country_of_citizenship,country_of_citizenship
+133,A Timely Interception is a 1913 American short drama film directed by D. W. Griffith.,director,director
+134,The only pupil of Empedocles who is mentioned is the sophist and rhetorician Gorgias.,student_of,student_of
+135,The main mound at Pandu Rajar Dhibi is associated with King Pandu mentioned in Mahabharata.,present_in_work,present_in_work
+136,"Torke was also influenced by pop musician Madonna's 1983 self-titled album, including the song ""Physical Attraction"".",performer,performer
+137,"Eswatini is a country in Southern Africa, lying between Mozambique and South Africa.",shares_border_with,shares_border_with
+138,"Originally described from the southwestern coast of the Iberian Peninsula, Atlantic Ocean.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+139,"Similarly, Chinese characters, used to write the language, are called Han.",writing_system,writing_system
+140,"The TVyNovelas Awards, also known as the Premios TVyNovelas are presented annually by Televisa and the magazine TVyNovelas to honour the best Mexican television productions, especially telenovelas.",production_company,production_company
+141,"""The Nobel Prize in Literature 2005: Harold Pinter"".",award_received,award_received
+142,"His first book of poetry, ""Pagan Operetta"", received the ""Village Voice"" Literary prize and was featured on the weekly's cover story: ""Eight Writers on the Verge of (Impacting) the Literary Landscape"".",genre,genre
+143,"The birthplace of Nobel Peace Prize winner Rigoberta Menchú, a community named Laj Chimel, is located Uspantán not far from the municipal seat.",award_received,award_received
+144,"In the early 9th century Historia Brittonum, Cunobeline appears as ""Bellinus"" son of ""Minocannus"" and is described as a British king in the time of Julius Caesar.",position_held,position_held
+145,This train station was built mainly for Cargos and was named as Jorge Canning in memory of the former Prime Minister of the United Kingdom: George Canning.,position_held,position_held
+146,"He was known as ""Ginger"" after his red hair.",color,color
+147,He is the son of Ingmar Bergman and Käbi Laretei.,spouse,spouse
+148,"The school's most famous alumnus is William Lyon Mackenzie King, former Prime Minister of Canada.",country_of_citizenship,country_of_citizenship
+149,"Axylus is a character mentioned in Book VI of Homer's ""Iliad"":",present_in_work,present_in_work
+150,"""The Daily Telegraph"" compared the series to Roald Dahl, William Browne, and Hilaire Belloc, a possible reference to Belloc's poetry book ""Cautionary Tales for Children"".",genre,genre
+151,Its project scientist was Alexander Zakharov.,occupation,occupation
+152,"The Gulf of Thailand is bordered by Cambodia, Thailand, and Vietnam.",shares_border_with,shares_border_with
+153,"After a number of changes, the modern Shor alphabet is written in another modified Cyrillic alphabet.",writing_system,writing_system
+154,"Padang, a city in West Sumatra, is called ""the city of ""bengkuang"""".",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+155,"La Garçonne (""The Bachelor Girl"" or ""The Flapper"") is a 1936 French black-and-white film adaptation of the novel of the same name by Victor Margueritte.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+156,"Salimuzzaman Siddiqui, a notable Pakistani scientist in natural products chemistry was requested by Hakeem Ajmal Khan to initiate the Ayurvedic and Unani Tibbi Research Institute.",occupation,occupation
+157,"Her 2002 book, ""Farewell, My Queen"", won the Prix Femina and was adapted into a 2012 film starring Diane Kruger and Léa Seydoux.",award_received,award_received
+158,"Sivens is in the Tescou, a tributary of the Tarn in the basin of the Garonne.",tributary,tributary
+159,"Vesiloo is a small, uninhabited Estonian island in the Baltic Sea.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+160,"In ""The Hunger Games"" series, Gale Hawthorne's sister Posy is born shortly after their father dies in a mine explosion, and Finnick Odair's son is born months after his death in battle.",present_in_work,present_in_work
+161,The winner was Joel Wapnick of Canada.,country_of_citizenship,country_of_citizenship
+162,"The Sorrows of Satan (1926) is a silent film by D. W. Griffith based on the 1895 novel ""The Sorrows of Satan"" by Marie Corelli.",director,screenwriter
+163,"The house is operated by the State of Georgia as the Little White House Historic Site, also known as Roosevelt's Little White House Historic Site.",owned_by,owned_by
+164,"Constantine Lascaris was born in Byzantium, where was educated by the scholar John Argyropoulos, Gemistus Pletho's friend and pupil.",student_of,student_of
+165,"He left the ICW following a dispute with Angelo Poffo's son Randy Poffo, better known by his ring name Randy Savage.",child,child
+166,The Premier League Golden Glove award was won by Petr Čech of Chelsea and Wojciech Szczęsny of Arsenal.,league,league
+167,"Dorothy MacLeish, née Black (1890 in Bradford, Yorkshire, England, UK – 1977 in Scotland, UK) was a British journalist and writer of over 100 romance novels and several short stories from 1916 to 1974 under her maiden name Dorothy Black and as Peter Delius.",place_of_death,place_of_birth
+168,Smith returned to the UK in 2001 to join Northampton Saints in the English Premiership making his Northampton debut on 1 September 2001.,league,league
+169,"""Fly"" is a song by Canadian singer Avril Lavigne.",performer,performer
+170,"Compositional Sketches for the Virgin Adoring the Christ Child, with and without the Infant St. John the Baptist; Diagram of a Perspectival Projection (recto); Slight Doodles (verso) is a 1480s drawing by Leonardo da Vinci.",creator,creator
+171,This marine species occurs in the Pacific Ocean off Fiji in the Viti Levu Group.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+172,"In January 1936, Edward VIII succeeded his father, George V, as monarch.",occupation,occupation
+173,"Werner Flume, one of Germany's most influential jurists in the second half of the 20th century, is a pupil of Fritz Schulz.",student_of,student_of
+174,"Metropolitan France covers , the largest among European Union members.",member_of,member_of
+175,This is a list of Permanent Representatives of Guyana to the United Nations.,member_of,member_of
+176,The waters of the Ise flow via the Aller and Weser into the North Sea.,tributary,tributary
+177,"The game was initially published by 2K Games, a Take-Two Interactive subsidiary.",subsidiary,subsidiary
+178,"The Gauntlet is a 1977 American action thriller film directed by Clint Eastwood, starring Eastwood and Sondra Locke.",director,director
+179,"""The Lovely Bones"" remained on ""The New York Times"" Bestseller list for over one year and was adapted into a 2010 film of the same name by Peter Jackson.",screenwriter,director
+180,"This is a list of malacologists, scientists who study Mollusca mollusks, such as snails, clams, octopuses, and others, in a discipline named malacology.",occupation,occupation
+181,The largest part of Serbia was organized into the Territory of the Military Commander in Serbia and as such it was the only example of military regime in occupied Europe.,continent,continent
+182,"Condé Nast's parent company Advance Publications is also the major shareholder of Reddit, an internet information conglomeration website.",subsidiary,parent_organization
+183,"Later, Cleese created ""Fawlty Towers"" for the BBC.",production_company,production_company
+184,"Neil Young's song ""Albuquerque"" can be found on the album ""Tonight's the Night"".",performer,performer
+185,Becoming the Villainess is a book of poetry that was written by Jeannine Hall Gailey and published by Steel Toe Books in 2006.,genre,genre
+186,"Incumbent President Blaise Compaoré ran as the candidate of the Congress for Democracy and Progress, and was also supported by the Alliance for Democracy and Federation – African Democratic Rally.",founded_by,founded_by
+187,"The Platte River is a principal tributary of the Missouri River, in the United States.",tributary,tributary
+188,"The members of the court during 2000 were President Arthur Chaskalson, Deputy President Pius Langa, and judges Lourens Ackermann, Richard Goldstone, Johann Kriegler, Tholie Madala, Yvonne Mokgoro, Sandile Ngcobo, Kate O'Regan, Albie Sachs and Zak Yacoob.",position_held,position_held
+189,"In 1994, Johnson established his own independent production company, Gran Via Productions, and won the Los Angeles Film Critics New Generation Award for his very first effort; ""A Little Princess"", directed by Alfonso Cuarón.",director,director
+190,"The Kunze-Knorr brake brought together the ideas of Prussian senior surveyor, Bruno Kunze (1854–1935), and preparatory work by the founder of Knorr-Bremse, Georg Knorr (1859–1911).",founded_by,student_of
+191,The Treaty of Badajoz was signed by Spain and Portugal on 6 June 1801.,participant,participant
+192,"He played a minor role in Martin Scorsese's ""The Wolf of Wall Street"" alongside Leonardo DiCaprio.",director,director
+193,The Upper Guinean forests is a tropical seasonal forest region of West Africa.,continent,continent
+194,"Putalibazar, () is a municipality and district headquarters in Syangja District in Gandaki Pradesh of central Nepal.",capital_of,capital_of
+195,"The bust depicts the 23rd President of the United States, Benjamin Harrison.",position_held,position_held
+196,He was the maternal grandfather of First Lady Barbara Bush and great-grandfather of President George W. Bush.,child,child
+197,The Paquisha War was a brief military clash that took place between January and February 1981 between Ecuador and Peru over the control of three watchposts.,participant,participant
+198,"Sous le soleil (""Under the sun""; ) is a French soap opera broadcast on French major channel TF1 from 1996 to 2008.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+199,"He was nominated for the Academy Award for Best Picture for the film ""Z"" (1969), which he helped produce.",nominated_for,nominated_for
+200,"Working at Microsoft, SethBling would spend almost all his free evenings and weekends playing ""Minecraft"".",employer,employer
+201,"Columbus is the birthplace of former Indiana Governor and current Vice President of the United States, Mike Pence.",position_held,position_held
+202,Talietumu or more correctly Kolo Nui is an archaeological site in Wallis and Futuna in the southwestern part of the Pacific Ocean.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+203,"The central shrine contains the carved in wood and brightly painted figures of Saint George, Maria with the child and the Saint Barbara.",material_used,material_used
+204,"His first book, the poetry collection ""Fervor de Buenos Aires"" (""Passion for Buenos Aires""), appeared in 1923.",genre,genre
+205,"""I Stay in Love"" is a song by American singer-songwriter Mariah Carey, taken from her eleventh studio album, ""E=MC²"" (2008).",performer,performer
+206,"Passport to Pimlico is a 1949 British comedy film made by Ealing Studios and starring Stanley Holloway, Margaret Rutherford and Hermione Baddeley.",production_company,production_company
+207,"Abellio is a subsidiary of the Dutch state railway company, Nederlandse Spoorwegen.",parent_organization,parent_organization
+208,"""Babooshka"" is a song by English singer Kate Bush, taken from her album ""Never for Ever"".",performer,performer
+209,In 2012 Motorola Mobility was acquired by Google.,subsidiary,subsidiary
+210,The awarding of the Nobel Prize in Literature to Isaac Bashevis Singer in 1978 helped cement his reputation as one of the great writers of world literature.,award_received,award_received
+211,Alexis Carrel (; 28 June 1873 – 5 November 1944) was a French surgeon and biologist who was awarded the Nobel Prize in Physiology or Medicine in 1912 for pioneering vascular suturing techniques.,award_received,award_received
+212,"Margarete Sophie married Duke Albrecht of Württemberg, eldest child of Duke Philipp of Württemberg and his wife Archduchess Maria Theresa of Austria, on 24 January 1893 in Vienna, Austria–Hungary.",spouse,father
+213,"""Fire Emblem"" is a series of tactical role-playing video games developed by Intelligent Systems and published by Nintendo.",publisher,publisher
+214,"His last release of 2014, was Angelina Jolie's directorial debut, the war film ""Unbroken"".",director,director
+215,"He then played in Italy for ""Serie A"" club A.C. Milan, with whom he won one ""scudetto"" in the 1961–62 season, followed by the 1962–63 European Cup.",winner,winner
+216,"Barnes next starred in the title role in a film adaptation of Oscar Wilde's ""Dorian Gray,"" directed by Oliver Parker for Ealing Studios.",production_company,production_company
+217,"The Virgin and Child with Saint Anne is an oil painting of by Leonardo da Vinci depicting Saint Anne, her daughter the Virgin Mary and the infant Jesus.",creator,creator
+218,"The Prisoners of Shanghai () is a 1927 German silent drama film directed by Géza von Bolváry and Augusto Genina and starring Carmen Boni, Jack Trevor, and Bernhard Goetzke.",director,director
+219,FindFace is a face recognition technology developed by the Russian company NtechLab that specializes in neural network tools.,creator,publisher
+220,His rivalry with British decathlete Daley Thompson proved one of the most exciting in athletics during the 1980s.,sport,sport
+221,"El Forn () is a village in Andorra, Europe, located in the parish of Canillo.",continent,continent
+222,"In 1947, Campbell married Ann Casson, actress and daughter of Sir Lewis Casson and Dame Sybil Thorndike.",mother,mother
+223,"In Greek mythology, a Charis is one of the Charites () or ""Graces"", goddesses of charm, beauty, nature, human creativity and fertility; and in Homer's ""Iliad"", Charis is the wife of Hephaestus.",spouse,spouse
+224,"The Gällivare Church () is a wooden church building in Gällivare, Sweden.",material_used,material_used
+225,"He is noted for a feud with Randy Savage in International Championship Wrestling, the southern promotion that Savage ran with his father Angelo Poffo and his brother Lanny Poffo.",child,child
+226,The Rur becomes a tributary of the Meuse River.,tributary,tributary
+227,"Most notable, Pepin the Short, the first Carolingian king of the Franks and father of Charlemagne.",child,child
+228,He was also the subject of The Beatles' song Sexy Sadie.,performer,performer
+229,"Its Belgian border across the Meuse is Lanaye, a village of Liège province in Wallonia, whereas its border to the south is the Voerstreek exclave of Limburg province in Flanders.",shares_border_with,shares_border_with
+230,From 1960 he became the European spokesman for the Iraqi Kurds led by Mustafa Barzani.,ethnic_group,ethnic_group
+231,"Hirono is located in far northeastern Iwate Prefecture, bordered by Aomori Prefecture to the north and the Pacific Ocean to the east.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+232,Camille Claudel is a 1988 French film about the life of the 19th century sculptor Camille Claudel.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+233,He made his professional debut in a friendly match against English Premier League club West Bromwich Albion F.C.,league,league
+234,"Film is a 1965 short film written by Samuel Beckett, his only screenplay.",screenwriter,screenwriter
+235,Mario Cuomo and his son Andrew Cuomo both have served as governor of New York.,child,sibling
+236,James would later appear in the 2018 WWE Hall of Fame ceremony to induct Jeff Jarrett.,award_received,award_received
+237,"On the southwestern flank of the Hortenkopf rises the northern headstream of the Wieslauter, which - subsequently as the ""Lauter"" – flows directly into the River Rhine.",tributary,tributary
+238,"Asolo is a town and ""comune"" in the Veneto Region of Northern Italy.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+239,Ida Noddack was nominated three times for the Nobel Prize in Chemistry due to her discovery of rhenium and masurium.,nominated_for,nominated_for
+240,Roy Keane began his managerial tenure in the Premier League with a win over Tottenham Hotspur through a last minute goal from Michael Chopra.,league,league
+241,"Lucius Vipsanius was the father of the Roman politician and general Marcus Vipsanius Agrippa, the distinguished Roman woman Vipsania Polla, and another Lucius Vipsanius.",sibling,child
+242,"Anna of Nassau-Dillenburg (21 September 1541 in Dillenburg – 12 February 1616 in Weilburg) was a daughter of Count William ""the Rich"" of Nassau-Dillenburg and his second wife, Juliana of Stolberg.",mother,mother
+243,"Miracles for Sale is a 1939 American mystery film directed by Tod Browning, and starring Robert Young and Florence Rice.",director,director
+244,"He was born on 8 December 1969 in João Pessoa, capital of Paraíba.",capital_of,capital_of
+245,"In Greek mythology, Polites was the legitimate son of King Priam and Queen Hecuba.",mother,mother
+246,"In October 2009, she stated that the President of the United States Barack Obama should give back his 2009 Nobel Peace Prize ""like John Lennon sent back his MBE.""",winner,winner
+247,FC Tokyo uses Ajinomoto Stadium as its home ground (the official name of this stadium is Tokyo Stadium).,owned_by,owned_by
+248,"Another frequent role, Sharpless in Puccini’s ""Madama Butterfly"", he sang 37 times; Sharpless was the role of his farewell performance with the Met on 8 April 1978.",present_in_work,present_in_work
+249,"The Rokeby Venus (; also known as The Toilet of Venus, Venus at her Mirror, Venus and Cupid, or La Venus del espejo) is a painting by Diego Velázquez, the leading artist of the Spanish Golden Age.",creator,creator
+250,"Lucasfilm Ltd. LLC is an American film and television production company that is a subsidiary of The Walt Disney Studios, a division of The Walt Disney Company.",subsidiary,subsidiary
+251,"Louise Taft would give birth to their second child, William Howard Taft, in the house on September 15, 1857, presumably in the first-floor nursery in the rear ell.",child,child
+252,"Eventually, the airline was replaced by Aermediterranea, a subsidiary of Alitalia and ATI, in 1981.",subsidiary,subsidiary
+253,"Innsbruck Hötting railway station () is a railway station in the borough of Hötting in Innsbruck, the capital city of the Austrian state of Tyrol.",capital_of,capital_of
+254,"Open Society Foundations (formerly known as the Open Society Institute, OSI) is a network of foundations founded by billionaire George Soros.",founded_by,founded_by
+255,She is a former fellow of Stanford University's Center for Advanced Study in the Behavioral Sciences.,parent_organization,parent_organization
+256,"The following is a historical events and overview of Addis Ababa, the capital of Ethiopia.",capital_of,capital_of
+257,He voiced the character Legolas in the 1979 radio adaptation of The Lord of the Rings.,present_in_work,present_in_work
+258,Clara Fey (11 April 1815 – 8 May 1894) was a German Roman Catholic Nun and the founder of the Sisters of the Poor Child Jesus.,founded_by,founded_by
+259,The Minerva Reefs () are a group of two submerged atolls located in the Pacific Ocean south of Fiji and Tonga.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+260,"North of Pettstadt, the Zeegenbach flows into the Regnitz.",tributary,tributary
+261,"Emil Maurice (19 January 1897 – 6 February 1972) was an early member of the National Socialist German Workers' Party (Nazi Party) and a founding member of the ""Schutzstaffel"" (SS).",member_of_political_party,member_of_political_party
+262,"Rainy Taxi (1938), also known as Mannequin Rotting in a Taxi-Cab, is a three-dimensional artwork created by Salvador Dalí, consisting of an actual automobile with two mannequin occupants.",creator,creator
+263,Sokei-an was born in Japan in 1882 as Yeita Sasaki.,place_of_birth,place_of_birth
+264,"This article is the Electoral history of Brian Mulroney, the eighteenth Prime Minister of Canada.",country_of_citizenship,country_of_citizenship
+265,"The second a cover of The Beatles song ""You Won't See Me"" for ""Dureco"".",performer,performer
+266,Bhagirathi is a 2012 Indian Kannada drama film written and directed by Baraguru Ramachandrappa.,screenwriter,screenwriter
+267,"The Stronger Love is a 1916 American drama silent film directed by Frank Lloyd, written by Julia Crawford Ivers, and starring Vivian Martin, Edward Peil, Sr., Frank Lloyd, Jack Livingston, Alice Knowland, and Herbert Standing.",director,director
+268,"Largo Winch II (released internationally as The Burma Conspiracy) is a 2011 French action thriller film based on the Belgian comic book ""Largo Winch"".",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+269,"In 2018, the first season with new captain Frank Dancevic, Canada lost once again in the first round of the World Group by the score of 1–3 to Croatia.",country_of_citizenship,country_of_citizenship
+270,"She was the wife of Yakov Dzhugashvili, and the daughter-in-law of Joseph Stalin.",father,child
+271,"Kızıl is one of the three winners of the fifth German Popstars season and was a member of the resulting group Monrose, together with Senna Guemmour and Mandy Capristo.",member_of,member_of
+272,"Ludwig van Beethoven's Cello Sonata No. 3 in A major, Op. 69 was written in 1808, during his middle period.",composer,composer
+273,3 (stylised as III) is the third studio album by Belgian drum and bass musician Netsky.,performer,performer
+274,"""Mario & Sonic at the Olympic Games"" was published by Sega for North America and Europe and published by Nintendo for Japan.",publisher,publisher
+275,"The Symphony No. 38 in D major, K. 504, was composed by Wolfgang Amadeus Mozart in late 1786.",composer,composer
+276,"In the space of 61 days in 1992, three transfers broke the record, all by Italian clubs: Jean-Pierre Papin transferred from Marseille to A.C. Milan, becoming the first ever £10m player.",member_of_sports_team,member_of_sports_team
+277,"Le Voyage en Amérique is a French comedy film from 1952, directed by Henri Lavorel, written by Roland Laudenbach, starring Madeleine Barbulée and Louis de Funès.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+278,"A statue of native son and notable scientist Sir Benjamin Thompson, Count Rumford, stands on the main lawn before the library.",occupation,occupation
+279,"Bauchau began his career in French New Wave cinema, including acting in two films by Éric Rohmer, ""La Carrière de Suzanne"" (1963) and ""La Collectionneuse"" (1967).",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+280,"Elvis Presley's hit ""One Night (of Love)"", was originally recorded by Lewis and was titled, ""One Night (of Sin)"".",performer,performer
+281,"The Mac Box Set was a software package made by Apple Inc., including the latest version of OS X (then Mac OS X), iWork, and iLife.",creator,creator
+282,The prize is named after writer and Nobel Peace Prize laureate Carl von Ossietzky.,award_received,award_received
+283,"Cape Town became the legislative capital of the Union, and later of the Republic of South Africa.",capital,capital
+284,"She presented the Video of the Year award to Madonna for ""Ray of Light.",performer,performer
+285,Romantic Comedy 101 is a Canadian comedy / romance television film directed by Peter DeLuise and starring Natalia Cigliuti.,director,director
+286,Simone Cipriani (born 1964) is an officer of the United Nations.,employer,employer
+287,"Later that year, she featured as a talent judge for the Sony Entertainment Television reality show ""Dance Premier League"".",production_company,production_company
+288,"Those Marylanders who supported the Confederacy, many of whom fought in the Army of Northern Virginia of General Robert E. Lee, adopted the Crossland banner, which was red and white with the bottony (trefoil) cross (seen as ""secession colors"") and often used a metal bottony cross pinned to their gray uniforms or caps (kepis).",color,color
+289,"On March 31, 2007, Austin inducted Jim Ross into the WWE Hall of Fame.",award_received,award_received
+290,The Pinocchio is constructed of wood and covered in aircraft fabric.,material_used,material_used
+291,"When they signed midfielder Lee Hendrie on a free transfer on 27 January 2011, Bandung became the first Indonesian club to obtain an Englishman or a player with experience of the Premier League.",league,league
+292,"The phrase ""computer graphics"" itself was coined in 1960 by William Fetter, a graphic designer for Boeing.",employer,employer
+293,"Ilwan (""Iluan"") is a blue genie with a bird's beak in place of his nose and mouth.",color,color
+294,"Albanyà is a municipality in the ""comarca"" of Alt Empordà, Girona, Catalonia, Spain.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+295,"NGC 1535 is a planetary nebula in the constellation of Eridanus, discovered by William Herschel on February 1, 1785.",discoverer_or_inventor,discoverer_or_inventor
+296,"Active Life: Explorer, known in Japan and Europe as Family Trainer: Treasure Adventure (ファミリートレーナー：トレジャーアドベンチャー ""Famirītorēnā: Torejāadobenchā""), is a sports produced by Maya Ito.",genre,founded_by
+297,"Aldo Valletti (1930-1992) was an Italian film actor best known for the role of President Curval in ""Salò, or the 120 Days of Sodom"", directed by Pier Paolo Pasolini.",director,director
+298,"In ""The Simpsons""s ""Treehouse of Horror"" parody of ""The Shining"", dubbed ""The Shinning"", the role of Hallorann is filled by Groundskeeper Willie, who refers to the ability to ""Shine"" as ""The Shinning"".",present_in_work,present_in_work
+299,"Metallic dragon is a classification of dragon found in the role playing game ""Dungeons & Dragons"".",present_in_work,present_in_work
+300,"Jacob L. Moreno (1889–1974) is the founder of psychodrama and sociometry, and one of the forerunners of the group psychotherapy movement.",founded_by,discoverer_or_inventor
+301,In 1949 Portugal became a founding member of NATO.,member_of,member_of
+302,"She is best known for her role as Meadow Soprano on the HBO series ""The Sopranos"".",production_company,production_company
+303,"""Pommeau"" is an ""apéritif"" produced by blending unfermented cider and apple brandy.",material_used,material_used
+304,"Zadobrova is a part of Ljubljana, the capital of Slovenia.",capital,capital
+305,Ronald George Wreyford Norrish FRS (9 November 1897 – 7 June 1978) was a British chemist who was awarded the Nobel Prize in Chemistry in 1967.,award_received,award_received
+306,"Fire Emblem: Thracia 776 is a tactical role-playing game developed by Intelligent Systems and published by Nintendo for the Super Famicom; it was originally released through the Nintendo Power flash cartridge in 1999, then on a ROM cartridge the following year.",publisher,publisher
+307,"It is located in the middle of the Magelang Regency, between Mount Merbabu and Mount Sumbing in Central Java Province, Indonesia.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+308,"Aircraft Transport and Travel Limited was a British airline formed during the First World War, a subsidiary of Airco.",subsidiary,subsidiary
+309,"There is a painting of Mary Magdalene, startled in a wood, by Herbert Gustave Schmalz.",material_used,material_used
+310,"The House on the Dune (French: La maison dans la dune) is a 1934 French drama film directed by Pierre Billon and starring Pierre Richard-Willm, Madeleine Ozeray and Thomy Bourdelle.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+311,"She was a close friend of Nelly Sachs, her lyric colleague living in Stockholm, who won the Nobel Prize in Literature in 1966.",award_received,award_received
+312,"In 1925, AT&T created a new unit called Bell Telephone Laboratories, commonly known as Bell Labs.",subsidiary,subsidiary
+313,Saint-Léger-sur-Roanne is a commune in the Loire department in central France.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+314,This is a list of international visits undertaken by Madeleine Albright (in office 1997–2001) while serving as the United States Secretary of State.,position_held,position_held
+315,"In 1997, Sakai was nominated for an Academy Award for Best Picture for his work on the film ""Jerry Maguire"" (1996).",nominated_for,nominated_for
+316,Ngada Regency is part of East Nusa Tenggara province and located to the east of Ruteng.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+317,"Ryazan Oblast borders Vladimir Oblast (N), Nizhny Novgorod Oblast (NE), the Republic of Mordovia (E), Penza Oblast (SE), Tambov Oblast (S), Lipetsk Oblast (SW), Tula Oblast (W), and Moscow Oblast (NW).",shares_border_with,shares_border_with
+318,"It is an adaptation of the 1836 play ""Kean"" by Alexandre Dumas.",screenwriter,creator
+319,"As the name indicates, the American Solidarity Party draws its inspiration from Solidarity (Polish trade union), founded by Lech Wałęsa in 1980.",founded_by,founded_by
+320,"Senegal (; ; Wolof: Senegaal), officially the Republic of Senegal (; Wolof: Réewum Senegaal), is a country in West Africa.",continent,continent
+321,"Richard Blade (born Richard Thomas Sheppard; May 23, 1952 in Bristol, England) is a British-American Los Angeles-based radio, television, and film personality from Torquay, England.",place_of_birth,place_of_birth
+322,"Stesichorus (alone) names Lamia as the mother of Scylla, possibly the Lamia who was the daughter of Poseidon, while according to Gaius Julius Hyginus, Scylla was the offspring of Typhon and Echidna.",father,father
+323,The Li Ka Shing Faculty of Medicine of the University of Hong Kong situates on it.,parent_organization,parent_organization
+324,"With the availability of Latin translations Saint Albertus Magnus and his student, Saint Thomas Aquinas, raised Aristotelianism to its greatest prominence.",student_of,student_of
+325,The Yale School of Public Health (YSPH) was founded in 1915 by Charles-Edward Amory Winslow and is one of the oldest public health masters programs in the United States.,founded_by,founded_by
+326,"Alfa Laval's liquid processing unit was absorbed into Tetra Pak and the unit specialising in dairy production machinery was organised separately as Alfa Laval Agri. Alfa Laval Agri was later renamed DeLaval, after Alfa Laval's founder Gustaf de Laval, and is still a part of the Tetra Laval group.",subsidiary,material_used
+327,"Meanwhile, Mingimaha Bandula reached Amarapura, and conveyed all details about Assam to Burmese monarch Bagyidaw.",occupation,occupation
+328,"Featured composers were Matthias Pintscher and Jörg Widmann, both students of Hans Werner Henze.",student_of,student_of
+329,"It was followed by the critically acclaimed ""Thanga Meenkal"" by Ram.",director,performer
+330,"The Three Seas Initiative has twelve member states along a north–south axis from the Baltic Sea to the Adriatic Sea and the Black Sea: Austria, Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, and Slovenia.",participant,participant
+331,"In poetry, Amado Nervo, Antonio Zaragoza, Quirino Ordaz and Solón Argüello stood out.",genre,genre
+332,"Founded in 1993 by Marshall White, Unity Performing Arts Foundation was officially incorporated in 2000.",founded_by,founded_by
+333,"In 2002, Rowlands appeared in Mira Nair's HBO movie ""Hysterical Blindness"", for which she won her third Emmy.",production_company,production_company
+334,"Also the Nobel Prize in Physics was awarded to John Bardeen twice, and the Nobel Prize in Chemistry to Frederick Sanger.",award_received,award_received
+335,"On 10 February 2006, Nokia purchased the Intellisync Corporation, a provider of data and Personal information management (PIM) synchronization software.",parent_organization,parent_organization
+336,"His father is Bruce Jenks, Assistant Secretary General for the United Nations.",employer,employer
+337,"Basilea is often confused for Theia, the more accepted mother of Selene, Helios, and in addition, Eos, and wife to Hyperion.",mother,mother
+338,"The materials for combs can be bamboo, wood or animal bones.",material_used,material_used
+339,"In addition he becomes romantic with Leia Organa, with whom he fathers Ben Solo, who later becomes the villain Kylo Ren.",mother,mother
+340,"The Center is a non-profit research institute, affiliated with the Carroll School of Management at Boston College.",parent_organization,parent_organization
+341,"Walsh met Peter Jackson in the mid-1980s during the final stages of production on his low-budget movie ""Bad Taste"" where aliens serve humans as fast food, Walsh has collaborated with Jackson on the scripts of all his subsequent films, after joining the writing quartet on his next film, the dark comedy ""Meet the Feebles"" (1989).",screenwriter,director
+342,"Along with Gret Palucca and Hanya Holm, she was one of the best-known students of Mary Wigman and Robert Gergi.",student_of,student_of
+343,"Brighton Beach is a neighborhood in the southern portion of the New York City borough of Brooklyn, within the greater Coney Island area along the Atlantic Ocean coastline.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+344,"The show focused on the ""Family Guy"" character Cleveland Brown.",present_in_work,present_in_work
+345,The episode was directed by Mark Kirkland and was written by Dan Castellaneta and his wife Deb Lacusta.,spouse,spouse
+346,"One such organization was the Boone and Crockett Club, founded in 1887 by a group of leading explorers, hunters, writers, scientists and political leaders, including Theodore Roosevelt.",founded_by,founded_by
+347,Tintin and the Blue Oranges () is a 1964 French film directed by Philippe Condroyer and starring Jean-Pierre Talbot as Tintin.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+348,"In 1945 Hans Wilsdorf set up the Hans Wilsdorf Foundation, to which in 1960 he handed over his 100% ownership stake in Rolex.",founded_by,founded_by
+349,"It is a smaller sculpture of the Virgin and Child, which is in wood which was covered with gesso and then thin gold sheet.",material_used,material_used
+350,"The Police Battalion ""Ostland"" was an Ordnungspolizei unit that served in World War II under the command of the Schutzstaffel.",parent_organization,parent_organization
+351,Rilian is hailed as the new king.,position_held,position_held
+352,"She appeared as Young Abby Sciuto in the ""Hit and Run"" episode of ""NCIS"".",present_in_work,present_in_work
+353,"In the first round, Giarre played against ACF Fiorentina of Serie A in Stadio Artemio Franchi, Florence.",league,league
+354,The Mura River is the border between Slovenia and Austria.,shares_border_with,shares_border_with
+355,"The same year she provided her voice for the dubbed English language version of ""Baby Blood"", a French horror film.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+356,"Sumedang Regency is a regency ""(kabupaten)"" of West Java province, Indonesia.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+357,"Anna Di Lellio is a sociologist, journalist and former United Nations consultant.",employer,employer
+358,"""I Saw Her Standing There"" is a song by the English rock band the Beatles credited to Paul McCartney and John Lennon, but written primarily by McCartney.",performer,composer
+359,Metamorphosis of Narcissus (1937) is an oil-on-canvas painting by the Spanish surrealist Salvador Dalí.,creator,creator
+360,"It connected Kolkata, capital of West Bengal",capital,capital
+361,"In Square Circle is the twentieth studio album by American singer-songwriter Stevie Wonder, released in 1985.",performer,performer
+362,Christopher Columbus discovered Redonda in 1493 on his second journey.,discoverer_or_inventor,discoverer_or_inventor
+363,He was awarded the Nobel Prize in Chemistry in 1967 along with Manfred Eigen and Ronald George Wreyford Norrish.,award_received,award_received
+364,"On July 2016, it was announced that the third episode of the season would be called ""Oh Captain, My Captain"" and was to be written by Thomas Ian Griffith and directed by series regular David Giuntoli.",director,director
+365,"According to a legend of the times of Mahabharata, this tree was planted by Vidura, a courtier in the kingdom of Dhritarashtra; and hence the name ""Vidurashwatha"".",present_in_work,present_in_work
+366,"Raja Gulab Singh, acting under the suzerainty of the Sikh monarch Ranjit Singh, sent his general Zorawar Singh to invade Ladakh in 1834.",occupation,occupation
+367,"In 1943, it was postulated that “diphenyltin” exists as a type of polymeric material because of its yellow color, and indeed a bathochromic shift of the wavelength at maximum absorption with increasing number of Sn atoms was found later in the case of oligo(dibutylstannane)s comprising up to 15 Sn atoms.",color,color
+368,"Five winners of the Georg Büchner Prize, Günter Grass (1965), Heinrich Böll (1967), Elias Canetti (1972), Peter Handke (1973) and Elfriede Jelinek (1998) were awarded the Nobel Prize in Literature in subsequent years.",award_received,award_received
+369,He has signed a contract with FC Grenoble in the French Pro D2 for the 2008–2009 season.,league,league
+370,Aid is a left tributary of the Würm in Aidlingen.,tributary,tributary
+371,"Backus and Johnston (, ""Backus y Johnston"") is the largest brewery in Peru, part of Bavaria Brewery, which itself is part of the international SABMiller group.",parent_organization,member_of
+372,Bretignolles is a commune in the Deux-Sèvres department in the Nouvelle-Aquitaine region in western France.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+373,Roland is an opera with music by Jean-Baptiste Lully and a libretto by Philippe Quinault.,composer,composer
+374,"Countess Margaret of Hanau-Münzenberg (6 April 1471 – 5 September 1503 in Worms) was a daughter of Count Philip I of Hanau-Münzenberg and his wife, Countess Adriana of Nassau-Dillenburg.",mother,mother
+375,"Shemaiah of Soissons was a Jewish scholar of the 12th century, a pupil of Rashi.",student_of,student_of
+376,"The island of Ummanz lies in the Baltic Sea, off the west coast of the island of Rügen, and belongs, like the latter, to the county of Vorpommern-Rügen in the German state of Mecklenburg-Western Pomerania.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+377,Guglielmo Marconi received the Nobel Prize in Physics in recognition of his work to the development of wireless telegraphy.,award_received,award_received
+378,A9.com is a subsidiary of Amazon that develops search engine and search advertising technology.,subsidiary,subsidiary
+379,"The American Association for the Abolition of Involuntary Mental Hospitalization (AAAIMH) was an organization founded in 1970 by Thomas Szasz, George Alexander, and Erving Goffman for the purpose of abolishing involuntary psychiatric intervention, particularly involuntary commitment.",founded_by,founded_by
+380,"He would grow up to be Apple Inc. co-founder, Steve Jobs.",founded_by,founded_by
+381,He was the son of composer Carl Philipp Emanuel Bach and the grandson of composer Johann Sebastian Bach.,father,father
+382,"Book of Sketches is a collection of spontaneous prose poetry by the American novelist and poet Jack Kerouac, published posthumously in 2006.",genre,genre
+383,"His father, Luigi Gerardo Napolitano (1928–1991), was an engineer, scientist and professor, and former head of the Institute of Aerodynamics at the University of Naples.",occupation,occupation
+384,Adolphe Gutmann (originally Wilhelm Adolf Gutmann) (12 January 1819 – 22 October 1882) was a German pianist and composer who was a pupil and friend of Frédéric Chopin.,student_of,student_of
+385,"He was joined by new Board Director Patrick Pichette, former CFO of Google.",employer,employer
+386,"Six months into the block, Wikimedia Foundation Communication Director Juliet Barbara published an article about the efforts to remove the access ban.",employer,employer
+387,"Circle of Love (Original French title: La ronde) is a 1964 French drama film directed by Roger Vadim and based on Arthur Schnitzler's 1897 play ""Reigen"".",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+388,He also summited Aconcagua in the Andes of South America.,continent,continent
+389,"Baghdad, located in Iraq, was once the capital of the Abbasid Caliphate and a center of Islamic advancements.",capital,capital
+390,The German High Command (OKW) included Finland in its plan for its major offensive against the Soviet Union: Operation Barbarossa.,participant,participant
+391,"The sea god Poseidon fathered a son Nauplius, by Amymone, daughter of Danaus.",father,father
+392,The front pair of Heiðar and Brian McBride caused trouble to the best defences in the Premier League.,league,league
+393,"In 2002, a French monster film ""Brotherhood of the Wolf"" became the second-highest-grossing French-language film in the United States in the last two decades.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+394,"Further translations of poetry include three books by the Norwegian Poet Paal-Helge Haugen; ""Picture World,"" by the Danish poet Niels Frank; and from Swedish, ""The Time in Malmö on the Earth,"" by Jacques Werup and ""Guarding the Air: Selected Poems of Gunnar Harding."", Greenwald has also translated two works of fiction from Swedish, the novel ""A Story about Mr. Silberstein,"" by the actor and writer Erland Josephson, and ""I Miss You, I Miss You!,"" a young-adult novel by Peter Pohl and Kinna Gieth.",genre,genre
+395,Karl Theodor Paschke is a former Under Secretary General for the United Nations.,employer,employer
+396,Pieter Zeeman (; 25 May 1865 – 9 October 1943) was a Dutch physicist who shared the 1902 Nobel Prize in Physics with Hendrik Lorentz for his discovery of the Zeeman effect.,award_received,award_received
+397,"After these wars, Iran ceded Transcaucasia and Dagestan to imperial Russia per the Treaty of Gulistan (1813) and the Treaty of Turkmenchay (1828).",participant,participant
+398,He spent one more season with Derby after they were relegated from the FA Premier League before Middlesbrough signed him and Chris Riggott for a combined £3 million (possibly rising to £5m) in February 2003.,league,league
+399,"The ""Dominion Housing Act 1935"", Canada's first national housing policy, was included as part of ""Canada's New Deal"" put forward by Prime Minister R. B. Bennett.",country_of_citizenship,country_of_citizenship
+400,"Mars gave his name to the third month in the Roman calendar, ""Martius"", from which English ""March"" derives.",named_after,named_after
+401,"In 2015 he was appointed to represent Ecuador as Permanent Ambassador to the World Trade Organization, headquartered in Geneva Switzerland.",member_of,member_of
+402,CompuServe was an independent firm headquartered and operated within Columbus before being acquired by WorldCom and AOL.,parent_organization,parent_organization
+403,"Mexico is a member of the United Nations (UN), the World Trade Organization (WTO), the G8+5, the G20, the Uniting for Consensus group of the UN, and the Pacific Alliance trade bloc.",member_of,member_of
+404,The Narmada and the Tapti are major rivers that drain into the Arabian Sea.,tributary,tributary
+405,The capital of Curaçao is named Willemstad and the capitals of both Saint Eustatius and Aruba are named Oranjestad.,capital_of,capital_of
+406,New additions included a wooden entrance door in Louis Quinze-style with carved grapevines.,material_used,material_used
+407,"At fifteen, she assisted her father on the landmark album ""Chants of India"", produced by George Harrison.",producer,producer
+408,Under the Big Top is a 1938 American film directed by Karl Brown.,director,director
+409,"Kai Ambos served as a judge in the district court in Göttingen for more than ten years, his appointment taking effect on 24 March 2006.",position_held,position_held
+410,"Salima was, therefore, a half-cousin of Emperor Akbar and a first cousin of Empress Ruqaiya Sultan Begum, the daughter of Mirza Hindal and Akbar's first wife and chief consort.",spouse,father
+411,"Published in 1998 by Ecco Press (imprint of HarperCollins), in 2003 it was reprinted by Hachette Book Group imprint Back Bay Books.",parent_organization,subsidiary
+412,"El Privilegio de Amar (English: ""The Right to Love"") is a Mexican telenovela produced by Carla Estrada for Televisa in 1998-1999.",production_company,production_company
+413,The Kuriyama crosses the Kujūkuri Plain and pours into the Pacific Ocean at the midpoint of Kujūkuri Beach in Yokoshibahikari.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+414,"In October 2014, Princeton University professor Robert Tarjan rejoined Intertrust as chief scientist.",occupation,occupation
+415,"Confessions Tour was the seventh concert tour by American singer-songwriter Madonna, launched in support of her tenth studio album, ""Confessions on a Dance Floor"".",performer,performer
+416,"The editors-in-chief are Shan Carter (Google), Chris Olah (OpenAI), and Arvind Satyanarayan (MIT Computer Science and Artificial Intelligence Laboratory).",employer,employer
+417,The Archimedean spiral (also known as the arithmetic spiral) is a spiral named after the 3rd-century BC Greek mathematician Archimedes.,discoverer_or_inventor,discoverer_or_inventor
+418,"The German composer Heinrich Schütz, who had studied in Venice under Giovanni Gabrieli shortly before Monteverdi's arrival there, possessed a copy of ""Il combattimento"" and himself took up elements of the ""stile concitato"".",student_of,student_of
+419,Kiganjo Kenya Police College has long hosted the first Kenyan High Altitude Athletics Training Camp where famous athletes such as Kipchoge Keino and Ben Jipcho started their athletics careers.,sport,sport
+420,"O'Brien (known as O'Connor in the 1956 film adaptation of the novel) is a fictional character and the main antagonist in George Orwell's 1949 novel ""Nineteen Eighty-Four"".",creator,creator
+421,"Orkut Büyükkökten, a Turkish software engineer, developed it as an independent project while working at Google.",employer,employer
+422,"The starting point for the design was Leonardo da Vinci's 1490 drawing ""Vitruvian Man""; from which is derived the ""Vitruvian Cross"", illustrating the proportions of the human body.",creator,creator
+423,"Genuri is a ""comune"" (municipality) in the Province of South Sardinia in the Italian region Sardinia, located about northwest of Cagliari and about north of Sanluri.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+424,"The most significant scholarly contribution of Dr Gurbahshani was compilation of Shah Jo Risalo, the poetry collection of great Sufi poet Hazrat Shah Abdul Latif Bhitai.",genre,genre
+425,"While admiring the interplay between the saxophones and lead guitar as ""rousing rock-'n'-roll confectionery"", Tim Riley views the song as one of the ""essentials"" on ""The Beatles"" and, with regard to the ""sheer feel"" of the performance, Harrison's most successful contribution to the band's discography since ""I Want to Tell You"" in 1966.",performer,performer
+426,"Parsons compares the constitutive level of society with Noam Chomsky's concept of ""deep structure"".",discoverer_or_inventor,discoverer_or_inventor
+427,"The state flag has similar colors to the flag of Brazil, with blue symbolizing the sky, green the vegetation, and white standing for peace.",color,color
+428,Walter Pohl is co-founder and editor of the online open-access journal Medieval Worlds.,founded_by,founded_by
+429,"""Pokémon"" is a Japanese anime television series based on the ""Pokémon"" video game series published by Nintendo.",publisher,publisher
+430,"In 1977, he became a spokesman for the German People's Union, a nationalist political party founded by Gerhard Frey.",founded_by,founded_by
+431,Two classic examples of oceanic island arcs are the Mariana Islands in the western Pacific Ocean and the Lesser Antilles in the western Atlantic Ocean.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+432,"Patrick White's novels ""Tree of Man"" (1955) and ""Voss"" (1957) fared particularly well and in 1973 White was awarded the Nobel Prize in Literature.",award_received,award_received
+433,Yap is an island in the Caroline Islands of the western Pacific Ocean.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+434,During the early kingdoms all monarchs belonged to the House of Vijaya or the Vijayan dynasty.,occupation,occupation
+435,"Utirik Atoll or Utrik Atoll is a coral atoll of 10 islands in the Pacific Ocean, and forms a legislative district of the Ratak Chain of the Marshall Islands.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+436,Maria of Hanau-Münzenberg (20 January 1562 – 15 February 1605 in Frankfurt) was the youngest daughter of Count Philip III (1526-1561) and Countess Palatine Helena of Simmern (1532-1579).,mother,mother
+437,"Early examples include: Immanuel Kant, Johann Gottlieb Fichte, Friedrich Wilhelm Joseph Schelling, and Georg Wilhelm Friedrich Hegel.",student_of,student_of
+438,"Displayed at right is the color apple green, a representation of the color of the outer skin of a Granny Smith apple.",color,color
+439,"Last Window: The Secret of Cape West, known in Japan as , is an adventure video game developed by Cing and published by Nintendo for the Nintendo DS handheld game console.",publisher,publisher
+440,"The first Nobel Prize in Chemistry was awarded in 1901 to Jacobus Henricus van 't Hoff, of the Netherlands.",award_received,award_received
+441,"As former Solidarity leader Lech Wałęsa wrote, in 2004,",member_of_political_party,member_of_political_party
+442,"Niaz was born in Tbilisi, the capital of then-Soviet Georgia.",capital,capital
+443,Gabriela Mistral was the first Latin American to receive a Nobel Prize in Literature (1945).,award_received,award_received
+444,Prince Frederick was a direct male-line descendant of King Frederick V by his second Queen Juliana Maria of Brunswick-Wolfenbüttel.,mother,mother
+445,Her son was named Donald Duck and her daughter Della Duck.,sibling,father
+446,"Ethel Blondin-Andrew, was a Canadian politician of Dene descent in the Northwest Territories and the first Indigenous woman to be elected to the Parliament of Canada.",country_of_citizenship,country_of_citizenship
+447,Iraq's 1990 Invasion of Kuwait led to the 1991 Gulf War.,participant,participant
+448,Print Gallery is a lithograph printed in 1956 by the Dutch artist M. C. Escher.,creator,creator
+449,"Persephone is the daughter of Demeter and her brother Zeus, and becomes the consort of her uncle Hades.",sibling,child
+450,"The Citizens Commission on Human Rights International (CCHR) is a nonprofit organization established in 1969 by the Church of Scientology and psychiatrist Thomas Szasz, headquartered in Los Angeles, California.",founded_by,founded_by
+451,"The Dubarry () is a 1951 German musical film directed by Georg Wildhagen and Reinhold Schünzel and starring Sari Barabas, Willy Fritsch and Albert Lieven.",director,director
+452,The River Don became one of the most polluted rivers in Europe.,continent,continent
+453,"The rest then set sail and landed at the land of Polyphemus, son of Poseidon.",father,father
+454,"In the nineteenth century, Ibrahim Altynsarin, a prominent Kazakh educator, first introduced a Cyrillic alphabet for transcribing Kazakh.",writing_system,writing_system
+455,"Dirk Gently (born Svlad Cjelli, also known as Dirk Cjelli) is a fictional character created by English writer Douglas Adams and featured in the books ""Dirk Gently's Holistic Detective Agency"" and ""The Long Dark Tea-Time of the Soul"".",creator,creator
+456,Blanton Museum of Art: The University of Texas at Austin,parent_organization,parent_organization
+457,"The region is located in the western part of Azerbaijan, on the border with Georgia and Armenia.",shares_border_with,shares_border_with
+458,"Elena Paparizou won the Eurovision Song Contest 2005 representing Greece with ""My Number One"".",award_received,award_received
+459,The programme was broadcast from around 7am until around 9am and was presented by Desmond Lynam with studio analysis of the athletics events from Steve Ovett.,sport,sport
+460,The Black Tulip (French: La Tulipe noire) is a French-Italian-Spanish film which reused some names in the novel of the same title by Alexandre Dumas but its story does not follow the novel.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+461,"His brother is Brian Conacher, a hockey player who represented Canada at the 1964 Winter Olympics and won a Stanley Cup with the 1967 Toronto Maple Leafs.",country_of_citizenship,country_of_citizenship
+462,The name Norge is the norwegian name of the country of Norway,named_after,named_after
+463,"The Silvrettahorn is a mountain of the Silvretta Alps, located on the border between Switzerland and Austria.",shares_border_with,shares_border_with
+464,"Among the latter are Gawker Media, BuzzFeed, and some of AOL's holdings, including HuffPost and Weblogs, Inc.",parent_organization,parent_organization
+465,"In 1997, Ken Perlin of the Mathematical Applications Group, Inc. won an Academy Award for Technical Achievement for his invention of Perlin noise for ""Tron"".",award_received,award_received
+466,"Kirby Air Ride, known in Japan as , is a 2003 racing video game developed by HAL Laboratory and published by Nintendo for the GameCube video game console starring Kirby.",publisher,publisher
+467,"It existed in the region of Marche, with Ancona serving as its capital.",capital_of,capital_of
+468,"She was commissioned into the Volksmarine as the ""570"" ""Otto von Guericke,"" named for 17th century Prussian scientist Otto von Guericke.",occupation,occupation
+469,"The park was named for Melville Fuller, an Illinois native and former Chief Justice of the United States.",position_held,position_held
+470,"Les Fugitifs is a French 1986 comedy film, directed by Francis Veber.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+471,"The island of Vilsandi, Saaremaa Parish, Saare County, Estonia is located in the Baltic Sea.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+472,"This underlying concept was both inspired by and a tribute to the work of German philosopher Friedrich Nietzsche, specifically his philosophical concept of an ""Übermensch"".",discoverer_or_inventor,discoverer_or_inventor
+473,It is native to the Amazon and Orinoco basins in South America.,continent,continent
+474,Well-known persons who spent time or lived in Halesite include comedian/singer Fanny Brice and scientist Albert Einstein.,occupation,occupation
+475,"""Ne me quitte pas"" (""""Don't leave me"""") is a 1959 song by Belgian singer-songwriter Jacques Brel.",composer,composer
+476,Johann Georg Dominicus von Linprun (10 January 1714 - 14 June 1787) was a Bavarian scientist.,occupation,occupation
+477,"Hof van Twente is situated in the heart of the province Overijssel: south-west of Almelo, north-east of the Achterhoek region (Prov. Gelderland) and south-east of Rijssen-Holten.",shares_border_with,shares_border_with
+478,He was the founder of International Committee of the Red Cross (ICRC) and the recipient of the first Nobel Peace Prize.,award_received,award_received
+479,"Loeb gave Hawke the Juan Patiño-produced version of ""Stay (I Missed You);"" he in turn gave it to director Ben Stiller during the making of the 1994 film ""Reality Bites,"" with Stacy Sher.",director,director
+480,"In the 1998 film ""Fear and Loathing in Las Vegas"" he portrayed a hitchhiker who meets Raoul Duke and Dr. Gonzo during their drive to Las Vegas.",present_in_work,present_in_work
+481,"The mariachi song, ""Guadalajara"", that brings the downfall of the tenors in the film, has been a lasting classic of the genre, sung by performers as diverse as Vicente Fernandez and Elvis Presley.",performer,performer
+482,"Dekha Ek Khwaab (English: ""Saw A Dream"", Hindi: देखा एक ख़्वाब) was an Indian soap opera that aired on Sony Entertainment Television India and Sony Entertainment Television Asia.",production_company,production_company
+483,"American author Pearl S. Buck, winner of the 1932 Pulitzer Prize and the 1938 Nobel Prize in Literature for her novel ""The Good Earth"", contributed “One Bright Day,” a two-part story that appeared in the August and September 1950 issues.",award_received,award_received
+484,"Au diable la vertu (), is a French comedy film from 1954, directed by Jean Laviron, written by François Chalais, starring Henri Génès and Louis de Funès.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+485,"In 2013, he appeared in Woody Allen's ""Blue Jasmine"" and Park Chan-wook's ""Stoker.""",director,director
+486,"Notable Romney family members include George W. Romney (1907-1995), the 43rd Governor of Michigan (1963–1969) and his son, Mitt Romney (born 1947).",child,sibling
+487,The Crucifix is in a framed wood and stucco altarpiece by Trentanove.,material_used,material_used
+488,"Occasionally, because it contains yellow pineapple juice, the Blue Hawaii will have a green coloration instead.",color,color
+489,"As an existentialist, de Beauvoir accepted Jean-Paul Sartre's precept that ""existence precedes essence""; hence ""one is not born a woman, but becomes one"".",discoverer_or_inventor,discoverer_or_inventor
+490,"During ""Torchlight II""s development, Perfect World Entertainment invested into Runic Games, gaining a majority control of the studio.",subsidiary,subsidiary
+491,"He portrayed Gestapo Inspector Alois Gruber in Fritz Lang’s ""Hangmen Also Die!""",director,director
+492,"It is endemic to the Canary Islands, Azores and Madeira in the region known as Macaronesia in the eastern Atlantic Ocean.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+493,"Zhong You (542–480), commonly known by his courtesy names Zilu and Jilu, was one of the best known and most faithful disciples of Confucius.",student_of,student_of
+494,"Glued and laminated dimensional timber is used in the construction industry to make beams (glued laminated timber, or ""Glulam""), in sizes larger and stronger than those that can be obtained from single pieces of wood.",material_used,material_used
+495,"Hostivice is a town in the Czech Republic, a suburb on the west border of Prague.",shares_border_with,shares_border_with
+496,"A French-language version was filmed at the same time under the title ""La dame de chez Maxim's"".",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+497,It is named after French scientist Irène Joliot-Curie.,occupation,occupation
+498,"His professional debut on 29 March 1970 for A.C. Milan was not a happy one, coach Nereo Rocco was forced to field Cattaneo in the game against Juventus F.C. after injuries to Karl-Heinz Schnellinger and Saul Malatrasi.",member_of_sports_team,member_of_sports_team
+499,"Among Confucius' students, he was the second best at speech, after only Zai Yu.",student_of,student_of
+500,TNT (now part of PostNL) was an Australian transport and logistics company with significant operations in Europe.,subsidiary,subsidiary
+501,In later romance Leodegrance is one of the few kings who accept Arthur as his overlord.,position_held,position_held
+502,"Kugel Yerushalmi is said to have been created in Jerusalem by local Ashkenazi Jews during the 1700s by the followers of the Vilna Gaon, a Jewish religious scholar.",ethnic_group,ethnic_group
+503,"Donald McPherson (1963), Petra Burka (1965), and Karen Magnussen (1973) also won World titles for Canada.",country_of_citizenship,country_of_citizenship
+504,"Scott Alexander Young (April 14, 1918 – June 12, 2005) was a Canadian journalist, sportswriter, novelist and the father of musicians Neil Young and Astrid Young.",sibling,sibling
+505,"She worked in Sony TV's show ""Baat Hamari Pakki Hai"" as Saachi Jaiswal, Rangrasiya as Laila, Chakravartin Ashoka Samrat as Noor Khorasan.",production_company,production_company
+506,"The chloroplastida chloroplasts, or green chloroplast, are another large, highly diverse primary chloroplast lineage.",color,color
+507,"Working for Peanuts is a 1953 animated short produced by Walt Disney, featuring Donald Duck and Chip 'n' Dale.",producer,producer
+508,"At the town of Albion, the Albion River is spanned by the Albion River Bridge, the only remaining wooden trestle bridge on the highway.",material_used,material_used
+509,"The Red Balloon () is a 1956 French fantasy comedy-drama featurette written, produced, and directed by Albert Lamorisse.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+510,Atlanta United 2 is the reserve team of the Major League Soccer club Atlanta United FC.,league,league
+511,True Confessions Tour was a concert tour by Bob Dylan and Tom Petty and the Heartbreakers.,participant,performer
+512,"Marvels in tomb of Maya monarch. 21 August, p. 1, 6, New York. 1925.",occupation,occupation
+513,A Cyrillic alphabet was introduced in the Moldovan SSR to reinforce this claim.,writing_system,writing_system
+514,"Currently, Komi writing uses letters from the Cyrillic script.",writing_system,writing_system
+515,For her work she was nominated for the 1950 Nobel Prize in Physics by Erwin Schrödinger.,award_received,nominated_for
+516,"Through the G6, France and Spain cooperate on the areas of defence, economic development and European Constitution.",participant,participant
+517,"As a member of the Young Vic Company he played Pozzo in Samuel Beckett's ""Waiting for Godot.""",present_in_work,present_in_work
+518,"In the meantime, her TV careers took a step forward as she co presented the ""Disney Parade"" French show with French presenter Jean-Pierre Foucault.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+519,"""Vox Sola"" is noted for referencing the French film ""The Wages of Fear"", which is described as classic film.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+520,"On April 1, 2006, Hart was inducted into the WWE Hall of Fame class of 2006 by Stone Cold Steve Austin.",award_received,award_received
+521,"A member of the Piast dynasty, he was a son of Siemomysł, and a grandson of Lestek.",father,mother
+522,"Speak to Me of Love () is a 2002 French drama film written and directed by Sophie Marceau and starring Judith Godrèche, Niels Arestrup, and Anne Le Ny.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+523,"In 1940 he co-wrote ""The Westerner"" for director William Wyler and producer Samuel Goldwyn.",director,director
+524,"In 2013, American artist Miley Cyrus spent nine non-consecutive weeks at number-one in the Mexico Ingles Airplay chart with ""Wrecking Ball"", for which she was awarded the MTV Video Music Award for Video of the Year.",winner,winner
+525,"Mudzi District is a district of Mashonaland East Province, Zimbabwe, in southern Africa.",continent,continent
+526,"Bruce Springsteen performed an acoustic cover of ""Royals"" in April 2014 in Auckland, New Zealand during his High Hopes Tour.",performer,performer
+527,"Jimmy Bond is a fictional character in the American Fox television shows ""The Lone Gunmen"" and ""The X-Files"", two science fiction shows about government conspiracies to hide or deny the truth from the people.",present_in_work,present_in_work
+528,"Washington Street was named for George Washington, first President of the United States.",named_after,named_after
+529,Vitalie Rimbaud (born Jeanne Rosalie Vitalie Rimbaud; 15 June 1858 in Charleville – 18 December 1875 in Charleville) was the elder of the two surviving sisters of Arthur Rimbaud.,sibling,sibling
+530,"Notable early scientists include F. G. Gmelin (1782-1848), (1774-1868) and Wilhelm Griesinger (1817-1868).",occupation,occupation
+531,Most of the historical Duchy of Normandy is on the European continent and was conquered by France.,continent,continent
+532,"Saint-John Perse (; also Saint-Leger Leger, ; pseudonyms of Alexis Leger) (31 May 1887 – 20 September 1975) was a French poet-diplomat, awarded the Nobel Prize in Literature in 1960 ""for the soaring flight and evocative imagery of his poetry.""",award_received,award_received
+533,"Giorgio Andrews (born in England) is an English mixed martial artist, who competes in the bantamweight and flyweight divisions.",place_of_birth,place_of_birth
+534,"According to the ""Records of the Grand Historian"" (""Shiji""), Shang Qu was responsible for the preservation of the ""I Ching"", which he received from Confucius.",student_of,student_of
+535,"Margie Velma Barfield was convicted of murder and when she was executed by lethal injection in 1984, she became the first woman to be executed since the ban on capital punishment was lifted in 1976.",manner_of_death,manner_of_death
+536,"The Republican Constitutional Union (, UCR) was a Spanish political party created in 1893 by dissidents from the Possibilist Democratic Party who opposed Emilio Castelar's decision to join the Liberal Party.",member_of_political_party,member_of_political_party
+537,"Matthew the Apostle, also known as Saint Matthew and as Levi, was, according to the New Testament, one of the twelve apostles of Jesus.",student_of,student_of
+538,"Saint John the Baptist as a Boy is a c.1523 oil on panel painting by Andrea del Sarto, now in the Palatine Gallery of the Palazzo Pitti in Florence.",creator,creator
+539,"He decided to try acting on stage and was cast by John Ford in a revival of ""What Price Glory?"".",director,director
+540,"The first swivel chair was invented by Thomas Jefferson, and is purported to be the chair on which he drafted the United States Declaration of Independence in 1776.",discoverer_or_inventor,discoverer_or_inventor
+541,"The story of the ""Aeneid"" was made into the grand opera ""Les Troyens"" (1856–1858) by the French composer Hector Berlioz.",composer,composer
+542,Michael Chopra played for the England national under-21 football team and became the first footballer of Indian descent to play and score in the Premier League.,league,league
+543,"This genus was among the first formally described by a pupil of Carl Linnaeus, Johan Christian Fabricius, in 1792.",student_of,student_of
+544,"The members of the court at the start of 2004 were Chief Justice Arthur Chaskalson, Deputy Chief Justice Pius Langa, and judges Tholie Madala, Yvonne Mokgoro, Dikgang Moseneke, Sandile Ngcobo, Kate O'Regan, Albie Sachs and Zak Yacoob.",position_held,position_held
+545,"Back Home is the fourteenth studio album by Chuck Berry, released in 1970 by Chess Records.",performer,performer
+546,Li Na (daughter of Mao Zedong),father,child
+547,"Although Krleža's lyric poetry is held in high regard, by common critical consensus his greatest poetic work is ""Balade Petrice Kerempuha"" (""Ballads of Petrica Kerempuh""), spanning more than five centuries and centred on the figure of plebeian prophet ""Petrica Kerempuh"", a Croatian Till Eulenspiegel.",genre,genre
+548,Khulan (c. 1164 – c. 1215) was an empress of Genghis Khan and head of the second Court of Genghis Khan.,spouse,founded_by
+549,"The Treaty of Osimo was signed on 10 November 1975 by the Socialist Federal Republic of Yugoslavia and the Italian Republic in Osimo, Italy, to definitively divide the Free Territory of Trieste between the two states: the port city of Trieste with a narrow coastal strip to the north west (Zone A) was given to Italy; a portion of the north-western part of the Istrian peninsula (Zone B) was given to Yugoslavia.",participant,participant
+550,"Other historical inaccuracies include cards being awarded to players in matches prior to 1970 and the use of brown leather balls for matches from 1970 onwards, in lieu of balls like the Adidas Telstar (for 1970 and 1974) and the Adidas Tango España (for the 1982 final).",material_used,material_used
+551,"""Talking to the Moon"" is a 2011 a song by Bruno Mars.",performer,performer
+552,"Walls made of cob, earth mortars or walls with rubble cores are all highly vulnerable to water penetration, and replacement or covering of breathable materials with cement or damp-proofing materials may trap moisture within the walls.",material_used,material_used
+553,He became especially interested in the poetry of Federico García Lorca.,genre,genre
+554,"Gongbo Liao (), courtesy name Zizhou (), was a disciple of Confucius.",student_of,student_of
+555,"Bahrain under the Al-Khalifa is a constitutional monarchy headed by the King, Shaikh Hamad bin Isa Al Khalifa.",occupation,occupation
+556,"Isla Salas y Gómez, also known as Isla Sala y Gómez, is a small uninhabited Chilean island in the Pacific Ocean.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+557,"La Tour Montparnasse Infernale is a 2001 French comedy film directed by Charles Nemes and written by Kader Aoun, Ramzy Bedia, Éric Judor and Xavier Matthieu.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+558,"Redoubtable, also known as Godard Mon Amour (US), is a 2017 French biographical comedy-drama film written and directed by Michel Hazanavicius about the affair of revered filmmaker Jean-Luc Godard with Anne Wiazemsky in the late-1960s.",screenwriter,screenwriter
+559,"Cronus mated with his older sister Rhea and together they became the parents of the first generation of Olympians: Zeus and his five siblings Hestia, Demeter, Hera, Hades and Poseidon.",sibling,sibling
+560,"She also starred as Detective Jane Rizzoli on the TNT series ""Rizzoli & Isles"".",present_in_work,present_in_work
+561,"The Yser is a river that rises in French Flanders (the north of France), enters the Belgian province of West Flanders and flows through the ""Ganzepoot"" and into the North Sea at the town of Nieuwpoort.",tributary,tributary
+562,Taradell is a municipality in the Osona (comarca) of the Province of Barcelona.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+563,"One of his mother's aunts is actress Neile Adams, the first wife of American actor Steve McQueen, mother of actor Chad McQueen, and grandmother of actor Steven R. McQueen.",mother,mother
+564,"Sande is a municipality in the district of Friesland, Lower Saxony, Germany.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+565,"Diary of a Country Priest () is a 1951 French drama film written and directed by Robert Bresson, and starring Claude Laydu.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+566,"In 1459 John Argyropoulos was lecturing on Greek language and literature at Florence, and Marsilio Ficino became his pupil.",student_of,student_of
+567,Modern Adyghe uses a Cyrillic alphabet with the addition of the letter (palochka).,writing_system,writing_system
+568,"Former Microsoft Chief Technology Officer J Allard and former Xbox Live Development Manager Boyd Multerer claimed to have been heavily inspired by ""Snow Crash"" in the development of Xbox Live, and that it was a mandatory read for the Xbox development team.",employer,employer
+569,"Metrodorus of Chios (; fl. 4th century BC) was a Greek philosopher, belonging to the school of Democritus, and an important forerunner of Pyrrhonism and Epicureanism.",student_of,student_of
+570,"A longtime ""Microsoft Researcher,"" Peter Lee became the organization's head in 2013.",employer,employer
+571,"With his mother, Gaia, he fathered Nereus (the Old Man of the Sea), Thaumas (the awe-striking ""wonder"" of the Sea, embodiment of the sea's dangerous aspects), Phorcys and his sister-consort Ceto, and the ""Strong Goddess"" Eurybia.",mother,mother
+572,"For the series' 10th anniversary, Masashi Kishimoto drew an illustration of Naruto as Hokage.",creator,creator
+573,"Tansen is a Municipality and the administrative center of Palpa District in the ""hills"" of western part of Nepal.",capital_of,capital_of
+574,"Don't Forget You're Going to Die (, ) is a 1995 French drama film directed, co-written by and starring Xavier Beauvois.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+575,"Coutinho opened the scoring in the 24th minute off a free-kick, however former Liverpool man Christian Benteke leveled the match then scored a second in the 74th to hand Liverpool a 1–2 loss, just their second Premier League home defeat of the season.",league,league
+576,"On the death Philip IV in September 1665, his infant son Charles II of Spain the child of Philip's second wife Mariana of Austria was proclaimed king.",child,child
+577,"Christian Bahmann is the son of Angelika Bahmann, winner of the women's K1 event at the 1972 Summer Olympics in Munich.",mother,mother
+578,"He also produced the M. Night Shyamalan films ""The Happening"" and ""The Last Airbender"".",director,producer
+579,The Great Rift Valley of Africa provides critical evidence for the evolution of early hominins.,continent,continent
+580,Chris Capossela (born 1969) is Microsoft's Chief Marketing Officer and Executive Vice President of Consumer Business.,employer,employer
+581,"He was also involved in producing ""Pimp My Ride"", a popular car makeover show on MTV.",production_company,production_company
+582,"She was named after Timothy Pickering, the third United States Secretary of State under George Washington and John Adams.",position_held,position_held
+583,"The U2 song ""Kite"" was inspired by a moment when Bono took a kite up on Killiney Hill with Hewson and her sister, but the kite blew off and smashed.",performer,performer
+584,"It forms part of the Gelder Valley, which runs from the Lower Rhine between Wageningen and Rhenen (Province of Utrecht) and the IJsselmeer near Amersfoort.",shares_border_with,shares_border_with
+585,The Ceiling is a short story by American writer Kevin Brockmeier that won the O. Henry Award in 2002.,award_received,award_received
+586,"The second jumper was Darya Klishina, the only Russian athlete in the entire athletics competition.",sport,sport
+587,"Jack and the Cuckoo-Clock Heart is a 2013 French animated fantasy film based on the concept album by the French rock band Dionysos, and on the illustrated novel ""La Mécanique du cœur"" written by the band's lead singer Mathias Malzieu.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+588,She was sister to Lucilla and Commodus.,sibling,sibling
+589,"The term ""aqueous solution"" is used when one of the solvents is water.",material_used,material_used
+590,It also participated in the Falklands War for Argentina.,participant,participant
+591,"Borommarachathirat II or Borom Rachathirat II (), also known as King Samphraya () (?–1448), was a king of Ayutthaya.",position_held,position_held
+592,Jonathan Grudin is a principal design researcher at Microsoft and affiliate professor at the University of Washington Information School working in the fields of human-computer interaction (HCI) and computer-supported cooperative work (CSCW).,employer,employer
+593,"The forum originated with a 1975 summit hosted by France that brought together representatives of six governments: France, Germany, Italy, Japan, the United Kingdom, and the United States, thus leading to the name Group of Six or G6.",participant,participant
+594,Influences from them can be seen in the poetry of Nikolai Klyuev.,genre,genre
+595,"Andy Linden plays Mundungus Fletcher in ""Harry Potter and the Deathly Hallows - Part 1"".",present_in_work,present_in_work
+596,Bhimtal is an ancient place named after the legendary Bhima of Mahabharata when Bhima visited the place during the exile period of pandavas.,present_in_work,present_in_work
+597,This marine species occurs in the Pacific Ocean off the Cook Islands.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+598,Elizabeth Antonovna of Brunswick-Lüneburg (1743–1782) was the daughter of Duke Anthony Ulrich of Brunswick and Grand Duchess Anna Leopoldovna of Russia.,mother,mother
+599,Its wood is also used in the making of baseball bats and electric guitars.,material_used,material_used
+600,"Sarati the Terrible (French: Sarati, le terrible) is a 1937 French drama film directed by André Hugon and starring Harry Baur, George Rigaud and Jacqueline Laurent.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+601,"""The Grand Seduction"" is based on the 2003 film ""Seducing Doctor Lewis"" (original French title ""La grande séduction"").",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+602,"""Unapologetic Bitch"" is a song recorded by American singer and songwriter Madonna for her thirteenth studio album, ""Rebel Heart"" (2015).",performer,performer
+603,"Jack Kerouac, the noted American author, spent extended periods of time in the city, and wrote his masterpiece volume of poetry ""Mexico City Blues"" here.",genre,genre
+604,His collaboration with neuroscientist Rita Levi-Montalcini resulted in the discovery of nerve growth factor.,occupation,occupation
+605,The Awuna River also called Sakvailak by the Iñupiat is a tributary of the Colville River in the U.S. state of Alaska.,tributary,tributary
+606,The following is a list of monarchs of the Jaffna kingdom from 1215 with the invasion of Kalinga Magha to the Portuguese conquest of Jaffna Kingdom under Cankili II 1619.,occupation,occupation
+607,"Frenchman Pierre-Joseph Proudhon is regarded as the founder of modern anarchism, a label he adopted in his groundbreaking work ""What is Property?",discoverer_or_inventor,discoverer_or_inventor
+608,Romance of a Jewess is a 1908 American silent short drama film written and directed by D. W. Griffith.,screenwriter,screenwriter
+609,"""Hemlock Hoax, the Detective"" was produced by the Lubin Manufacturing Company, a company founded by German-American film pioneer Siegmund Lubin.",production_company,production_company
+610,"Reading Athletic Club has had a long and distinguished history in the world of athletics and have produced notable national and world champions, including Britain's first female gold medalist over 800m, Ann Packer.",sport,sport
+611,"The assonated short verse and art for art's sake aesthetics of Juan Ramón Jiménez and Jorge Guillén prevail, in addition to the ultraistic echoes of classical Spanish poetry from the Golden Age, especially Fray Luis de León and Góngora.",genre,genre
+612,Chișinău is the capital of Moldova.,capital_of,capital_of
+613,"It won three Academy Awards in 1960, including Best Supporting Actress for Shelley Winters.",award_received,award_received
+614,"The present head of the Zulu royal family is King Goodwill Zwelithini kaBhekuzulu, the current monarch of the Zulu nation of South Africa.",occupation,occupation
+615,Abidjan is the largest city in Ivory Coast.,capital_of,continent
+616,Audience members included President Barack Obama and First Lady Michelle Obama.,spouse,spouse
+617,"""The Way You Make Me Feel"" is a song by American recording artist Michael Jackson.",performer,performer
+618,Hades (voiced by James Woods) is the brother of Zeus and Poseidon.,sibling,sibling
+619,Thus in next birth Rama becomes Krishna and lakshmana becomes Balarama elder brother to krishna.,sibling,sibling
+620,"Later, on her own, Nyx gives birth to Moros (Doom, Destiny), the Keres (Destruction, Death), Thanatos (Death), Hypnos (Sleep), the Oneiroi (Dreams), Momus (Blame), Oizys (Pain, Distress), the Hesperides, the Moirai (Fates), Nemesis (Indignation, Retribution), Apate (Deceit), Philotes (Friendship), Geras (Old Age), and Eris (Strife).",mother,mother
+621,"The song ""Forever Young"" was written by Bob Dylan and recorded on his 1974 album, ""Planet Waves"".",composer,performer
+622,Ambt Ommen is a former municipality in the Dutch province of Overijssel.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+623,"It portrays the life of Rudolf Diesel, the German inventor of the diesel engine.",discoverer_or_inventor,discoverer_or_inventor
+624,The parent company of Laima was acquired by Orkla Group in August 2014.,parent_organization,parent_organization
+625,"On 8 July 2011, it was announced that Glasgow based airline Loganair had agreed to buy Suckling Airways.",subsidiary,subsidiary
+626,"Thomas Oliver (c. 1601 England—June 1679 Salem, Essex Co, MA) was the second husband of Bridget Bishop, who on 10 June 1692 became the first victim of the Salem witch trials.",place_of_birth,place_of_birth
+627,"It runs to Markgrafenheide on the Baltic Sea, where a submarine cable section to the island of Falster begins.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+628,He painted the images on wood of Saints Peter and Paul now at Palermo museum.,material_used,material_used
+629,Dominic Schell is an American soccer player who played professionally Major League Soccer and the USL First Division.,league,league
+630,"He is currently Director of the UNESCO Cluster Office in Jakarta and the Regional Bureau for Science in Asia and the Pacific, serving as UNESCO Representative to Indonesia, Brunei Darussalam, Malaysia, the Philippines and Timor Leste.",member_of,member_of
+631,"In 2001, Fox became head of Section Eight Productions, the production company founded by Steven Soderbergh and George Clooney in 2000.",founded_by,founded_by
+632,Dairi Regency is a regency on the northwest shore of Lake Toba in North Sumatra.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+633,"Sir George Bowen Simpson QC (22 May 1838 – 7 September 1915) was a politician and judge in New South Wales, a member of the New South Wales Legislative Council.",position_held,position_held
+634,Richard D. Klausner is an American scientist who served as the 11th director of the National Cancer Institute of the United States.,occupation,occupation
+635,"In 1625, Prince Hushang Mirza, the second son of Prince Daniyal Mirza, and the grandson of Akbar, paid homage at the court.",father,father
+636,"Legazpi, officially the City of Legazpi, (; ; ) and often referred to as Legazpi City, is a 1st Class component city and the capital of the province of Albay in the Philippines.",contains_administrative_territorial_entity,capital
+637,"However, In 2005, the Iron Sheik was inducted into the WWE Hall of Fame.",award_received,award_received
+638,"Henry VII (1485–1509) clearly established the supremacy of the monarch, symbolised by the ""Crown Imperial"".",occupation,occupation
+639,"David Mason followed Mill in an 1875 essay on literature, including Wordsworth's poetry.",genre,genre
+640,She was inspired to take up athletics after seeing Mexican Ana Guevara claim the 400 metres world title in 2003.,sport,sport
+641,Walt Disney Television was the name of the television production division of The Walt Disney Company.,parent_organization,parent_organization
+642,"Marvel Studios, LLC (originally known as Marvel Films from 1993 to 1996) is an American film and television studio that is a subsidiary of The Walt Disney Studios.",subsidiary,subsidiary
+643,"The Prime Minister of the United Kingdom, David Cameron, attended the conference on 7 June.",position_held,position_held
+644,"He was nominated for an Academy Award for his work on Mark Robson's ""Peyton Place"" in 1957.",director,director
+645,Hermanfrid (also Hermanifrid or Hermanafrid; ) was the last independent king of the Thuringii in present-day Germany.,position_held,position_held
+646,"Maud of Wales, daughter of King Edward VII of the United Kingdom, was the mother of King Olav V of Norway, so Olav and his son Harald V, the present king of Norway, are descended from Olaf.",father,father
+647,Awwam ibn Khuwaylid () was the father of the companion Zubayr ibn al-Awwam and brother of Islamic prophet Muhammad's wife Khadija bint Khuwaylid.,spouse,mother
+648,"In public usage, maize can be applied to a variety of shades, ranging from light yellow to a dark shade that borders on orange, since the color of maize (the actual corn) may vary.",color,color
+649,"The work was based on thirteenth-century poetry found in a manuscript dubbed the ""Codex latinus monacensis"" found in the Benedictine monastery of Benediktbeuern in 1803 and written by the Goliards; this collection is also known as ""Carmina Burana"".",genre,genre
+650,"She served as a delegate for Poland to the Council of Europe, and served as Vice President of the Group of Christian Democrats in the Council.",member_of,member_of
+651,"As of March 2019, Hunter Biden, son of former U.S. Vice President Joe Biden, was a Board Member and Vice Chairman of the Truman National Security Project.",father,father
+652,Rai 2 (until May 2010 known as Rai Due) is the second public television channel broadcast by Italian state-owned broadcaster RAI.,parent_organization,parent_organization
+653,"The film was shot at the Alamo Village, the movie set originally created for John Wayne produced film ""The Alamo"".",producer,producer
+654,"According to the Gospel of Matthew, Judas Iscariot was a disciple of Jesus.",student_of,student_of
+655,"Seemabaddha ( ""Shimabôddho""; English title: ""Company Limited"") is a 1971 social drama Bengali film directed by Satyajit Ray.",director,director
+656,Cassa di Risparmio di Trieste - Banca S.p.A. joined newly formed banking group UniCredit in 1999.,parent_organization,parent_organization
+657,"The eastern end of the boardwalk is dominated by the Giant Dipper, a wooden roller coaster that is one of the most visible landmarks in Santa Cruz.",material_used,material_used
+658,"In the ""Mahabharata"", she is the wife of Shantanu, and the mother of heroic warrior-patriarch, Bhishma.",present_in_work,present_in_work
+659,Anoaʻi inducted the Wild Samoans (his father Sika and his uncle Afa) into the WWE Hall of Fame in 2007.,award_received,award_received
+660,"It is essentially the same cocktail as the Sazerac, but called for bourbon (and not rye) instead of cognac.",material_used,material_used
+661,"After a brief stint in Serie C2 with Messina, he returned to S.S.C. Napoli and made his debut with them in Serie A in the 1981-82 season.",league,league
+662,"Walt Disney Pictures (also known as Disney Live Action) is an American film studio and a subsidiary of The Walt Disney Studios, which is owned by The Walt Disney Company.",parent_organization,parent_organization
+663,"At the University of Michigan Nissman studied with György Sándor, himself a student of Béla Bartók.",student_of,student_of
+664,"The unit's campaign participation in Grenada is commemorated by the colors of the design elements (yellow, red and green) adapted from the flag of Grenada.",color,color
+665,"Priapeia 68 or Priapea 68 is the sixty-eighth poem in the ""Priapeia"", a collection of Latin poetry of uncertain authorship.",genre,genre
+666,Terra X is a brand used by the German public broadcaster ZDF since 2008.,production_company,subsidiary
+667,ISO/IEC JTC 1 is a joint technical committee of the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC).,parent_organization,parent_organization
+668,"Little Naukati Bay is a natural sheltered harbor at Naukati Bay, Alaska, on the Western shores of Prince of Wales Island, on the Pacific Ocean",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+669,"It is a remake of the French film ""The Last Adventure"" (1967).",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+670,"""Boots of Spanish Leather"" is a ballad written and performed by Bob Dylan, recorded in New York City on August 7, 1963, and released in 1964 on his album ""The Times They Are a-Changin'"".",performer,performer
+671,"""If I Needed Someone"" is a song by the English rock band the Beatles, written by George Harrison, the group's lead guitarist.",composer,composer
+672,"In August 2008, Jet Airways announced its plans to integrate JetLite into Jet Airways.",subsidiary,subsidiary
+673,"Her husband, Kurt DelBene, is Chief Digital Officer and EVP of Corporate Strategy, Core Services Engineering and Operations at Microsoft Corporation, and led the effort to fix the Healthcare.gov website at the request of President Barack Obama.",employer,employer
+674,"This township was named for Richard Mentor Johnson, the ninth Vice President of the United States, serving in the administration of Martin Van Buren.",position_held,position_held
+675,"Lanike or Lanice (Greek: ), also called Hellanike or Alacrinis, daughter of Dropidas, was the sister of Cleitus the Black and the nurse of Alexander the Great.",sibling,sibling
+676,Sozopol Municipality is located in the southern Bulgarian Black Sea Coast and borders Burgas Municipality and Primorsko Municipality.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+677,Mary of Guelders (; c. 1434 – 1 December 1463) was the queen of Scotland by marriage to King James II of Scotland.,spouse,spouse
+678,Iullus married Octavia's daughter and Octavian's niece Claudia Marcella Major and they had a son Lucius Antonius and possibly a daughter Iulla Antonia.,mother,mother
+679,"Magnus was born in Norway in April or May 1316 to Eric, Duke of Södermanland and Ingeborg, a daughter of Haakon V of Norway.",place_of_birth,place_of_birth
+680,South Georgia is an island in the southern Atlantic Ocean that is part of the British Overseas territory of South Georgia and the South Sandwich Islands.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+681,Arthur Nikisch had a huge impact on Wilhelm Furtwängler.,student_of,student_of
+682,"Colwood is a city located on Vancouver Island to the southwest of Victoria, capital of British Columbia.",capital,capital
+683,"Dmitri Ilyich Ulyanov (; – 16 July 1943) was a Russian physician and revolutionary, the younger brother of Aleksandr Ulyanov and Vladimir Lenin.",sibling,sibling
+684,"With Field Day, Friel collaborated with Seamus Heaney, 1995 recipient of the Nobel Prize in Literature.",award_received,award_received
+685,Joseph-Rodolphe Ouimet (16 November 1878 – 21 August 1948) was a Liberal party member of the House of Commons of Canada.,country_of_citizenship,country_of_citizenship
+686,"Elisabetta Perrone won six medals, at individual level, at the International athletics competitions.",sport,sport
+687,"Fort Cowlitz or Cowlitz Farm was an agricultural operation by the British Puget Sound Agricultural Company (PSAC), a subsidiary of the Hudson's Bay Company (HBC).",parent_organization,parent_organization
+688,Marion Cotillard won the César Award for Best Supporting Actress for her performance.,winner,winner
+689,"Tuban is located in a strategic area, on the border of East Java with Central Java, passed by Jalan Nasional Daendels on North Coast of Java (Pantura).",contains_administrative_territorial_entity,shares_border_with
+690,"In the epic Mahabharata, Yudhisthira is the eldest son of King Pandu and Queen Kunti and the king of Indraprastha and later of Hastinapura (Kuru).",present_in_work,present_in_work
+691,"Vanves is a commune in the southwestern suburbs of Paris, France.",shares_border_with,shares_border_with
+692,"Harztor is a municipality in the district of Nordhausen, in Thuringia, Germany.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+693,"Portugal has been traditionally strong in the sport of athletics in long distance running, and is the birthplace for a number of successful athletes including Rosa Mota, Carlos Lopes, Fernanda Ribeiro, and Manuela Machado.",sport,sport
+694,An example of an internal sovereign or monarch is Louis XIV of France during the seventeenth century; Louis XIV claimed that he was the state.,occupation,occupation
+695,Soft Construction with Boiled Beans (Premonition of Civil War) (1936) is a painting by the Spanish surrealist artist Salvador Dalí.,creator,creator
+696,Liberal William Lyon Mackenzie King was Prime Minister of Canada for almost all of the first five years of Brownlee's premiership.,country_of_citizenship,country_of_citizenship
+697,"In November 1983, he participated again in the TV show ""Siempre en Domingo"", this time in Televisa, Mexico.",production_company,production_company
+698,He was the younger brother of director and actor Richard Attenborough and the naturalist Sir David Attenborough.,sibling,sibling
+699,"Bishop de Miollis was the inspiration for Victor Hugo's character Bishop Myriel in the novel ""Les Misérables"", with some similarities between the two; however, several notable differences between Myriel and de Miollis exist as well.",creator,creator
+700,"He was among the nominees for the Laureus World Sports Award for Sportsman of the Year, with Jamaican athlete Usain Bolt taking the prize.",winner,winner
+701,"Andrei Rublev painted his ""Trinity"", the greatest masterpiece of the Russian Middle Ages, for the cathedral of Sergii's monastery.",creator,creator
+702,"He won the Academy Award for Best Director for ""Rain Man"" (1988), which also won the Academy Award for Best Picture.",award_received,award_received
+703,"NGC 4753 was discovered by astronomer William Herschel on February 22, 1784.",discoverer_or_inventor,discoverer_or_inventor
+704,"The word ""Lemhi"" was associated with King Limhi who was one of the kings cited in the Book of Mormon.",position_held,position_held
+705,"Sadie Forman died in 2014, aged 85 years, in England.",place_of_death,place_of_death
+706,"It is found throughout Europe with the exception of Greece, Belarus, and Russia.",continent,continent
+707,"Michael Cassio, or simply Cassio (), is a fictional character in William Shakespeare's ""Othello"".",creator,creator
+708,"Phobos, one of Ares' sons, forms a statuette out of blood from a Gorgon.",father,father
+709,Michel Théato won the marathon event in athletics.,sport,sport
+710,Cuba's capital and largest city is Havana.,capital_of,capital_of
+711,"To date he is the only New Zealand prime minister or premier to serve under three monarchs (George V, Edward VIII and George VI).",occupation,occupation
+712,"The librettist for the opera was Ernst von Wolzogen, who in 1901 founded the Überbrettl venue (German for ""overcabaret, super-cabaret""), the start of the German Kabarett movement which was later to blossom in the Weimar Republic.",founded_by,founded_by
+713,Indonesia and Suriname are members of the World Trade Organization (WTO) and Forum of East Asia-Latin America Cooperation.,member_of,member_of
+714,"Taulihawa, also known as Kapilavastu, is one of the oldest municipality and administrative center of Kapilvastu District in Province No. 5 of southern Nepal.",capital_of,capital_of
+715,"""Shine On You Crazy Diamond"" is a nine-part Pink Floyd composition written by David Gilmour, Roger Waters, and Richard Wright.",composer,genre
+716,"This took his tally up to six Premier League goals on the season which made him the highest scoring centre back in the league, and the second highest goalscorer for Fulham behind Clint Dempsey.",league,league
+717,"The name sodium is thought to originate from the Arabic ""suda"", meaning headache, as the headache-alleviating properties of sodium carbonate or soda were well known in early times.",named_after,material_used
+718,He Who Must Die ( is a 1957 French film directed by Jules Dassin.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+719,"The Sobat River is a river of the Greater Upper Nile region in northeastern South Sudan, Africa.",continent,continent
+720,Ubusuku Abukusumo is a retired American soccer defender who played professionally in Major League Soccer and the USL A-League.,league,league
+721,"At the 2016 Rio Olympics she became Olympic champion with a jump of 4.85 m, becoming the seventh Greek female athlete, and fourth in athletics, (after Voula Patoulidou, Athanasia Tsoumeleka, Fani Chalkia, Sofia Bekatorou, Emilia Tsoulfa and Anna Korakaki) to win a gold medal at the Summer Olympics.",sport,sport
+722,I Can't Sleep () is a 1994 French drama film written and directed by Claire Denis.,original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+723,"Except for the island of Bornholm, Denmark is located at the transition between North Sea and Baltic Sea which includes the Skagerrak and Kattegat waters.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+724,"This species was described from Ceuta, an autonomous city of Spain on the north coast of Africa, at the entrance to the Mediterranean Sea.",continent,continent
+725,"El secreto de Alejandra (English title: ""Alejandra's secret"") is a Mexican telenovela produced by Jorge Lozano Soriano for Televisa in 1997.",production_company,production_company
+726,"Rebecca Welles, the daughter of Welles and Rita Hayworth, expressed her desire to travel to Mexico to meet Dolores.",mother,mother
+727,"The Face of War (The Visage of War; in Spanish ""La Cara de la Guerra"") (1940) is a painting by the Spanish surrealist Salvador Dalí.",creator,creator
+728,Block Island lies about off the southern coast of the mainland and separates Block Island Sound and the Atlantic Ocean proper.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+729,Larry Sanger announced an initial proposal of his project Citizendium.,owned_by,founded_by
+730,"Pierre Quinon, whose father was an 800 metres runner, started his pole vaulting career at the Rhodia Club Omnisports (athletics section), which is based in the town of Salaise-sur-Sanne (in the department of Isère).",sport,sport
+731,"Narodne novine () is the official gazette (or newspaper of public record) of the Republic of Croatia which publishes laws, regulations, appointments and official decisions and releases them in the public domain.",owned_by,owned_by
+732,"Batik Air Flight 7703 was a scheduled domestic flight operated by Lion Air's subsidiary Batik Air from Halim Perdanakusuma Airport in Jakarta to Sultan Hasanuddin International Airport, Makassar.",subsidiary,subsidiary
+733,"Darkness on the Edge of Town is the fourth studio album by Bruce Springsteen, released on June 2, 1978.",performer,performer
+734,"Princess Margaret of Prussia (Margarete Beatrice Feodora; 22 April 1872 – 22 January 1954) was a daughter of Frederick III, German Emperor and Victoria, Princess Royal, and the younger sister of Emperor Wilhelm II and a granddaughter of Queen Victoria.",mother,mother
+735,"From Linkin Park's catalog, ""Collision Course"" features three songs from ""Meteora"" and four from ""Hybrid Theory"".",performer,performer
+736,"The S number of fiber, and hence of yarn, fabric, or garments made of that fiber, is determined using the international standard promulgated by the International Wool Textile Organisation (IWTO).",material_used,material_used
+737,"The National Police of Honduras has its headquarters in Tegucigalpa, the capital city of Honduras.",capital_of,capital_of
+738,"Atefeh Riazi is the United Nations Chief Information Technology Officer, Assistant Secretary-General, Office of Information and Communications Technology, with responsibility for all of the organization’s needs relating to information and communications technology.",employer,employer
+739,Rhadamanthus was the son of Zeus and Europa and brother to Sarpedon and Minos (also a king and later a judge of the dead).,sibling,sibling
+740,"""The Ballad of John and Yoko"" is a song written by John Lennon, credited to Lennon–McCartney, and released by the English rock band The Beatles as a single in May 1969.",composer,composer
+741,South Georgia and the South Sandwich Islands (SGSSI) is a British Overseas Territory in the southern Atlantic Ocean.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+742,"Although the first three entities remain under the Universal Music Group banner, the pop music catalog is managed by Universal Music Enterprises and bears the Polydor imprint, the musical theater catalog is now released by Verve Records and the country music catalog is managed by Universal Music Group Nashville with reissues bearing the Mercury Records Nashville imprint.",parent_organization,parent_organization
+743,At the north-western border of Borchen the Altenau flows into the Alme River.,tributary,tributary
+744,She was a descendant of President George Washington's brother John Augustine Washington.,sibling,sibling
+745,"Speusippus was a native of Athens, and the son of Eurymedon and Potone, a sister of Plato, he belonged to the deme of Myrrhinus.",sibling,child
+746,The miniseries Empire Falls premiered on HBO in May 2005 received 10 Emmy Award nominations and the Golden Globe Award for Best Mini-series or Motion Picture Made for Television.,production_company,production_company
+747,"The galvanic cell and the process of galvanization were both named for Luigi Galvani, and his discoveries paved the way for electrical batteries, galvanization, and cathodic protection.",discoverer_or_inventor,discoverer_or_inventor
+748,"It was Tykocin, where in 1705 King Augustus II the Strong established the Order of the White Eagle, the highest and oldest Polish order.",founded_by,winner
+749,"Upper Senegal and Niger () was a colony in French West Africa, created on from colonial Senegambia and Niger by the decree ""For the Reorganisation of the general government of French West Africa"".",continent,continent
+750,"Staroyuryevo () is a rural locality (a ""selo"") and the administrative center of Staroyuryevsky District, Tambov Oblast, Russia.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
+751,"Anacletus served as pope between and his death, .",position_held,position_held
+752,"The character Gary Oak from the ""Pokémon"" anime series is named Shigeru in Japan and is the rival of Ash Ketchum (called Satoshi in Japan).",present_in_work,present_in_work
+753,"He was also part of the first season of a reality show on Sony TV ""Iss Jungle Se Mujhe Bachao"", which is inspired from the British reality show ""I'm a Celebrity...Get Me Out of Here!""",production_company,production_company
+754,"In 2002 Kinsley married Patty Stonesifer, a longtime top executive at Microsoft and the Bill and Melinda Gates Foundation.",employer,employer
+755,The Norceca Beach Volleyball Circuit is a sport competition for national teams in the sport of beach volleyball.,genre,genre
+756,"Spurred on by Hatano's supportive attitude, Monolith Soft decided to break away from Bandai Namco to become a Nintendo subsidiary; this provided Monolith Soft creative freedom in exchange for software development exclusivity for Nintendo platforms.",parent_organization,parent_organization
+757,Möge Khatun was a concubine of Genghis Khan and she later became a wife of his son Ögedei Khan.,spouse,child
+758,"This species occurs in the Atlantic Ocean on the coast of the island of Boa Vista, Cape Verde.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+759,Mogadishu under Italian rule was the capital of Italian Somalia in the first half of the 20th century.,capital,capital
+760,"ANZ Bank New Zealand Limited, New Zealand's largest financial-services group, operates as a subsidiary of Australia and New Zealand Banking Group Limited of Australia.",subsidiary,subsidiary
+761,"Wittrock co-starred as Judy Garland's fifth and final husband Mickey Deans in the biopic ""Judy"" (2019), directed by Rupert Goold.",spouse,spouse
+762,"It encompasses the western group of the Canary Islands – La Palma, El Hierro, La Gomera, Tenerife, and Gran Canaria – in the Atlantic Ocean.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+763,"The City Hall of Sapporo, the office building of the government of Hokkaido and the headquarters of Hokkaidō Police office are located.",capital_of,owned_by
+764,"In 1967 a musical film based on the story, ""The Happiest Millionaire"", was the last musical film to have personal involvement from producer Walt Disney.",producer,producer
+765,Springsteen on Broadway is a soundtrack album by American rock singer-songwriter Bruce Springsteen.,performer,performer
+766,"For the acclaimed comedy ""A Fish Called Wanda"" (1988), Crichton was nominated for both the Academy Award for Best Director and the Academy Award for Best Original Screenplay (along with the film's star John Cleese).",screenwriter,director
+767,Montereau is where the Yonne falls into the Seine.,tributary,tributary
+768,"Caliban ( ), son of the witch Sycorax, is an important character in William Shakespeare's play ""The Tempest"".",creator,creator
+769,It is native to the eastern Atlantic Ocean from Spain to Morocco and can be found in the coastal waters of the Mediterranean Sea and the Black Sea.,located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+770,"However, in 1984, Josua Bruyn, then a member of the Rembrandt Research Project (RRP) tentatively suggested that certain characteristics of the work of Willem Drost, another student of Rembrandt, could be observed in the painting.",student_of,student_of
+771,"One of the largest employers in the town is ArcelorMittal, the world's largest steel producer, which formed from the merger of Aceralia, ARBED, Mittal, and Usinor.",parent_organization,subsidiary
+772,"In the promotional tour, Madonna performed ""Miles Away"" as the second song from the six-song set list.",performer,performer
+773,"The album cover is notable for mimicking M. C. Escher's ""Relativity"", but featuring imagery inspired by each of the song titles.",creator,performer
+774,"It enters the Atlantic from Georgetown, the capital city of Guyana.",capital_of,capital_of
+775,Now yellow tennis balls are mass-produced for high performance at minimal costs.,color,color
+776,"Zhu Youjian was son of the Taichang Emperor and younger brother of the Tianqi Emperor, whom he succeeded to the throne in 1627.",sibling,sibling
+777,"The song ""Forever Young"" was written by Bob Dylan and recorded on his 1974 album, ""Planet Waves"".",composer,performer
+778,The War of Jenkins' Ear between Britain and Spain caused the British to plan an attack against the Spanish possessions in Chile.,participant,participant
+779,In 1921 he founded the Adam Mickiewicz Society for Protection of the Cultural Interests of Poles Resident Abroad together with Antoni Ponikowski and Wojciech Trąmpczyński.,ethnic_group,member_of_political_party
+780,"The cartoon, one of a number of Warner Bros. cartoons set during the American Civil War, is a play on the movie title ""Rebel Without a Cause"".",production_company,production_company
+781,"During the period leading up to Georgian independence in 1991, as tension grew between Georgians and ethnic Abkhaz several nationalist militias were formed, the two most prominent being the group of Georgians National Guard of Georgia led by ex-convict Tengiz Kitovani and the Mkhedrioni led by former thief-in-law Jaba Ioseliani.",ethnic_group,ethnic_group
+782,"According to Spitz, McCartney suggested ""Hello, Goodbye"" as the Beatles' contribution to ""Our World"", an honour that instead went to the John Lennon-composed ""All You Need Is Love"".",composer,composer
+783,"The region's two biggest military powers, Australia and New Zealand, sent troops to fight in the Korean, Vietnam, Gulf and Afghanistan Wars, and Australia also participated in the Iraq War.",participant,participant
+784,This church is one of the 16 traditional Chiloé wooden churches built in the 18th and 19th centuries that were declared as a World Heritage site under Churches of Chiloé's denomination because of their unique form of wooden architecture known as the Chilota School of Religious Architecture on Wood.,material_used,material_used
+785,"""He's Misstra Know-It-All"" is a single by Stevie Wonder for the Tamla (Motown) label, from his ""Innervisions"" album, which reached number 10 on the UK Singles Chart in May 1974.",performer,performer
+786,"David Lytton (21 April 1948 – 11 or 12 December 2015), formerly known as David Keith Lautenberg and after the discovery of his body by the placeholder name Neil Dovestone, was a previously unidentified British man found dead on Saddleworth Moor, in the South Pennines of Northern England on 12 December 2015.",place_of_death,place_of_birth
+787,Phan Thiết () is the capital of Bình Thuận Province on the southeast coast in Vietnam.,capital_of,capital_of
+788,Montsauche-les-Settons is a commune in the Nièvre department in the region of Bourgogne-Franche-Comté in central France.,contains_administrative_territorial_entity,contains_administrative_territorial_entity
+789,"On 5 January 2013, he climbed Mt. Aconcagua in South America at an altitude of 6,962 m.",continent,continent
+790,"The renowned Buddhist monk Xuanzang was in charge of the temple, where he founded the East Asian Yogācāra in the Tang Empire.",founded_by,founded_by
+791,"The Turing machine was invented in 1936 by Alan Turing, who called it an ""a-machine"" (automatic machine).",discoverer_or_inventor,discoverer_or_inventor
+792,"Red vermouths can derive their color from botanicals, added red wine, or sometimes from caramel color.",color,color
+793,"In 1956, Egypt came into conflict with the combined forces of Israel, France, and the United Kingdom resulting in the Suez Crisis.",participant,participant
+794,"Ostbevern borders Ladbergen, Lienen, Glandorf (in Lower Saxony), Warendorf, Telgte and Greven.",shares_border_with,shares_border_with
+795,Liverpool goalkeeper Pepe Reina won the Premier League Golden Glove award for the first time.,league,league
+796,"Murray Gell-Mann who was awarded the 1969 Nobel Prize in Physics and a Mentor at the 2011 summit, is quoted as saying:",award_received,award_received
+797,Star Trek: Lower Decks is an upcoming American adult animated web television series created for CBS All Access by Mike McMahan.,production_company,production_company
+798,"In the issue of ""Billboard"" dated February 24, British singer Ed Sheeran's song ""Perfect"" reached number one, a position it would hold for 22 consecutive weeks.",performer,performer
+799,"This species is present in Africa, Northeast Tropical Africa, Somalia.",continent,continent
+800,"Ascension Island is an island in the South Atlantic Ocean, part of the wider British overseas territory of Saint Helena, Ascension and Tristan da Cunha.",located_in_or_next_to_body_of_water,located_in_or_next_to_body_of_water
+801,"Hugo ""Hurley"" Reyes is a fictional character on the ABC television series ""Lost"", played by Jorge Garcia.",present_in_work,present_in_work
+802,"""Clarín"" was created by Roberto Noble, former minister of the Buenos Aires Province, on 28 August 1945.",founded_by,creator
+803,"PennPraxis is the ""clinical"" arm of the School of Design at the University of Pennsylvania, and is a 501c(3) non-profit subsidiary of the Trustees of the University of Pennsylvania.",parent_organization,parent_organization
+804,Tegegnework Gettu is the United Nations Under-Secretary-General and Associate Administrator of the United Nations Development Programme (UNDP) replacing María Eugenia Casar.,employer,employer
+805,"Pauline Davis-Thompson, Debbie Ferguson, Chandra Sturrup, Savatheda Fynes and Eldece Clarke-Lewis teamed up for the first athletics Olympic Gold medal for the country when they won the 4 × 100 m relay at the 2000 Summer Olympics.",sport,sport
+806,"The woman could also be a woman courted by Juan Luna's brother, Antonio Luna.",sibling,sibling
+807,Ankhesenpepi II was a wife of Pepi I and mother to Pepi II.,child,child
+808,"Glory of Heracles is a 2008 Japanese role-playing video game developed by Paon and published by Nintendo in Japan on May 22, 2008 for the Nintendo DS.",publisher,publisher
+809,Bernd Leno made his Premier League debut as a substitute after Petr Čech came off injured.,league,league
+810,"ASEAN (Association of Southeast Asian Nations) Collection consists of a collection of countries in Southeast Asia, which are the members of ASEAN including Malaysia, Singapore, Indonesia, Thailand, Philippines, Cambodia, Laos, Myanmar, Brunei Darussalam and Vietnam.",member_of,member_of
+811,"The 3D remake ""Clash of the Titans"" (2010) and its sequel ""Wrath of the Titans"" (2012) were released by the property's current rights holder Warner Bros.",production_company,production_company
+812,"Taylor was born in Cartwright Township, Durham County, Canada West, the son of William Taylor.",place_of_birth,place_of_birth
+813,"Robinson joined the cast of ""Lost"" in 2009 during its fifth season, as recurring character Ilana Verdansky, and was promoted to series regular for the sixth season.",present_in_work,present_in_work
+814,The Vertigo Tour was a worldwide concert tour by the Irish rock band U2.,performer,performer
+815,FIFA Street is a sports video game developed by EA Canada and published under the EA Sports BIG label.,genre,publisher
+816,Alex Seidel (4 July 1909 – 24 October 1989) was a German weapons manufacturer and the co-founder of Heckler & Koch along with Theodor Koch and Edmund Heckler.,founded_by,founded_by
+817,"It was announced on November 11, 2003 that Universal Music Group (the former MCA Music Entertainment, and parent of Interscope, Geffen, and Polydor) reached an agreement to acquire DreamWorks Records from DreamWorks SKG for ""about $100 million"".",parent_organization,parent_organization
+818,"Between 1983 and 1987, he was a delegate for Mexico in UNESCO.",member_of,member_of
+819,"Ludwig Scharf (2 February 1864, at Meckenheim (Pfalz), then Kingdom of Bavaria - August 21, 1939, near Kaposvár, then Kingdom of Hungary) was a German lyricist and translator.",place_of_death,place_of_birth
+820,"Charlemagne's daughter Rotrude (died 810) became a nun there, and his sister Gisela became abbess.",father,sibling
+821,"The logo of the orchestra (a lily-pad superscript of ""Amazonas Philharmonic"") was created by Hans Donner, known designer of Rede Globo (a major Brazilian television network).",employer,employer
+822,"""I Found U"" is a single by Swedish DJ Axwell featuring Max'C.",performer,performer
+823,"It stars Sheikh Hasina as herself in the title role, and her younger sister Sheikh Rehana as herself.",sibling,sibling
+824,"This was dramatized in Steven Spielberg's Academy Award-winning movie ""Schindler's List"", where he was played by Rami Heuberger.",director,director
+825,"In February 2016, Boeing announced that Boeing President and CEO Dennis Muilenburg was elected the 10th Chairman of the Board, succeeding James McNerney.",employer,employer
+826,"He teamed up with rock band Linkin Park and produced hit mash-up song ""Numb/Encore"".",performer,performer
+827,"On Friday October 14 Yitzhak Rabin, Shimon Peres, and Yasser Arafat announced that they had won the Nobel Peace Prize.",award_received,award_received
+828,"In Terry Gilliam's ""The Imaginarium of Doctor Parnassus"" (2009), Heath Ledger's character Tony is found hanging under the Blackfriars Bridge, described by Terry Gilliam as ""an homage to Roberto Calvi"".",director,creator
+829,"For instance, in 1948, Joyce King and Shirley Strickland ( both from athletics) were ranked 1st. and 2nd. of all athletes from all the sports that were presented to the AOF.",sport,sport
+830,"The two largest online Vietnamese-language encyclopedias are ""Từ điển bách khoa toàn thư Việt Nam"", a state encyclopedia, and Vietnamese Wikipedia, a project of the Wikimedia Foundation.",owned_by,parent_organization
+831,"He participated in another soap opera for Televisa, ""Sentimientos Ajenos"", in which he played the main character.",production_company,production_company
+832,"In 1905 together with Henryk Sienkiewicz and Leo Tolstoy, Eliza Orzeszkowa was nominated for the Nobel Prize in Literature.",nominated_for,nominated_for
+833,"They named the element polonium, after Marie's native country of Poland.",named_after,named_after
+834,Marcel Proulx was a supporter of Michael Ignatieff during the last leadership campaign of the Liberal Party of Canada.,country_of_citizenship,country_of_citizenship
+835,Tula was awarded the title Hero City in 1976.,winner,winner
+836,Dessau is situated on a floodplain where the Mulde flows into the Elbe.,tributary,tributary
+837,"At this time Moses was born to his father Amram, son (or descendant) of Kehath the Levite, who entered Egypt with Jacob's household; his mother was Jochebed (also Yocheved), who was kin to Kehath.",child,child
+838,"Prince Tomislav of Yugoslavia ( / ""Tomislav Karađorđević""; 19 January 1928 – 12 July 2000) was a member of the House of Karađorđević, the second son of King Alexander I and Queen Maria of Yugoslavia.",mother,mother
+839,"The genus is named for Helen of Troy, daughter of Zeus and Leda.",father,father
+840,"Murmur of the Heart () is a 1971 French film by French director Louis Malle and starring Lea Massari, Benoît Ferreux and Daniel Gélin.",original_language_of_film_or_TV_show,original_language_of_film_or_TV_show
+841,"Vidhyadhari is the daughter of Vijayavarman, the king of Thejavathi.",position_held,position_held
+842,"The flag of the United Arab Emirates () contains the Pan-Arab colors red, green, white, and black.",color,color
+843,"Bangalla is located in East Africa, around the approximate region of Tanzania, Kenya, Uganda and Ethiopia.",continent,continent
+844,The area south of the Molopo River became part of South Africa.,continent,continent
+845,Dive Bomber is a 1941 American aviation film directed by Michael Curtiz and starring Errol Flynn and Fred MacMurray.,director,director
+846,"The channel is owned and operated by WarnerMedia Entertainment Networks EMEA, a division of AT&T's WarnerMedia.",parent_organization,parent_organization
+847,"The name Butterfly was in honor of ""I Never Saw Another Butterfly"", a collection of Jewish children's art and poetry from the Theresienstadt concentration camp.",genre,genre
+848,"Kamyshlovsky District is an administrative district (raion), one of the thirty in Sverdlovsk Oblast, Russia.",contains_administrative_territorial_entity,contains_administrative_territorial_entity
