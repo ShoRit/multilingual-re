@@ -1,0 +1,7 @@
+ArrayTaskID MLM DEP_MODEL MAX_LEN LANG
+1 mbert-base stanza 512 hi
+2 mbert-base trankit 512 hi
+3 mbert-base stanza 512 en
+4 mbert-base trankit 512 en
+5 mbert-base stanza 512 te
+6 mbert-base trankit 512 te

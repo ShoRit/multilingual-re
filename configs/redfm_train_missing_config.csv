@@ -1,0 +1,8 @@
+ArrayTaskID DATASET MLM DEP_MODEL SRC_LANG TGT_LANG DEP SEED GNN_MODEL
+1 redfm xlmr-base stanza it it 0 98105 rgcn
+2 redfm xlmr-base stanza de de 1 15123 rgcn
+3 redfm xlmr-base stanza fr fr 0 15123 rgcn
+4 redfm xlmr-base stanza fr fr 1 98109 rgcn
+5 redfm xlmr-base stanza es es 1 98105 rgcn
+6 redfm xlmr-base stanza es es 1 98109 rgat
+7 redfm xlmr-base trankit en en 1 98109 rgcn

@@ -1,0 +1,3 @@
+ArrayTaskID DATASET MLM DEP_MODEL SRC_LANG TGT_LANG DEP SEED GNN_MODEL TEST_F1
+1 indore xlmr-base stanza en en 0 11737 rgcn 0.67028087177797
+2 indore xlmr-base stanza en en 1 98105 rgcn 0.67028087177797
