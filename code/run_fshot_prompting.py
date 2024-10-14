@@ -48,6 +48,32 @@ def construct_prompt_single_choice(example, labels):
 
     return prompt
 
+def construct_prompt_dependency_choice(example, labels):
+    # Create a comma-separated list of labels
+    # print('example:', example)
+
+    label_list = ", ".join(labels)
+
+    label_text = ""
+
+    for label_idx, label in enumerate(labels):
+        label_text += f"{label_idx}: {label}\n"
+
+    dependency_list = example["dep_graph"]
+    dep_graph = []
+    # (node_dict[n1], rel, node_dict[n2])
+    for dep in dependency_list:
+        dep_graph.append({'head': dep[2], 'rel': dep[1], 'word': dep[0]})
+    
+    # import pdb; pdb.set_trace()
+
+    dep_text = json.dumps(dep_graph)
+    
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parse in the form of head, rel, and word: {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+
+
+    return prompt
+
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
     # Tokenize the prompts with padding and no truncation
     inputs = tokenizer(
@@ -78,10 +104,10 @@ def get_args():
 
     parser.add_argument("--batch_size", 										        type=int, default=16)
     parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
-    parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza')
+    parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza') # None if no dependency parser is used
     parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')
     parser.add_argument('--mode',           help='mode', 	                            type=str, default='zshot')
-
+    
     # default parameters
     
     args                  = parser.parse_args()
@@ -106,12 +132,20 @@ if __name__ =='__main__':
     # labels = [s.replace("_", " ") for s in labels_with_underscore]
     labels = list(relation_data.values())
 
-    # Create the dataset
-    dataset = LabelDatasetSingleChoice(
-        data=split_data,
-        labels=labels,
-        prompt_func=construct_prompt_single_choice
-    )
+    if args.dep_parser == 'None':    
+        # Create the dataset
+        dataset = LabelDatasetSingleChoice(
+            data=split_data,
+            labels=labels,
+            prompt_func=construct_prompt_single_choice
+        )
+    else:
+        # Create the dataset
+        dataset = LabelDatasetSingleChoice(
+            data=split_data,
+            labels=labels,
+            prompt_func=construct_prompt_dependency_choice
+        )
 
     # dataset     = dataset[:10]
 
@@ -161,13 +195,13 @@ if __name__ =='__main__':
             count += 1
             results.append(curr_data)
 
-            # print(f"Prompt : {prompts[ex_id]}")
-            # print(f"True Label : {true_labels[ex_id]}")
-            # print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
-            # print()
+            print(f"Prompt : {prompts[ex_id]}")
+            print(f"True Label : {true_labels[ex_id]}")
+            print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
+            print()
             
         
     print("Generation completed.")
 
-    with open(f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_simple_prompt-{args.split}.json', 'w') as f:
+    with open(f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}.json', 'w') as f:
         json.dump(results, f, indent=4)
