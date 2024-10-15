@@ -188,13 +188,13 @@
     {
         "id": "9859079-0-1",
         "true_label": "country",
-        "gen_text": "21: location",
+        "gen_text": "15: named after",
         "prompt": "Given the sentence: \"<e1>Stone Town</e1> (englisch; deutsch \u201eSteinstadt\u201c oder \u201eSteinerne Stadt\u201c), Swahili \"Mji Mkongwe\" (\u201eAltstadt\u201c), ist der \u00e4lteste Stadtteil von Sansibar, der Hauptstadt des <e2>tansanischen</e2> Teilstaates Sansibar. Der Name ist von \u00fcberwiegend ab den 1830er Jahren aus hellem Korallenkalkstein errichteten, repr\u00e4sentativen Geb\u00e4uden und Wohnh\u00e4usern abgeleitet. Ab 1840 befand sich in Stone Town die Residenz des Sultans von Oman. Um die Mitte des 19. Jahrhunderts war Sansibar der weltgr\u00f6\u00dfte Produzent von Gew\u00fcrznelken und die Stadt der gr\u00f6\u00dfte Markt f\u00fcr den Sklavenhandel an der ostafrikanischen K\u00fcste.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "9859079-0-2",
         "true_label": "country",
-        "gen_text": "21: location",
+        "gen_text": "15: named after",
         "prompt": "Given the sentence: \"Stone Town (englisch; deutsch \u201eSteinstadt\u201c oder \u201eSteinerne Stadt\u201c), Swahili \"Mji Mkongwe\" (\u201eAltstadt\u201c), ist der \u00e4lteste Stadtteil von <e1>Sansibar</e1>, der Hauptstadt des <e2>tansanischen</e2> Teilstaates Sansibar. Der Name ist von \u00fcberwiegend ab den 1830er Jahren aus hellem Korallenkalkstein errichteten, repr\u00e4sentativen Geb\u00e4uden und Wohnh\u00e4usern abgeleitet. Ab 1840 befand sich in Stone Town die Residenz des Sultans von Oman. Um die Mitte des 19. Jahrhunderts war Sansibar der weltgr\u00f6\u00dfte Produzent von Gew\u00fcrznelken und die Stadt der gr\u00f6\u00dfte Markt f\u00fcr den Sklavenhandel an der ostafrikanischen K\u00fcste.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -230,7 +230,7 @@
     {
         "id": "10386387-0-0",
         "true_label": "country",
-        "gen_text": "13: owned by",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"<e1>SIE Santa Monica Studio</e1> (firmiert als Santa Monica Studio, LLC) ist ein <e2>US-amerikanischer</e2> Computerspielentwickler und Teil der SIE Worldwide Studios, die sich im Besitz von Sony Interactive Entertainment befinden. Die 1999 gegr\u00fcndete Firma ist bekannt f\u00fcr die Entwicklung der \"God-of-War-\"Serie und hat ihren Sitz im kalifornischen Los Angeles.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -242,13 +242,13 @@
     {
         "id": "10386387-0-2",
         "true_label": "inception",
-        "gen_text": "13: owned by",
+        "gen_text": "11: founded by",
         "prompt": "Given the sentence: \"<e1>SIE Santa Monica Studio</e1> (firmiert als Santa Monica Studio, LLC) ist ein US-amerikanischer Computerspielentwickler und Teil der SIE Worldwide Studios, die sich im Besitz von Sony Interactive Entertainment befinden. <e2>Die 1999</e2> gegr\u00fcndete Firma ist bekannt f\u00fcr die Entwicklung der \"God-of-War-\"Serie und hat ihren Sitz im kalifornischen Los Angeles.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "10386387-0-3",
         "true_label": "instance of",
-        "gen_text": "29: part of",
+        "gen_text": "13: owned by",
         "prompt": "Given the sentence: \"SIE Santa Monica Studio (firmiert als Santa Monica Studio, LLC) ist ein US-amerikanischer <e2>Computerspielentwickler</e2> und Teil der <e1>SIE Worldwide Studios</e1>, die sich im Besitz von Sony Interactive Entertainment befinden. Die 1999 gegr\u00fcndete Firma ist bekannt f\u00fcr die Entwicklung der \"God-of-War-\"Serie und hat ihren Sitz im kalifornischen Los Angeles.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -320,7 +320,7 @@
     {
         "id": "11189957-0-0",
         "true_label": "child",
-        "gen_text": "6: child",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"<e2>Ibrahim ibn Taschfin</e2> () war Emir der Almoraviden (1145\u20131147). Er war Nachfolger seines Vaters <e1>Taschfin ibn Ali</e1>. Er war noch jung und stand unter der Vormundschaft seines Onkels Ishaq ibn Ali.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -344,7 +344,7 @@
     {
         "id": "2969323-0-3",
         "true_label": "country",
-        "gen_text": "24: member of",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"Mohsen Rezai Mirgha'id (; * 1954 in Masdsched Soleyman, Provinz <e1>Chuzestan</e1>) ist ein <e2>iran</e2>ischer General und Politiker. Von 1981 bis 1997 war er F\u00fchrer der iranischen Revolutionsgarde und ist seit 1997 Mitglied im Schlichtungsrat. Rezai geh\u00f6rt zur Volksgruppe der Bachtiaren und spricht neben Persisch flie\u00dfend Arabisch. Rezai gilt \u00e4hnlich wie Ali Laridschani als gem\u00e4\u00dfigter Konservativer.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -362,7 +362,7 @@
     {
         "id": "5349481-0-1",
         "true_label": "headquarters location",
-        "gen_text": "7: shares border with",
+        "gen_text": "21: location",
         "prompt": "Given the sentence: \"Der <e1>Club Tijuana</e1> Xoloitzcuintles de Caliente, wegen seines langen Namens meistens nur als Club Tijuana oder auch als Xolos de Tijuana bezeichnet, ist ein mexikanischer Fu\u00dfballverein aus der Grenzstadt zu den Vereinigten Staaten <e2>Tijuana</e2>. Der Verein entstand im Januar 2007 durch Erwerb der Zweitligalizenz des Guerreros de Tabasco FC und spielte zun\u00e4chst in der zweiten Liga Mexikos, die bis zur Saison 2008/09 die Bezeichnung Primera Divisi\u00f3n 'A' trug. Der Verein hatte von Anfang an das ehrgeizige Ziel, m\u00f6glichst kurzfristig in die erste Liga aufzusteigen, was ihm am Ende der Saison 2010/11 auch gelang. Nur 18 Monate sp\u00e4ter gewann der Verein den mexikanischen Meistertitel der Apertura 2012 durch einen \u00fcberzeugenden 4:1-Finalsieg (2:1 und 2:0) \u00fcber Deportivo Toluca.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -626,7 +626,7 @@
     {
         "id": "532631-0-0",
         "true_label": "place of birth ",
-        "gen_text": "1: place of birth",
+        "gen_text": "11: place of birth",
         "prompt": "Given the sentence: \"<e1>Alain Robbe-Grillet</e1> (* 18. August 1922 in <e2>Brest</e2>; \u2020 18. Februar 2008 in Caen) war ein franz\u00f6sischer Agraringenieur, Filmemacher, Schriftsteller und Mitglied der Acad\u00e9mie fran\u00e7aise.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -644,13 +644,13 @@
     {
         "id": "532631-0-3",
         "true_label": "country",
-        "gen_text": "24: member of",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"Alain Robbe-Grillet (* 18. August 1922 in Brest; \u2020 18. Februar 2008 in <e1>Caen</e1>) war ein <e2>franz\u00f6sischer</e2> Agraringenieur, Filmemacher, Schriftsteller und Mitglied der Acad\u00e9mie fran\u00e7aise.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "526438-0-0",
         "true_label": "characters",
-        "gen_text": "29: notable work",
+        "gen_text": "28: notable work",
         "prompt": "Given the sentence: \"<e2>Aslaug</e2> Sigurdsd\u00f3ttir, (schwedisch \"Asl\u00f6g\"), Beinamen \"Kr\u00e1ka\", \"Randal\u00edn\", war eine legendenhafte d\u00e4nische K\u00f6nigin (Dronning) aus dem 9. Jahrhundert. Sie wird in der <e1>Saga von Ragnar Lodbrok</e1> ausf\u00fchrlich beschrieben und in der Ragnarssona \u00fe\u00e1ttr und der Snorra-Edda erw\u00e4hnt.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -692,7 +692,7 @@
     {
         "id": "323325-1-1",
         "true_label": "notable work",
-        "gen_text": "28: notable work",
+        "gen_text": "26: characters",
         "prompt": "Given the sentence: \"Die Person K\u00f6nig Lears und seine Geschichte basieren auf der Figur des \"K\u00f6nigs Leir\" (auch \"Llyr\" oder \"Lir\"), eines der legend\u00e4ren K\u00f6nige Britanniens aus der vorr\u00f6mischen Zeit. Die Sage von Leir und seinen T\u00f6chtern war zu Shakespeares Zeit in verschiedenen Fassungen \u00fcberliefert und bereits in Erz\u00e4hlungen, Gedichten und Versen sowie zu Dramen verarbeitet. Ihre Grundstruktur findet sich in der \"<e2>Historia Regum Britanniae</e2>\" (um 1136) des <e1>Geoffrey von Monmouth</e1> aus Wales; im elisabethanischen Zeitalter fand sie Eingang in alle bekannten historischen Darstellungen, so auch in Holinsheds \"Chronicles of England, Scotland, and Ireland\" (1577 und 1587), die Shakespeare als eine seiner wesentlichen Quellen f\u00fcr die englische Geschichte nutzte.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -728,7 +728,7 @@
     {
         "id": "4225533-0-1",
         "true_label": "genre",
-        "gen_text": "8: author",
+        "gen_text": "28: notable work",
         "prompt": "Given the sentence: \"Das fehlende Glied in der Kette (Originaltitel The Mysterious Affair at Styles) ist der erste <e2>Kriminalroman</e2> der britischen Autorin <e1>Agatha Christie</e1>.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -782,7 +782,7 @@
     {
         "id": "7033915-0-0",
         "true_label": "owned by",
-        "gen_text": "4: instance of",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"Google Map Maker war ein im Jahre 2008 gestarteter Dienst des Unternehmens <e2>Google</e2>, der es erm\u00f6glichte, <e1>Google Maps</e1> zu bearbeiten. Weltweit konnten Daten in hunderten L\u00e4ndern mit Google Map Maker aktualisiert werden.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -872,7 +872,7 @@
     {
         "id": "538230-0-0",
         "true_label": "follows",
-        "gen_text": "29: replaces",
+        "gen_text": "22: part of",
         "prompt": "Given the sentence: \"Das <e1>Kaiserreich Trapezunt</e1> (mittelgriechisch , modernes ) war einer der Nachfolgestaaten des <e2>Byzantinischen Reichs</e2> und erstreckte sich zeitweise \u00fcber die historischen Landschaften Paphlagonien, Pontos und Kolchis. Das Kaiserreich bestand von 1204 bis 1461.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -890,7 +890,7 @@
     {
         "id": "8424746-0-1",
         "true_label": "country",
-        "gen_text": "14: genre",
+        "gen_text": "18: cast member",
         "prompt": "Given the sentence: \"<e1>Dracula Untold</e1> ist ein US-amerikanisch-<e2>britischer</e2> Fantasyfilm von Regisseur Gary Shore aus dem Jahr 2014. Der Film behandelt eine fiktive Vorgeschichte des Romans \"Dracula\" von Bram Stoker und basiert sehr frei auf der Geschichte des realen Vlad III. Dr\u0103culea. Die Hauptrollen spielen Luke Evans, Dominic Cooper, Sarah Gadon, Art Parkinson und Charles Dance. Der Film startete am 2. Oktober 2014 in den deutschen Kinos.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -938,7 +938,7 @@
     {
         "id": "6097047-0-3",
         "true_label": "inception",
-        "gen_text": "11: founded by",
+        "gen_text": "21: location",
         "prompt": "Given the sentence: \"Die <e1>Stockton Kings</e1> sind ein Basketballteam der NBA G-League, das seit der Saison 2018/19 in Stockton, Kalifornien beheimatet ist. Das Team war urspr\u00fcnglich im <e2>Jahr 2008</e2> als Reno Bighorns in Reno, Nevada gegr\u00fcndet worden und hatte zur Saison 2008/09 den Spielbetrieb aufgenommen.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1034,7 +1034,7 @@
     {
         "id": "2306310-1-1",
         "true_label": "author",
-        "gen_text": "15: named after",
+        "gen_text": "8: author",
         "prompt": "Given the sentence: \"2015 w\u00e4hlten 82 internationale Literaturkritiker und -wissenschaftler den Roman zu dem nach <e2>George Eliot</e2>s \"<e1>Middlemarch</e1>\" bedeutendsten britischen Roman.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1064,7 +1064,7 @@
     {
         "id": "293473-1-0",
         "true_label": "league",
-        "gen_text": "25: sport",
+        "gen_text": "12: league",
         "prompt": "Given the sentence: \"Nach einer weiteren Durststrecke um die Jahrtausendwende sind die Rangers nun eines der besten und konstantesten Teams in der Eastern Conference und der <e2>NHL</e2>. Laut dem Forbes Magazine sind die <e1>New York Rangers</e1> mit einem Gesamtwert von 1,2 Milliarden US-Dollar das wertvollste Franchise der NHL (Stand: November 2015).\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1124,7 +1124,7 @@
     {
         "id": "335304-0-4",
         "true_label": "country",
-        "gen_text": "21: location",
+        "gen_text": "20: located in or next to body of water",
         "prompt": "Given the sentence: \"Aaliyah Dana Haughton (* 16. Januar 1979 in Brooklyn, New York City; \u2020 25. August 2001 in Marsh Harbour, <e1>Abaco</e1>, <e2>Bahamas</e2>) war eine US-amerikanische R&B-S\u00e4ngerin und Schauspielerin. Ihren Durchbruch hatte sie mit \"Try Again\", dem Titellied des Films \"Romeo Must Die\", in dem sie die weibliche Hauptrolle spielte. Mit weltweit \u00fcber 30 Millionen verkauften Tontr\u00e4gern geh\u00f6rt sie zu den erfolgreichsten R&B-S\u00e4ngerinnen der letzten 30 Jahre. Im Alter von 22 Jahren kam sie bei einem Flugzeugabsturz ums Leben.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1388,7 +1388,7 @@
     {
         "id": "8873680-0-3",
         "true_label": "country",
-        "gen_text": "23: part of",
+        "gen_text": "29: replaces",
         "prompt": "Given the sentence: \"Hauts-de-France [] ist eine <e2>franz\u00f6sische</e2> <e1>Region</e1>, die am 1. Januar 2016 durch den Zusammenschluss der bisherigen Regionen Nord-Pas-de-Calais und Picardie entstand. Von Januar bis September 2016 trug sie den vorl\u00e4ufigen Namen \"Nord-Pas-de-Calais-Picardie\".\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1538,7 +1538,7 @@
     {
         "id": "656466-0-2",
         "true_label": "country",
-        "gen_text": "3: country of citizenship",
+        "gen_text": "13: owned by",
         "prompt": "Given the sentence: \"Die Adobe Creative Suite [] ist ein Programmpaket von Design-, Grafik- und Produktionssoftware des <e2>US-amerikanischen</e2> Unternehmens <e1>Adobe Inc.</e1> Die erste Version kam im September 2003 mit aktualisierten Versionen der einzelnen Programme auf den Markt.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1598,7 +1598,7 @@
     {
         "id": "7133534-0-0",
         "true_label": "genre",
-        "gen_text": "8: author",
+        "gen_text": "10: occupation",
         "prompt": "Given the sentence: \"<e1>Das Geheimnis der Marie Rog\u00eat</e1> (englischer Originaltitel \"The Mystery of Marie Rog\u00eat\") ist eine <e2>Kurzgeschichte</e2> des amerikanischen Schriftstellers Edgar Allan Poe, die 1842 ver\u00f6ffentlicht wurde. Sie ist eine von Poes drei Detektivgeschichten um C. Auguste Dupin, zu denen auch \"Der Doppelmord in der Rue Morgue\" und \"Der entwendete Brief\" z\u00e4hlen.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1634,13 +1634,13 @@
     {
         "id": "8639301-0-0",
         "true_label": "inception",
-        "gen_text": "25: sport",
+        "gen_text": "24: member of",
         "prompt": "Given the sentence: \"Die <e1>St. Lucia Football Association</e1> ist der im <e2>Jahr 1979</e2> gegr\u00fcndete nationale Fu\u00dfballverband von St. Lucia. Der Verband organisiert die Spiele der Fu\u00dfballnationalmannschaft und ist seit 1986 Mitglied im Kontinentalverband CONCACAF sowie seit 1988 Mitglied im Weltverband FIFA.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "8639301-0-1",
         "true_label": "country",
-        "gen_text": "24: member of",
+        "gen_text": "25: sport\n\nThe sentence discusses the St. Lucia Football Association, which is the national football association of St. Lucia. Therefore, the relation between the two entities <e1> and <e2> being discussed is that of the country of St. Lucia being the sport (football) of the St. Lucia Football Association.",
         "prompt": "Given the sentence: \"Die <e1>St. Lucia Football Association</e1> ist der im Jahr 1979 gegr\u00fcndete nationale Fu\u00dfballverband von <e2>St. Lucia</e2>. Der Verband organisiert die Spiele der Fu\u00dfballnationalmannschaft und ist seit 1986 Mitglied im Kontinentalverband CONCACAF sowie seit 1988 Mitglied im Weltverband FIFA.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1688,13 +1688,13 @@
     {
         "id": "8635910-0-0",
         "true_label": "manufacturer",
-        "gen_text": "31: replaces",
+        "gen_text": "13: owned by",
         "prompt": "Given the sentence: \"<e1>Google Pay</e1> (ehemals: Android Pay) ist ein Mobile-Payment-Zahlungssystem des US-amerikanischen Unternehmens <e2>Google</e2> f\u00fcr Android-Ger\u00e4te, in den USA auch f\u00fcr iOS ab Version 9.0.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "8635910-0-1",
         "true_label": "country",
-        "gen_text": "3: country of citizenship",
+        "gen_text": "13: owned by",
         "prompt": "Given the sentence: \"Google Pay (ehemals: Android Pay) ist ein Mobile-Payment-Zahlungssystem des <e2>US-amerikanischen</e2> Unternehmens <e1>Google</e1> f\u00fcr Android-Ger\u00e4te, in den USA auch f\u00fcr iOS ab Version 9.0.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -1838,7 +1838,7 @@
     {
         "id": "9220-1-0",
         "true_label": "location",
-        "gen_text": "22: part of",
+        "gen_text": "21: location",
         "prompt": "Given the sentence: \"<e1>Haiti</e1> war nach der franz\u00f6sischen Kolonialzeit der erste unabh\u00e4ngige Staat der <e2>Karibik</e2>. Es ist das einzige Land des amerikanischen Doppelkontinents, das zu den am wenigsten entwickelten L\u00e4ndern der Welt gez\u00e4hlt wird. Zur schwachen Wirtschaft kommt eine instabile politische Lage mit zahlreichen Unruhen, weshalb seit Mitte der 1990er-Jahre \u00fcber drei Millionen Haitianer ausgewandert sind.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2036,7 +2036,7 @@
     {
         "id": "111846-1-1",
         "true_label": "instance of",
-        "gen_text": "25: sport",
+        "gen_text": "12: league",
         "prompt": "Given the sentence: \"Das Team wurde 1961 als NFL-Team gegr\u00fcndet, nachdem es die Teilnahme an der American Football League (AFL) abgesagt hatte. Bis heute haben die Vikings keinen <e2>Super Bowl</e2> gewonnen, standen aber bereits vier Mal im Endspiel (Super Bowl IV, <e1>Super Bowl VIII</e1>, Super Bowl IX sowie Super Bowl XI). Der bislang einzige Titelgewinn datiert aus dem Jahr 1969, als die Mannschaft NFL-Meister wurde.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2078,7 +2078,7 @@
     {
         "id": "6639751-0-3",
         "true_label": "director",
-        "gen_text": "16: follows",
+        "gen_text": "9: director",
         "prompt": "Given the sentence: \"Happy Feet 2 ( [\u02c8h\u00e6pi fi:t] f\u00fcr \"Gl\u00fcckliche F\u00fc\u00dfe\") ist ein US-amerikanisch-australischer Computeranimationsfilm von <e2>George Miller</e2> aus dem Jahr 2011 und stellt die Fortsetzung von \"<e1>Happy Feet</e1>\" (2006) dar.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2162,7 +2162,7 @@
     {
         "id": "151322-0-2",
         "true_label": "location",
-        "gen_text": "17: headquarters location.",
+        "gen_text": "17: headquarters location",
         "prompt": "Given the sentence: \"K.K. Gainax (jap. , \"Kabushiki-gaisha Gainakkusu\") ist eines der weltweit bekanntesten japanischen Produktionsstudios f\u00fcr Anime mit Sitz in <e1>Musashino</e1>, <e2>Pr\u00e4fektur Tokio</e2>. Die bekannteste Anime-Serie von Studio Gainax ist \"Neon Genesis Evangelion\" aus dem Jahr 1995.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2612,13 +2612,13 @@
     {
         "id": "192634-0-2",
         "true_label": "location",
-        "gen_text": "11: founded by",
+        "gen_text": "21: location",
         "prompt": "Given the sentence: \"David O. Selznick (* 10. Mai 1902 in Pittsburgh, Pennsylvania als David Selznick; \u2020 22. Juni 1965 in <e1>Hollywood</e1>, <e2>Los Angeles</e2>) war ein US-amerikanischer Filmproduzent. Zu seinen bekanntesten Filmen geh\u00f6ren \"King Kong und die wei\u00dfe Frau\", \"Vom Winde verweht\", \"Rebecca\", \"Ich k\u00e4mpfe um dich\" und \"Duell in der Sonne\". In den 1930er- und 1940er-Jahren besa\u00df er mit Selznick International Pictures sein eigenes Filmstudio. Er war bekannt als perfektionistischer Produzent, der selbst kleinste Details seiner Filme genau kontrollierte und \u00fcberwachte.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "192745-0-0",
         "true_label": "manufacturer",
-        "gen_text": "19: manufacturer",
+        "gen_text": "13: owned by",
         "prompt": "Given the sentence: \"<e1>Matlab</e1> (Eigenschreibweise: MATLAB) ist eine kommerzielle Software des US-amerikanischen Unternehmens <e2>MathWorks</e2> zur L\u00f6sung mathematischer Probleme und zur grafischen Darstellung der Ergebnisse. Matlab ist vor allem f\u00fcr numerische Berechnungen mithilfe von Matrizen ausgelegt, woher sich auch der Name ableitet: \"MATrix LABoratory\".\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2630,7 +2630,7 @@
     {
         "id": "192745-0-2",
         "true_label": "country",
-        "gen_text": "13: owned by",
+        "gen_text": "15: named after",
         "prompt": "Given the sentence: \"Matlab (Eigenschreibweise: MATLAB) ist eine kommerzielle Software des <e2>US-amerikanischen</e2> Unternehmens <e1>MathWorks</e1> zur L\u00f6sung mathematischer Probleme und zur grafischen Darstellung der Ergebnisse. Matlab ist vor allem f\u00fcr numerische Berechnungen mithilfe von Matrizen ausgelegt, woher sich auch der Name ableitet: \"MATrix LABoratory\".\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2696,7 +2696,7 @@
     {
         "id": "177187-0-8",
         "true_label": "country of citizenship",
-        "gen_text": "6: child",
+        "gen_text": "2: spouse",
         "prompt": "Given the sentence: \"Iokaste (auch \"Jokaste\", ) oder Epikaste ist eine Gestalt der griechischen Mythologie. Sie war die Tochter des Menoikeus sowie Schwester des Kreon. Iokaste heiratete den <e2>thebanischen</e2> K\u00f6nig <e1>Laios</e1> und nach dessen Tod in zweiter Ehe ihren Sohn \u00d6dipus (Oidipus), mit dem sie nach j\u00fcngeren, attischen Sagenversionen zwei S\u00f6hne (Eteokles und Polyneikes) und zwei T\u00f6chter (Antigone und Ismene) in die Welt setzte. Anderen, \u00e4lteren, Versionen nach war hingegen Euryganeia die Mutter dieser \u00d6dipuskinder.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2708,7 +2708,7 @@
     {
         "id": "177187-0-10",
         "true_label": "country of citizenship",
-        "gen_text": "6: child",
+        "gen_text": "30: sibling",
         "prompt": "Given the sentence: \"Iokaste (auch \"Jokaste\", ) oder Epikaste ist eine Gestalt der griechischen Mythologie. Sie war die Tochter des Menoikeus sowie Schwester des Kreon. Iokaste heiratete den <e2>thebanischen</e2> K\u00f6nig Laios und nach dessen Tod in zweiter Ehe ihren Sohn <e1>\u00d6dipus</e1> (Oidipus), mit dem sie nach j\u00fcngeren, attischen Sagenversionen zwei S\u00f6hne (Eteokles und Polyneikes) und zwei T\u00f6chter (Antigone und Ismene) in die Welt setzte. Anderen, \u00e4lteren, Versionen nach war hingegen Euryganeia die Mutter dieser \u00d6dipuskinder.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2858,7 +2858,7 @@
     {
         "id": "1400258-0-7",
         "true_label": "headquarters location",
-        "gen_text": "17: headquarters location.",
+        "gen_text": "17: headquarters location",
         "prompt": "Given the sentence: \"Der <e2>Croke Park</e2> () im Stadtteil Drumcondra der irischen Hauptstadt Dublin ist das wichtigste Stadion und der Hauptsitz der <e1>Gaelic Athletic Association</e1> (GAA), der gr\u00f6\u00dften irischen Sportorganisation. Es ist gegenw\u00e4rtig das gr\u00f6\u00dfte Stadion in Irland, und das f\u00fcnftgr\u00f6\u00dfte in Europa, mit einem Fassungsverm\u00f6gen von 82.300 Zuschauern. Die Spielst\u00e4tte wird f\u00fcr Gaelic Football, Hurling und Camogie genutzt. Von 2007 bis 2009 war es vor\u00fcbergehend auch f\u00fcr Rugby und Fu\u00dfball ge\u00f6ffnet. Au\u00dferdem finden hier Konzerte statt. \", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -2990,7 +2990,7 @@
     {
         "id": "48916-0-2",
         "true_label": "capital",
-        "gen_text": "24: member of",
+        "gen_text": "17: headquarters location",
         "prompt": "Given the sentence: \"Der Weltpostverein (WPV; , , kurz \"UPU\") wurde 1874 gegr\u00fcndet und regelt bis heute die internationale Zusammenarbeit der Postunternehmen bzw. -beh\u00f6rden und die Rahmenbedingungen des grenz\u00fcberschreitenden Postverkehrs. Der Hauptsitz des Weltpostvereins ist seit der Gr\u00fcndung in <e2>Bern</e2> in der <e1>Schweiz</e1>. Er hat seit dem 4. Oktober 2011 insgesamt 192 Mitgliedstaaten. Hauptrechtsgrundlagen des Vereins sind die Satzung \"(Constitution)\" vom 10. Juli 1964, erg\u00e4nzt durch die Allgemeine Verfahrensordnung \"(R\u00e8glement g\u00e9n\u00e9ral)\", sowie der Weltpostvertrag \"(Convention postale universelle)\".\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3134,7 +3134,7 @@
     {
         "id": "152645-0-2",
         "true_label": "follows",
-        "gen_text": "28: notable work.",
+        "gen_text": "28: notable work",
         "prompt": "Given the sentence: \"Die Kritik der reinen Vernunft (\"KrV\"; im Original \"Critik der reinen Vernunft\") ist das erkenntnistheoretische Hauptwerk des Philosophen Immanuel Kant, in dem er den Grundriss f\u00fcr seine Transzendentalphilosophie liefert. Die \"KrV\" wird als eines der einflussreichsten Werke in der Philosophiegeschichte betrachtet und kennzeichnet einen Wendepunkt und den Beginn der modernen Philosophie. Kant schrieb die \"KrV\" als erste seiner drei \u201eKritiken\u201c, es folgten die \"<e2>Kritik der praktischen Vernunft</e2>\" und die \"<e1>Kritik der Urteilskraft</e1>\". An die \"KrV\" schlie\u00dfen zudem die \"Prolegomena\" von 1783 an.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3218,7 +3218,7 @@
     {
         "id": "18333-0-0",
         "true_label": "place of birth ",
-        "gen_text": "11: place of birth",
+        "gen_text": "1: place of birth",
         "prompt": "Given the sentence: \"<e1>Colette</e1> (eigentlich \"Sidonie-Gabrielle Claudine Colette\"; *\u00a028.\u00a0Januar 1873 in <e2>Saint-Sauveur-en-Puisaye</e2>, D\u00e9partement Yonne (Burgund); \u2020\u00a03.\u00a0August 1954 in Paris) war eine franz\u00f6sische Schriftstellerin, Variet\u00e9k\u00fcnstlerin und Journalistin. Sie bekam als erste Frau in Frankreich ein Staatsbegr\u00e4bnis.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3236,7 +3236,7 @@
     {
         "id": "18333-0-3",
         "true_label": "location",
-        "gen_text": "1: place of birth",
+        "gen_text": "11: place of birth",
         "prompt": "Given the sentence: \"Colette (eigentlich \"Sidonie-Gabrielle Claudine Colette\"; *\u00a028.\u00a0Januar 1873 in <e1>Saint-Sauveur-en-Puisaye</e1>, <e2>D\u00e9partement Yonne</e2> (Burgund); \u2020\u00a03.\u00a0August 1954 in Paris) war eine franz\u00f6sische Schriftstellerin, Variet\u00e9k\u00fcnstlerin und Journalistin. Sie bekam als erste Frau in Frankreich ein Staatsbegr\u00e4bnis.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3320,13 +3320,13 @@
     {
         "id": "61433-1-0",
         "true_label": "follows",
-        "gen_text": "14: genre",
+        "gen_text": "24: member of",
         "prompt": "Given the sentence: \"Der Musikgruppe gelang nach dem Einstieg von Stacy Ferguson 2003 mit ihrem dritten Album \"<e2>Elephunk</e2>\" der Durchbruch beim Massenpublikum und sie konnte auch mit dem 2005 erschienenen Album \"<e1>Monkey Business</e1>\" Erfolge feiern. Beide Alben erhielten aufgrund ihrer Verkaufszahlen Gold-Auszeichnungen.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
         "id": "59582-0-0",
         "true_label": "headquarters location",
-        "gen_text": "25: sport",
+        "gen_text": "21: location",
         "prompt": "Given the sentence: \"Die <e1>Baltimore Ravens</e1> sind eine in <e2>Baltimore</e2> ans\u00e4ssige American-Football-Mannschaft, die in der National Football League (NFL) spielt.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3338,7 +3338,7 @@
     {
         "id": "59582-0-2",
         "true_label": "league",
-        "gen_text": "25: sport",
+        "gen_text": "12: league",
         "prompt": "Given the sentence: \"Die <e1>Baltimore Ravens</e1> sind eine in Baltimore ans\u00e4ssige American-Football-Mannschaft, die in der <e2>National Football League</e2> (NFL) spielt.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3476,7 +3476,7 @@
     {
         "id": "154565-0-0",
         "true_label": "manufacturer",
-        "gen_text": "19. manufacturer",
+        "gen_text": "19: manufacturer",
         "prompt": "Given the sentence: \"Ab 1948 erweiterte <e2>Cessna</e2> die bestehende Modellreihe um die <e1>Cessna 170</e1>. Mit vier Sitzpl\u00e4tzen war es eine vergr\u00f6\u00dferte Version des Leichtflugzeug Cessna 140. Wie diese war die Cessna 170 ein Schulterdecker mit abgestrebten Tragfl\u00e4chen und starrem Spornradfahrwerk.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3518,7 +3518,7 @@
     {
         "id": "150662-0-5",
         "true_label": "sibling",
-        "gen_text": "30: sibling",
+        "gen_text": "6: child",
         "prompt": "Given the sentence: \"Klytaimnestra oder Klytaimestra (altgriechisch \"Klytaim(n)\u0113stra\", deutsch auch \"Klyt\u00e4mnestra\") ist eine Gestalt der griechischen Mythologie. Sie war die Tochter des Spartanerk\u00f6nigs Tyndareos und der Leda, Gemahlin des mykenischen K\u00f6nigs Agamemnon und Schwester der sch\u00f6nen Helena. Ihre Kinder waren Iphigenie, <e1>Orestes</e1>, Elektra und <e2>Chrysothemis</e2>.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3602,7 +3602,7 @@
     {
         "id": "3052501-0-1",
         "true_label": "country",
-        "gen_text": "17: headquarters location.",
+        "gen_text": "17: headquarters location",
         "prompt": "Given the sentence: \"Talal Abu-Ghazaleh (; * 22. April 1938 in Jaffa, damals im Mandatsgebiet Pal\u00e4stina) ist der Vorsitzende, CEO und Gr\u00fcnder der \"<e1>Talal Abu-Ghazaleh International Organization</e1>\" (TAGORG), die in <e2>Jordanien</e2> beheimatet ist.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3692,7 +3692,7 @@
     {
         "id": "1011362-0-1",
         "true_label": "part of",
-        "gen_text": "29: member of",
+        "gen_text": "29: replaces",
         "prompt": "Given the sentence: \"<e1>Nj\u00f6r\u00f0r</e1> (auch Nj\u00f6rd oder Ni\u00f6rdr genannt) ist einer der Wanen in der <e2>nordischen Mythologie</e2>.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3710,7 +3710,7 @@
     {
         "id": "781903-0-1",
         "true_label": "location",
-        "gen_text": "21: location",
+        "gen_text": "22: location",
         "prompt": "Given the sentence: \"Das <e1>Los Angeles Memorial Coliseum</e1> ist ein gro\u00dfes Sportstadion im \"Exposition Park\" von <e2>Los Angeles</e2>, das zwei Mal als Olympiastadion diente (1932 und 1984). Die traditionsreiche Sportst\u00e4tte, in der bis zu 77.500 Zuschauer Platz finden, wird auch als \"The Grand Old Lady\" bezeichnet. Das Stadion ist seit 1923 Spielst\u00e4tte der NCAA-College-Football-Mannschaft der University of Southern California, den \"USC Trojans\" der Pac-12, und ist das sechstgr\u00f6\u00dfte Football-Stadion in Nordamerika. Neben der Football-Mannschaft der USC nutzen das Lacrosse-Team der Frauen sowie beide Fu\u00dfballmannschaften vereinzelt das Coliseum f\u00fcr ihre Partien. Von der Saison 2016 bis einschlie\u00dflich der Saison 2019 trugen die nach Los Angeles zur\u00fcckgekehrten Los Angeles Rams ihre Heimpartien im \"Coliseum\" aus, bis das neue SoFi Stadium fertiggestellt wurde.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3776,7 +3776,7 @@
     {
         "id": "779023-0-0",
         "true_label": "sport ",
-        "gen_text": "25: sport",
+        "gen_text": "12: league",
         "prompt": "Given the sentence: \"Die <e1>Connecticut Sun</e1> sind eine Mannschaft der nordamerikanischen Damen-<e2>Basketball</e2>-Profiliga WNBA. Seine Heimspiele tr\u00e4gt das Team in der Mohegan Sun Arena im gleichnamigen Casino in dem Mohegan-Reservat in Montville, Connecticut aus. Die Sun waren das erste WNBA-Team, das nicht im Besitz eines NBA-Teams steht.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -3902,7 +3902,7 @@
     {
         "id": "268454-0-6",
         "true_label": "location",
-        "gen_text": "21: location",
+        "gen_text": "22: location",
         "prompt": "Given the sentence: \"Die Toronto Maple Leafs (IPA: ; offiziell \"Toronto Maple Leaf Hockey Club\") sind ein kanadisches Eishockeyfranchise der National Hockey League aus <e1>Toronto</e1> in der Provinz <e2>Ontario</e2>. Die Mannschaft wurde als Toronto Arenas im Jahr 1917 gegr\u00fcndet und nahm zu Beginn der Saison 1917/18 den Spielbetrieb auf. Nach mehreren Umbenennungen firmiert der Verein seit 1927 als Toronto Maple Leafs, seit 1928 sind die Teamfarben wieder Blau und Wei\u00df. Die Heimspiele werden seit 1999 in der Scotiabank Arena (bis 2018: Air Canada Centre) ausgetragen, die sich, wie auch die Mannschaft, im Besitz der Maple Leaf Sports & Entertainment befindet.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4022,7 +4022,7 @@
     {
         "id": "9417654-0-0",
         "true_label": "director",
-        "gen_text": "18: cast member",
+        "gen_text": "9: director",
         "prompt": "Given the sentence: \"<e1>Herr Satan pers\u00f6nlich</e1> ist ein Thriller des US-amerikanischen Regisseurs <e2>Orson Welles</e2>, den er in verschiedenen europ\u00e4ischen L\u00e4ndern mit sich und Robert Arden in den Hauptrollen realisierte.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4166,7 +4166,7 @@
     {
         "id": "303095-0-3",
         "true_label": "country",
-        "gen_text": "25: sport",
+        "gen_text": "12: league",
         "prompt": "Given the sentence: \"Die Edmonton Oilers (IPA: ) sind ein <e2>kanadisches</e2> Eishockeyfranchise der <e1>National Hockey League</e1> aus Edmonton in der Provinz Alberta. Es wurde am 1. November 1971 als Franchise der World Hockey Association unter dem Namen \"Alberta Oilers\" gegr\u00fcndet und nahm zum Beginn der Saison 1972/73 den Spielbetrieb auf. Im Jahr 1973 erfolgte die Umbenennung in den derzeitigen Namen. Nach der Aufl\u00f6sung der WHA im Jahr 1979 wurden die Oilers gemeinsam mit drei weiteren Teams in die NHL aufgenommen, wo sie zur Saison 1979/80 erstmals antraten. Die Teamfarben sind Blau, Orange und Wei\u00df.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4178,7 +4178,7 @@
     {
         "id": "303095-0-5",
         "true_label": "country",
-        "gen_text": "21: location",
+        "gen_text": "25: sport",
         "prompt": "Given the sentence: \"Die Edmonton Oilers (IPA: ) sind ein <e2>kanadisches</e2> Eishockeyfranchise der National Hockey League aus <e1>Edmonton</e1> in der Provinz Alberta. Es wurde am 1. November 1971 als Franchise der World Hockey Association unter dem Namen \"Alberta Oilers\" gegr\u00fcndet und nahm zum Beginn der Saison 1972/73 den Spielbetrieb auf. Im Jahr 1973 erfolgte die Umbenennung in den derzeitigen Namen. Nach der Aufl\u00f6sung der WHA im Jahr 1979 wurden die Oilers gemeinsam mit drei weiteren Teams in die NHL aufgenommen, wo sie zur Saison 1979/80 erstmals antraten. Die Teamfarben sind Blau, Orange und Wei\u00df.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4202,7 +4202,7 @@
     {
         "id": "235490-0-1",
         "true_label": "location",
-        "gen_text": "21: location",
+        "gen_text": "1: place of birth",
         "prompt": "Given the sentence: \"Mobutu Sese Seko Kuku Ngbendu wa Zabanga (* 14. Oktober 1930 in <e1>Lisala</e1>, Provinz <e2>Mongala</e2>, Belgisch-Kongo als Joseph-D\u00e9sir\u00e9 Mobutu; \u2020 7. September 1997 in Rabat, Marokko) war von 1965 bis 1997 diktatorisch regierender Pr\u00e4sident der Demokratischen Republik Kongo (von 1971 bis 1997: Zaire). Sein Name bedeutet \u201eder Krieger, der von Eroberung zu Eroberung schreitet, ohne Angst zu haben\u201c.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4262,7 +4262,7 @@
     {
         "id": "2259-0-0",
         "true_label": "author",
-        "gen_text": "8: author",
+        "gen_text": "28: notable work",
         "prompt": "Given the sentence: \"<e1>Die Abenteuer des Huckleberry Finn</e1> (im Original \"Adventures of Huckleberry Finn)\" ist der erfolgreichste Roman von <e2>Mark Twain</e2> und gilt als Schl\u00fcsselwerk der US-amerikanischen Literatur. Er wurde am 10. Dezember 1884 in Gro\u00dfbritannien und Kanada und am 18. Februar 1885 in den Vereinigten Staaten ver\u00f6ffentlicht. Die erste deutsche \u00dcbersetzung verfasste Henny Koch mit dem Titel \"Huckleberry Finns Abenteuer und Fahrten\" (1890).\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4532,7 +4532,7 @@
     {
         "id": "5914787-0-1",
         "true_label": "country",
-        "gen_text": "1: place of birth",
+        "gen_text": "11: place of birth",
         "prompt": "Given the sentence: \"Zendaya Maree Stoermer Coleman (* 1. September 1996 in <e1>Oakland</e1>, Kalifornien) ist eine <e2>US-amerikanische</e2> Schauspielerin, S\u00e4ngerin und T\u00e4nzerin. Bekannt wurde sie vor allem durch die Rollen der \"Raquel \u201eRocky\u201c Blue\" in der Disney-Serie \"Shake It Up \u2013 Tanzen ist alles\" (2010\u20132013) und als Spionin \"K.C. Cooper\" in der Serie \"K.C. Undercover\" (2015\u20132018).\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4592,7 +4592,7 @@
     {
         "id": "469160-0-6",
         "true_label": "country",
-        "gen_text": "21: location",
+        "gen_text": "25: sport",
         "prompt": "Given the sentence: \"Brescia Calcio, oder schlicht Brescia genannt, ist ein 1911 gegr\u00fcndetes <e2>italien</e2>isches Fu\u00dfballunternehmen aus der lombardischen Stadt <e1>Brescia</e1>. Weitere Bezeichnungen sind \"Le Rondinelle\" (\u201eDie kleinen Schwalben\u201c), \"La Leonessa\" (\u201eDie L\u00f6win\u201c) und \"I Biancazzurri\" (\u201eDie Wei\u00df-Blauen\u201c). In der Saison 2020/21 spielt Brescia in der Serie B.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {
@@ -4622,7 +4622,7 @@
     {
         "id": "227692-0-1",
         "true_label": "country",
-        "gen_text": "17: headquarters location.",
+        "gen_text": "17: headquarters location",
         "prompt": "Given the sentence: \"NBCUniversal, LLC (bis Ende 2010 NBC Universal, Inc.) ist ein 2004 gegr\u00fcndetes <e2>US-amerikanisches</e2> Medienunternehmen mit Firmensitz in <e1>New York City</e1>. Das Unternehmen entstand aus dem Zusammenschluss der General-Electric-Tochter National Broadcasting Company (NBC) und der Unterhaltungssparte des ehemaligen Vivendi Universal ohne die Universal Music Group, wobei die Mehrheit an General Electric ging. NBCUniversal ist nach Time Warner und Viacom und noch vor der Walt Disney Company das drittgr\u00f6\u00dfte Medienunternehmen der Welt. Im Jahre 2009 erwirtschaftete das Unternehmen einen Umsatz von 15,436 Milliarden US-Dollar und einen Gewinn von 2,264 Milliarden US-Dollar und besch\u00e4ftigte mehr als 16.000 Mitarbeiter.\", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of 32 options:\n0: country\n1: place of birth \n2: spouse\n3: country of citizenship\n4: instance of\n5: capital\n6: child\n7: shares border with\n8: author\n9: director\n10: occupation\n11: founded by\n12: league\n13: owned by\n14: genre\n15: named after\n16: follows\n17: headquarters location\n18: cast member\n19: manufacturer\n20: located in or next to body of water\n21: location\n22: part of\n23: mouth of the watercourse\n24: member of\n25: sport \n26: characters\n27: participant\n28: notable work\n29: replaces\n30: sibling\n31: inception\n\nThe answer is: "
     },
     {

@@ -102,7 +102,7 @@ def get_args():
     parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
     parser.add_argument('--dataset', 	    help='choice of dataset', 			        type=str, default='indore')
 
-    parser.add_argument("--batch_size", 										        type=int, default=16)
+    parser.add_argument("--batch_size", 										        type=int, default=4)
     parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
     parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza') # None if no dependency parser is used
     parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')
@@ -117,7 +117,10 @@ def get_args():
 if __name__ =='__main__':	
     args                            =   get_args()
 
-    annot_file                      =   f'../data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}.json'
+    if args.dep_parser != 'None':
+        annot_file                      =   f'../data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}.json'
+    else:
+        annot_file                      =   f'../data/{args.dataset}/{args.src_lang}_prompt_trankit.json'
 
     with open(annot_file) as f:
         data = json.load(f)
@@ -156,6 +159,8 @@ if __name__ =='__main__':
         model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
     elif args.model_name == 'gemma2':
         model_id = 'google/gemma-2-9b-it'
+    elif args.model_name == 'mistral':
+        model_id = 'mistralai/Mistral-7B-Instruct-v0.3'
     
     tokenizer = AutoTokenizer.from_pretrained(model_id)
 
@@ -175,30 +180,35 @@ if __name__ =='__main__':
     results = []
     count = 0
     for batch in tqdm(dataloader, desc="Generating Responses"):
-        count       += 1
-        prompts     = batch["prompt"]
-        example_ids = batch["example_id"]
-        true_labels = batch["true_label"]
+        try:
+            count       += 1
+            prompts     = batch["prompt"]
+            example_ids = batch["example_id"]
+            true_labels = batch["true_label"]
 
-        # Generate responses
-        generated_texts = generate_responses(prompts, model, tokenizer)
+            # Generate responses
+            generated_texts = generate_responses(prompts, model, tokenizer)
 
 
-        # Map responses
-        for ex_id, gen_text in enumerate(generated_texts):
-            # Clean and normalize the generated text
-            curr_data = {}
-            curr_data['id']              = count
-            curr_data['true_label']      = true_labels[ex_id]
-            curr_data['gen_text']        = gen_text.replace(prompts[ex_id], '')
-            curr_data['prompt']          = prompts[ex_id]
-            count += 1
-            results.append(curr_data)
+            # Map responses
+            for ex_id, gen_text in enumerate(generated_texts):
+                # Clean and normalize the generated text
+                curr_data = {}
+                curr_data['id']              = count
+                curr_data['true_label']      = true_labels[ex_id]
+                curr_data['gen_text']        = gen_text.replace(prompts[ex_id], '')
+                curr_data['prompt']          = prompts[ex_id]
+                count += 1
+                results.append(curr_data)
 
-            print(f"Prompt : {prompts[ex_id]}")
-            print(f"True Label : {true_labels[ex_id]}")
-            print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
-            print()
+            # print(f"Prompt : {prompts[ex_id]}")
+            # print(f"True Label : {true_labels[ex_id]}")
+            # print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
+            # print()
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            pass
             
         
     print("Generation completed.")
