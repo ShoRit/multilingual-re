@@ -115,7 +115,7 @@ def get_args():
     parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
     parser.add_argument('--dataset',        help='choice of dataset',                  type=str, default='indore')
 
-    parser.add_argument("--batch_size",                                    type=int, default=8)
+    parser.add_argument("--batch_size",                                    type=int, default=4)
     parser.add_argument('--model_name',      help='name of the LL to use',            type=str, default='llama3')
     parser.add_argument('--dep_parser',      help='name of the dependency parser',    type=str, default='stanza') # 'None' if no dependency parser is used
     parser.add_argument('--split',           help='split',                             type=str, default='test')
@@ -220,8 +220,9 @@ if __name__ =='__main__':
     model_id_mapping = {
         'llama3': "meta-llama/Meta-Llama-3-8B-Instruct",
         'gemma2': 'google/gemma-2-9b-it',
-        'mistral': 'mistralai/Mistral-7B-Instruct-v0.3'
-    }
+        'mistral': 'mistralai/Mistral-7B-Instruct-v0.3',
+        'qwen':'Qwen/Qwen2-7B-Instruct'
+        }
 
     model_id = model_id_mapping.get(args.model_name.lower(), None)
     if model_id is None:

@@ -161,8 +161,9 @@ if __name__ =='__main__':
         model_id = 'google/gemma-2-9b-it'
     elif args.model_name == 'mistral':
         model_id = 'mistralai/Mistral-7B-Instruct-v0.3'
-    
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    elif args.model_name == 'qwen':
+        model_id = 'Qwen/Qwen2-7B-Instruct'
+    tokenizer = AutoTokenizer.from_pretrained(model_id, padding_side="left")
 
     # Assign pad_token to eos_token if not set
     if tokenizer.pad_token is None:
@@ -180,35 +181,34 @@ if __name__ =='__main__':
     results = []
     count = 0
     for batch in tqdm(dataloader, desc="Generating Responses"):
-        try:
-            count       += 1
-            prompts     = batch["prompt"]
-            example_ids = batch["example_id"]
-            true_labels = batch["true_label"]
+        count       += 1
+        prompts     = batch["prompt"]
+        example_ids = batch["example_id"]
+        true_labels = batch["true_label"]
 
-            # Generate responses
-            generated_texts = generate_responses(prompts, model, tokenizer)
+        # Generate responses
+        generated_texts = generate_responses(prompts, model, tokenizer)
 
 
-            # Map responses
-            for ex_id, gen_text in enumerate(generated_texts):
-                # Clean and normalize the generated text
-                curr_data = {}
-                curr_data['id']              = count
-                curr_data['true_label']      = true_labels[ex_id]
-                curr_data['gen_text']        = gen_text.replace(prompts[ex_id], '')
-                curr_data['prompt']          = prompts[ex_id]
-                count += 1
-                results.append(curr_data)
+        # Map responses
+        for ex_id, gen_text in enumerate(generated_texts):
+            # Clean and normalize the generated text
+            curr_data = {}
+            curr_data['id']              = count
+            curr_data['true_label']      = true_labels[ex_id]
+            curr_data['gen_text']        = gen_text.replace(prompts[ex_id], '')
+            curr_data['prompt']          = prompts[ex_id]
+            count += 1
+            results.append(curr_data)
 
             # print(f"Prompt : {prompts[ex_id]}")
             # print(f"True Label : {true_labels[ex_id]}")
             # print(f"Generated Text : {gen_text.replace(prompts[ex_id], '')}")
             # print()
-        except KeyboardInterrupt:
-            raise
-        except Exception as e:
-            pass
+        # except KeyboardInterrupt:
+        #     raise
+        # except Exception as e:
+        #     pass
             
         
     print("Generation completed.")
