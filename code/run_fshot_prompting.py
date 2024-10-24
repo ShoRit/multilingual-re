@@ -74,6 +74,32 @@ def construct_prompt_dependency_choice(example, labels):
 
     return prompt
 
+def construct_prompt_dependency_choice_trimmed(example, labels):
+    # Create a comma-separated list of labels
+    # print('example:', example)
+
+    label_list = ", ".join(labels)
+
+    label_text = ""
+
+    for label_idx, label in enumerate(labels):
+        label_text += f"{label_idx}: {label}\n"
+
+    dependency_list = example["dep_graph"]
+    dep_graph = []
+    # (node_dict[n1], rel, node_dict[n2])
+    for dep in dependency_list:
+        dep_graph.append({'head': dep[2], 'rel': dep[1], 'word': dep[0]})
+    
+    # import pdb; pdb.set_trace()
+
+    dep_text = json.dumps(dep_graph)
+    
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parse in the form of head, rel, and word: {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+
+
+    return prompt
+
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
     # Tokenize the prompts with padding and no truncation
     inputs = tokenizer(
@@ -147,7 +173,7 @@ if __name__ =='__main__':
         dataset = LabelDatasetSingleChoice(
             data=split_data,
             labels=labels,
-            prompt_func=construct_prompt_dependency_choice
+            prompt_func=construct_prompt_dependency_choice_trimmed
         )
 
     # dataset     = dataset[:10]
