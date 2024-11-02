@@ -5,6 +5,10 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from collections import defaultdict
 import argparse
+import re
+
+with open('dependency_mapping.json', 'r') as file:
+    dependency_definitions = json.load(file)
 
 # 1. Define the Custom Dataset
 class LabelDatasetSingleChoice(Dataset):
@@ -88,15 +92,24 @@ def construct_prompt_dependency_choice_trimmed(example, labels):
     dependency_list = example["dep_graph"]
     dep_graph = []
     # (node_dict[n1], rel, node_dict[n2])
+
+    e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
+    e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
+    words_e1 = re.findall(r'\b\w+\b', e1)
+    words_e2 = re.findall(r'\b\w+\b', e2)
+    total_words_set = set(words_e1 + words_e2)
+
     for dep in dependency_list:
-        dep_graph.append({'head': dep[2], 'rel': dep[1], 'word': dep[0]})
+        if dep[0] in total_words_set or dep[2] in total_words_set:
+            descriptive_relations = f"{dep[0]} ({dependency_definitions.get(dep[1], dep[1])} of {dep[2]})" 
+            dep_graph.append(descriptive_relations)
     
     # import pdb; pdb.set_trace()
 
-    dep_text = json.dumps(dep_graph)
-    
-    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parse in the form of head, rel, and word: {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
 
+    dep_text = dep_graph
+    
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses containing the words in the two entities in a list of form "word (description of dependency parse)": {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
 
     return prompt
 
@@ -128,7 +141,7 @@ def get_args():
     parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
     parser.add_argument('--dataset', 	    help='choice of dataset', 			        type=str, default='indore')
 
-    parser.add_argument("--batch_size", 										        type=int, default=4)
+    parser.add_argument("--batch_size", 										        type=int, default=1)
     parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
     parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza') # None if no dependency parser is used
     parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')

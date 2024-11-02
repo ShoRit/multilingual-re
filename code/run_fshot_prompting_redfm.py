@@ -6,6 +6,11 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from collections import defaultdict
 import argparse
 from natsort import natsorted
+import re
+
+with open('dependency_mapping.json', 'r') as file:
+    dependency_definitions = json.load(file)
+
 # 1. Define the Custom Dataset
 class LabelDatasetSingleChoice(Dataset):
     def __init__(self, data, labels, prompt_func):
@@ -88,6 +93,42 @@ def construct_prompt_dependency_choice(example, labels):
     prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nWe also provide the dependency parse in the form of head, rel, and word: {dep_text}\nChoose one from this list of {len(labels)} options:\n{label_text}\nThe answer is: '''
     
     return prompt
+
+def construct_prompt_dependency_choice_trimmed(example, labels):
+    # Create a comma-separated list of labels
+    # print('example:', example)
+
+    label_list = ", ".join(labels)
+
+    label_text = ""
+
+    for label_idx, label in enumerate(labels):
+        label_text += f"{label_idx}: {label}\n"
+
+    dependency_list = example["dep_graph"]
+    dep_graph = []
+    # (node_dict[n1], rel, node_dict[n2])
+
+    e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
+    e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
+    words_e1 = re.findall(r'\b\w+\b', e1)
+    words_e2 = re.findall(r'\b\w+\b', e2)
+    total_words_set = set(words_e1 + words_e2)
+
+    for dep in dependency_list:
+        if dep[0] in total_words_set or dep[2] in total_words_set:
+            descriptive_relations = f"{dep[0]} ({dependency_definitions.get(dep[1], dep[1])} of {dep[2]})" 
+            dep_graph.append(descriptive_relations)
+    
+    # import pdb; pdb.set_trace()
+
+
+    dep_text = dep_graph
+    
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses containing the words in the two entities in a list of form "word (description of dependency parse)": {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+
+    return prompt
+
 
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
     # Tokenize the prompts with padding and no truncation
@@ -210,7 +251,7 @@ if __name__ =='__main__':
         dataset = LabelDatasetSingleChoice(
             data=flattened_data,
             labels=labels,
-            prompt_func=construct_prompt_dependency_choice
+            prompt_func=construct_prompt_dependency_choice_trimmed
         )
 
     # Define DataLoader
