@@ -90,7 +90,7 @@ def construct_prompt_dependency_choice(example, labels):
     
     dep_text = json.dumps(dep_graph)
     
-    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nWe also provide the dependency parse in the form of head, rel, and word: {dep_text}\nChoose one from this list of {len(labels)} options:\n{label_text}\nThe answer is: '''
+    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nWe also provide the dependency parses connecting the entities as follows: {dep_text}\nChoose one from this list of {len(labels)} options:\n{label_text}\nThe answer is: '''
     
     return prompt
 
@@ -117,7 +117,10 @@ def construct_prompt_dependency_choice_trimmed(example, labels):
 
     for dep in dependency_list:
         if dep[0] in total_words_set or dep[2] in total_words_set:
-            descriptive_relations = f"{dep[0]} ({dependency_definitions.get(dep[1], dep[1])} of {dep[2]})" 
+            if dep[1] is "root":
+                descriptive_relations = f"{dep[0]} is the root word"
+            else:
+                descriptive_relations = f"{dep[0]} ({dependency_definitions.get(dep[1], dep[1])} of {dep[2]})" 
             dep_graph.append(descriptive_relations)
     
     # import pdb; pdb.set_trace()

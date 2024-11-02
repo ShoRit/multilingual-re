@@ -6,13 +6,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from collections import defaultdict
 import argparse
 import re
-
-with open('dependency_mapping.json', 'r') as file:
-    dependency_definitions = json.load(file)
+import networkx as nx
+from collections import deque
+import advertools as adv
 
 # 1. Define the Custom Dataset
 class LabelDatasetSingleChoice(Dataset):
-    def __init__(self, data, labels, prompt_func):
+    def __init__(self, data, labels, prompt_func, stop_words, dependency_definitions):
         """
         Args:
             data (list): List of examples.
@@ -22,18 +22,126 @@ class LabelDatasetSingleChoice(Dataset):
         self.data = data
         self.labels = labels
         self.prompt_func = prompt_func
+        self.stop_words = stop_words
+        self.dependency_definitions = dependency_definitions
     
     def __len__(self):
         return len(self.data)
     
     def __getitem__(self, idx):
         example = self.data[idx]
-        prompt = self.prompt_func(example, self.labels)
+        prompt = self.prompt_func(example, self.labels, self.stop_words, self.dependency_definitions)
         return {
             "example_id": example.get("id", idx),  # Ensure each example has a unique ID
             "prompt": prompt,
             "true_label": example["label"]
         }
+
+# BFS function to find the first entry point for an entity starting from the root
+def find_first_entry_point(graph, root, entity_words):
+    queue = deque([root])
+    visited = set()
+    
+    while queue:
+        node = queue.popleft()
+        if node in visited:
+            continue
+        visited.add(node)
+        
+        # Check if the node is part of the entity words
+        if node in entity_words:
+            return node
+        
+        # Add neighbors to the queue for BFS
+        queue.extend(graph.predecessors(node))
+    
+    return None  # If no entry point is found
+
+def find_entity_connecting_path(e1,e2,dep_graph):
+    G = nx.DiGraph()
+
+    # Add nodes and edges with labels
+    for relation in dep_graph:
+        target, label, source = relation
+        G.add_edge(target, source, label=label)
+
+    # Find first entry points for e1 and e2 from the root
+    root = "ROOT"
+    first_entry_e1 = find_first_entry_point(G, root, e1)
+    first_entry_e2 = find_first_entry_point(G, root, e2)
+
+    highlighted_path=[]
+    highlighted_path2=[]
+
+    try:
+        # Try finding a direct path between first_entry_e1 and first_entry_e2
+        path_e1_to_e2 = nx.shortest_path(G, source=first_entry_e1, target=first_entry_e2)
+        highlighted_path = path_e1_to_e2  # Direct path found
+    except nx.NetworkXNoPath:
+        try:
+            path_e1_to_e2 = nx.shortest_path(G, source=first_entry_e2, target=first_entry_e1)
+            highlighted_path = path_e1_to_e2  # Direct path found
+        except nx.NetworkXNoPath:
+            try:
+                path_root_to_e1 = nx.shortest_path(G, source=first_entry_e1, target=root)
+                try:
+                    path_e1_to_root = nx.shortest_path(G, source=root, target=first_entry_e1)
+                    if len(path_root_to_e1<path_e1_to_root):
+                        highlighted_path=path_root_to_e1
+                    else:
+                        highlighted_path=path_e1_to_root
+                except:
+                    highlighted_path=path_root_to_e1
+            except:
+                pass
+
+            try:
+                path_root_to_e2 = nx.shortest_path(G, source=first_entry_e2, target=root)
+                try:
+                    path_e2_to_root = nx.shortest_path(G, source=root, target=first_entry_e2)
+                    if len(path_root_to_e2<path_e2_to_root):
+                        highlighted_path2=path_root_to_e2
+                    else:
+                        highlighted_path2=path_e2_to_root
+                except:
+                    highlighted_path2=path_root_to_e2
+            except:
+                pass
+
+    pruned_parses=[]
+
+    if isinstance(highlighted_path,list):
+        for i in range(len(highlighted_path)-1):
+            beg=highlighted_path[i]
+            end=highlighted_path[i+1]
+            if G.has_edge(beg,end):
+                rel=G.edges[beg,end].get("label")
+            elif G.has_edge(end,beg):
+                rel=G.edges[end,beg].get("label")
+            pruned_parses.append([beg,rel,end])
+
+    if isinstance(highlighted_path2,list):
+        for i in range(len(highlighted_path2)-1):
+            beg=highlighted_path2[i]
+            end=highlighted_path2[i+1]
+            if G.has_edge(beg,end):
+                rel=G.edges[beg,end].get("label")
+            elif G.has_edge(end,beg):
+                rel=G.edges[end,beg].get("label")
+            pruned_parses.append([beg,rel,end])
+
+    unique_parses = []
+    seen = set()
+
+    for sublist in pruned_parses:
+        # Convert the sublist to a tuple so it can be added to a set
+        tuple_sublist = tuple(sublist)
+        if tuple_sublist not in seen:
+            seen.add(tuple_sublist)
+            unique_parses.append(sublist)
+
+    return unique_parses
+
 
 def construct_prompt_single_choice(example, labels):
     # Create a comma-separated list of labels
@@ -78,7 +186,7 @@ def construct_prompt_dependency_choice(example, labels):
 
     return prompt
 
-def construct_prompt_dependency_choice_trimmed(example, labels):
+def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, dependency_definitions):
     # Create a comma-separated list of labels
     # print('example:', example)
 
@@ -90,27 +198,32 @@ def construct_prompt_dependency_choice_trimmed(example, labels):
         label_text += f"{label_idx}: {label}\n"
 
     dependency_list = example["dep_graph"]
-    dep_graph = []
+    dep_text = ""
     # (node_dict[n1], rel, node_dict[n2])
 
     e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
     e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
     words_e1 = re.findall(r'\b\w+\b', e1)
     words_e2 = re.findall(r'\b\w+\b', e2)
-    total_words_set = set(words_e1 + words_e2)
 
-    for dep in dependency_list:
-        if dep[0] in total_words_set or dep[2] in total_words_set:
-            descriptive_relations = f"{dep[0]} ({dependency_definitions.get(dep[1], dep[1])} of {dep[2]})" 
-            dep_graph.append(descriptive_relations)
+    #Filter out stop words
+    words_e1 = [word for word in words_e1 if word.lower() not in stop_words]
+    words_e2 = [word for word in words_e2 if word.lower() not in stop_words]
+
+    pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
+
+    for dep in pruned_dep_list:
+        if dep[1] == "root":
+            descriptive_relations = f"{dep[0]} is the root word, "
+        else:
+            descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
+        dep_text+=descriptive_relations
     
     # import pdb; pdb.set_trace()
-
-
-    dep_text = dep_graph
     
-    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses containing the words in the two entities in a list of form "word (description of dependency parse)": {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
 
+    print(prompt)
     return prompt
 
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
@@ -166,6 +279,25 @@ if __name__ =='__main__':
 
     split_data = data.get(args.split, [])
 
+    with open('dependency_mapping.json', 'r') as file:
+        dependency_definitions = json.load(file)
+
+    language_dict={
+        "en": "english",
+        "hi": "hindi",
+        "te": "telugu",
+        "ar": "arabic",
+        "de": "german",
+        "es": "spanish",
+        "fr": "french",
+        "it": "italian",
+        "zh": "chinese"
+    }
+
+    language=language_dict[args.src_lang]
+
+    stop_words = adv.stopwords[language]
+
     # List of possible labels
     with open(f"../data/{args.dataset}/relation_dict.json") as f:
         relation_data = json.load(f)
@@ -186,7 +318,9 @@ if __name__ =='__main__':
         dataset = LabelDatasetSingleChoice(
             data=split_data,
             labels=labels,
-            prompt_func=construct_prompt_dependency_choice_trimmed
+            prompt_func=construct_prompt_dependency_choice_trimmed,
+            stop_words=stop_words,
+            dependency_definitions=dependency_definitions
         )
 
     # dataset     = dataset[:10]
