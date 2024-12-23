@@ -143,7 +143,7 @@ def find_entity_connecting_path(e1,e2,dep_graph):
     return unique_parses
 
 
-def construct_prompt_single_choice(example, labels):
+def construct_prompt_single_choice(example, labels,stopwords,dep_choice):
     # Create a comma-separated list of labels
     # print('example:', example)
 
@@ -189,7 +189,6 @@ def construct_prompt_dependency_choice(example, labels):
 def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, dependency_definitions):
     # Create a comma-separated list of labels
     # print('example:', example)
-
     label_list = ", ".join(labels)
 
     label_text = ""
@@ -201,29 +200,34 @@ def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, depe
     dep_text = ""
     # (node_dict[n1], rel, node_dict[n2])
 
-    e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
-    e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
-    words_e1 = re.findall(r'\b\w+\b', e1)
-    words_e2 = re.findall(r'\b\w+\b', e2)
+    try:
 
-    #Filter out stop words
-    words_e1 = [word for word in words_e1 if word.lower() not in stop_words]
-    words_e2 = [word for word in words_e2 if word.lower() not in stop_words]
+        e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
+        e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
+        words_e1 = re.findall(r'\b\w+\b', e1)
+        words_e2 = re.findall(r'\b\w+\b', e2)
 
-    pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
+        #Filter out stop words
+        words_e1 = [word for word in words_e1 if word.lower() not in stop_words]
+        words_e2 = [word for word in words_e2 if word.lower() not in stop_words]
 
-    for dep in pruned_dep_list:
-        if dep[1] == "root":
-            descriptive_relations = f"{dep[0]} is the root word, "
-        else:
-            descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
-        dep_text+=descriptive_relations
+        pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
+
+        for dep in pruned_dep_list:
+            if dep[1] == "root":
+                descriptive_relations = f"{dep[0]} is the root word, "
+            else:
+                descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
+            dep_text+=descriptive_relations
+    except Exception as e:
+        dep_text=""
+    except KeyboardInterrupt:
+        raise
     
     # import pdb; pdb.set_trace()
     
     prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-
-    print(prompt)
+    #print(prompt)
     return prompt
 
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
@@ -254,7 +258,7 @@ def get_args():
     parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
     parser.add_argument('--dataset', 	    help='choice of dataset', 			        type=str, default='indore')
 
-    parser.add_argument("--batch_size", 										        type=int, default=1)
+    parser.add_argument("--batch_size", 										        type=int, default=4)
     parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
     parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza') # None if no dependency parser is used
     parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')
@@ -311,7 +315,9 @@ if __name__ =='__main__':
         dataset = LabelDatasetSingleChoice(
             data=split_data,
             labels=labels,
-            prompt_func=construct_prompt_single_choice
+            prompt_func=construct_prompt_single_choice,
+            stop_words=stop_words,
+            dependency_definitions=dependency_definitions
         )
     else:
         # Create the dataset
@@ -386,5 +392,5 @@ if __name__ =='__main__':
         
     print("Generation completed.")
 
-    with open(f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}.json', 'w') as f:
+    with open(f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}-better_prompt.json', 'w') as f:
         json.dump(results, f, indent=4)
