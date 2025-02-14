@@ -1,0 +1,174 @@
+Filename:  indore-en-llama3_zshot_prompt-stanza-test.json
+Accuracy:  0.9427700408785422
+Precision: 0.1588
+Recall: 0.4464
+F1 Score: 0.2342
+Macro F1 Score: 0.3018
+Filename:  indore-en-llama3_zshot_prompt-trankit-test.json
+Accuracy:  0.9374581399108525
+Precision: 0.1432
+Recall: 0.4393
+F1 Score: 0.2160
+Macro F1 Score: 0.2754
+Filename:  indore-en-llama3_zshot_simple_prompt-test.json
+Accuracy:  0.9676897849834869
+Precision: 0.3172
+Recall: 0.5618
+F1 Score: 0.4054
+Macro F1 Score: 0.4637
+Filename:  indore-en-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9783135869188665
+Precision: 0.4530
+Recall: 0.5112
+F1 Score: 0.4804
+Macro F1 Score: 0.5132
+Filename:  indore-en-mistral_zshot_prompt-stanza-test.json
+Accuracy:  0.9765814452989676
+Precision: 0.4159
+Recall: 0.4806
+F1 Score: 0.4459
+Macro F1 Score: 0.4840
+Filename:  indore-en-mistral_zshot_prompt-trankit-test.json
+Accuracy:  0.9763043026397838
+Precision: 0.4092
+Recall: 0.4700
+F1 Score: 0.4375
+Macro F1 Score: 0.4800
+Filename:  indore-hi-llama3_zshot_simple_prompt-test.json
+Accuracy:  0.8997665063155822
+Precision: 0.1065
+Recall: 0.5567
+F1 Score: 0.1788
+Macro F1 Score: 0.2642
+Filename:  indore-hi-mistral_zshot_prompt-None-test.json
+Accuracy:  0.973162292176555
+Precision: 0.3577
+Recall: 0.4634
+F1 Score: 0.4037
+Macro F1 Score: 0.3864
+Filename:  indore-hi-mistral_zshot_prompt-stanza-test.json
+Accuracy:  0.9703772470250654
+Precision: 0.3013
+Recall: 0.3874
+F1 Score: 0.3390
+Macro F1 Score: 0.3060
+Filename:  indore-hi-mistral_zshot_prompt-trankit-test.json
+Accuracy:  0.9703209834866515
+Precision: 0.3020
+Recall: 0.3917
+F1 Score: 0.3410
+Macro F1 Score: 0.3053
+Filename:  indore-te-llama3_zshot_simple_prompt-test.json
+Accuracy:  0.8887687427912342
+Precision: 0.0829
+Recall: 0.4645
+F1 Score: 0.1407
+Macro F1 Score: 0.1562
+Filename:  indore-te-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9638600538254517
+Precision: 0.1220
+Recall: 0.1360
+F1 Score: 0.1286
+Macro F1 Score: 0.1069
+Filename:  indore-te-mistral_zshot_prompt-stanza-test.json
+Accuracy:  0.9634515570934256
+Precision: 0.1114
+Recall: 0.1238
+F1 Score: 0.1172
+Macro F1 Score: 0.0979
+Filename:  indore-te-mistral_zshot_prompt-trankit-test.json
+Accuracy:  0.9631632064590542
+Precision: 0.1091
+Recall: 0.1225
+F1 Score: 0.1154
+Macro F1 Score: 0.1076
+Filename:  redfm-ar-llama3_zshot_prompt-None-test.json
+Accuracy:  0.8558304398148148
+Precision: 0.1002
+Recall: 0.4525
+F1 Score: 0.1640
+Macro F1 Score: 0.2557
+Filename:  redfm-ar-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9608651620370371
+Precision: 0.3661
+Recall: 0.3449
+F1 Score: 0.3552
+Macro F1 Score: 0.3665
+Filename:  redfm-de-llama3_zshot_prompt-None-test.json
+Accuracy:  0.9156134401972873
+Precision: 0.1509
+Recall: 0.3674
+F1 Score: 0.2139
+Macro F1 Score: 0.2571
+Filename:  redfm-de-llama3_zshot_prompt-stanza-test.json
+Accuracy:  0.8969636251541308
+Precision: 0.1196
+Recall: 0.3613
+F1 Score: 0.1798
+Macro F1 Score: 0.1928
+Filename:  redfm-de-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9633939580764488
+Precision: 0.4041
+Recall: 0.3613
+F1 Score: 0.3815
+Macro F1 Score: 0.3837
+Filename:  redfm-en-llama3_zshot_prompt-None-test.json
+Accuracy:  0.8682186234817814
+Precision: 0.1195
+Recall: 0.5053
+F1 Score: 0.1933
+Macro F1 Score: 0.2703
+Filename:  redfm-en-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9635880566801619
+Precision: 0.4079
+Recall: 0.3660
+F1 Score: 0.3858
+Macro F1 Score: 0.3898
+Filename:  redfm-es-llama3_zshot_prompt-None-test.json
+Accuracy:  0.9164392905866303
+Precision: 0.1693
+Recall: 0.4284
+F1 Score: 0.2427
+Macro F1 Score: 0.2704
+Filename:  redfm-es-mistral_zshot_prompt-None-test.json
+Accuracy:  0.959456002728513
+Precision: 0.3402
+Recall: 0.3165
+F1 Score: 0.3279
+Macro F1 Score: 0.3582
+Filename:  redfm-fr-llama3_zshot_prompt-None-test.json
+Accuracy:  0.7752884615384615
+Precision: 0.0682
+Recall: 0.4892
+F1 Score: 0.1198
+Macro F1 Score: 0.1670
+Filename:  redfm-fr-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9603846153846154
+Precision: 0.3481
+Recall: 0.3067
+F1 Score: 0.3261
+Macro F1 Score: 0.3598
+Filename:  redfm-it-llama3_zshot_prompt-None-test.json
+Accuracy:  0.9298169889502762
+Precision: 0.1774
+Recall: 0.3425
+F1 Score: 0.2337
+Macro F1 Score: 0.3670
+Filename:  redfm-it-mistral_zshot_prompt-None-test.json
+Accuracy:  0.958793738489871
+Precision: 0.3235
+Recall: 0.2919
+F1 Score: 0.3069
+Macro F1 Score: 0.3828
+Filename:  redfm-zh-llama3_zshot_prompt-None-test.json
+Accuracy:  0.9288273001508296
+Precision: 0.1973
+Recall: 0.4163
+F1 Score: 0.2677
+Macro F1 Score: 0.3713
+Filename:  redfm-zh-mistral_zshot_prompt-None-test.json
+Accuracy:  0.9586632730015083
+Precision: 0.3318
+Recall: 0.3183
+F1 Score: 0.3249
+Macro F1 Score: 0.3559
