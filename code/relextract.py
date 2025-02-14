@@ -21,6 +21,7 @@ def seed_everything():
     return device
 
 
+
 def get_model_name(model_name):
 
     model_dict = {
