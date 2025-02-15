@@ -12,7 +12,7 @@ from collections import Counter
 from helper import *
 import dill
 from dataloader import *
-from igraph import *
+import networkx as nx
 
 
 def compute_bootstrap_f1(dep_df):
@@ -139,7 +139,7 @@ def obtain_numerical_mapper(val):
 
 
 def create_dataset_df():
-
+    eps = 1e-10
     ###### Sentence Length ######
     stats_dict      = ddict(list)
     
@@ -150,6 +150,9 @@ def create_dataset_df():
     if args.dataset == 'indore':
         src_langs   = ['en', 'hi', 'te']
         tgt_langs   = ['en', 'hi', 'te']
+
+
+    dimensions      = ['sent_len', 'lex_len', 'dep_len']
 
 
     for src_lang in src_langs:
@@ -167,6 +170,7 @@ def create_dataset_df():
                         baseline_f1                      = f1_score(baseline_df['true_rel'], baseline_df['pred_rel'], average='macro')
                         baseline_dict[seed]              = baseline_f1
                         baseline_df['seed']              = [seed for _ in range(len(baseline_df))]
+                        baseline_df['sidx']              = [idx for idx in range(len(baseline_df))]
                         baseline_arr.append(baseline_df)
 
                     baseline_df = pd.concat(baseline_arr)
@@ -174,11 +178,20 @@ def create_dataset_df():
                     top_seeds        = sorted(baseline_dict, key=baseline_dict.get, reverse=True)[:3]
                     baseline_df      = baseline_df[baseline_df['seed'].isin(top_seeds)]
 
+                    # replace the seed values with 1,2,3 for consistency
+                    for idx, seed in enumerate(top_seeds):
+                        baseline_df.loc[baseline_df['seed'] == seed, 'seed'] = idx
+                            
+
+
                     for gnn in ['rgcn', 'rgat']:
                         for dep_model in ['stanza', 'trankit']:
 
                             dep_dict        = {}
                             dep_arr         = []
+
+                            len_stats_df                        = pd.read_csv(f'../stats/{args.dataset}/{tgt_lang}_{ml_model}_{dep_model}_test.csv')
+                            len_stats_df['sidx']                = [idx for idx in range(len(len_stats_df))]
 
                             for seed in [11737, 15123, 98105, 98109, 15232]:
 
@@ -188,175 +201,65 @@ def create_dataset_df():
                                     dep_f1                      = f1_score(dep_df['true_rel'], dep_df['pred_rel'], average='macro')
                                     dep_dict[seed]              = dep_f1
                                     dep_df['seed']              = [seed for _ in range(len(dep_df))]
+                                    dep_df['sidx']              = [idx for idx in range(len(dep_df))]
                                     dep_arr.append(dep_df)
                                 except Exception as e:
                                     print(f'Absent File: {dep_file}')
                                     continue
 
-                            all_dep_df = pd.concat(dep_arr)
+                            all_dep_df        = pd.concat(dep_arr)
                             # select the top 3 seeds for each src_tgt pair
-                            top_seeds  = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
-                            dep_df      = all_dep_df[all_dep_df['seed'].isin(top_seeds)]
+                            top_seeds         = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
+                            final_dep_df      = all_dep_df[all_dep_df['seed'].isin(top_seeds)]
 
+                            ############# Substitute the seeds values with 1,2,3 for consistency #####################
 
-                            with open(f'../data/{args.dataset}/{tgt_lang}_{ml_model}_{dep_model}.dill', 'rb') as f:
-                                loaded_dataset = dill.load(f)
+                            for idx, seed in enumerate(top_seeds):
+                                final_dep_df.loc[final_dep_df['seed'] == seed, 'seed'] = idx
+                            ###########################################################################################
 
-                            import pdb; pdb.set_trace()
-
-                                
-
-
-
-                #             print(f'Done for {src_lang} - {tgt_lang} - {dep_model} - {ml_model} - {connection}', end='\r')
-
-                #             for idx in range(len(dep_df)):
-                #                 stats_dict['src'].append(src_lang)
-                #                 stats_dict['tgt'].append(tgt_lang)
-                #                 stats_dict['sent_len'].append(dep_df.iloc[idx]['sent_len'])
-                #                 stats_dict['dep_len'].append(dep_df.iloc[idx]['dep_path'])
-                #                 stats_dict['lex_len'].append(dep_df.iloc[idx]['lex_dist'])
-                #                 # stats_dict['true_rel'].append(dep_df.iloc[idx]['true_rel'])
-                #                 # stats_dict['dep_pred_rel'].append(dep_df.iloc[idx]['dep_pred_rel'])
-                #                 # stats_dict['bl_pred_rel'].append(dep_df.iloc[idx]['bl_pred_rel'])
-                #                 stats_dict['ml_model'].append(ml_model)
-                #                 stats_dict['dep_model'].append(dep_model)
-                #                 stats_dict['connection'].append(connection)
+                            final_dep_df       = final_dep_df.merge(len_stats_df, on=['sidx', 'doc_text'], how='inner')
+                            final_baseline_df  = baseline_df.merge(len_stats_df, on=['sidx', 'doc_text'], how='inner')
                             
-
-
-                # baseline_file               = f'../predictions/{args.dataset}/{src_lang}_{tgt_lang}-model_{ml_model}-parser_{dep_model}-gnn_rgcn-connection_{connection}-dep_0-gnn-depth_2-seed_11737.csv'
-                # baseline_df                 =  pd.read_csv(baseline_file)
-                # baseline_df['bl_pred_rel']  = baseline_df['pred_rel']    
-
-
-
-
-    '''
-
-    stats_df    = pd.DataFrame(stats_dict)
-
-    bins        = ddict(list)
-
-    for src_lang in src_langs:
-        for tgt_lang in tgt_langs:
-
-            for connection in ['residual']:
-
-                for dep_model in ['stanza', 'trankit']:
-
-                    for ml_model in ['mbert-base', 'xlmr-base']:
-
-                        curr_df         = stats_df[(stats_df['src'] == src_lang) & (stats_df['tgt'] == tgt_lang) & (stats_df['connection'] == connection) & (stats_df['dep_model'] == dep_model) & (stats_df['ml_model'] == ml_model)]
-                        
-                        sent_len_list    =  curr_df['sent_len'].tolist()
-                        lex_len_list     =  curr_df['lex_len'].tolist()
-                        dep_len_list     =  curr_df['dep_len'].tolist()
-
-                        sent_q1, sent_q2 = np.percentile(sent_len_list, 25), np.percentile(sent_len_list, 50)
-                        lex_q1, lex_q2   = np.percentile(lex_len_list, 25), np.percentile(lex_len_list, 50)
-                        dep_q1, dep_q2   = np.percentile(dep_len_list, 25), np.percentile(dep_len_list, 50)
-                        
-                        bins['src_lang'].append(src_lang)
-                        bins['tgt_lang'].append(tgt_lang)
-                        bins['sent_len'].append([-np.inf, sent_q1, sent_q2, np.inf])
-                        bins['lex_len'].append([-np.inf, lex_q1, lex_q2, np.inf])
-                        bins['dep_len'].append([-np.inf, dep_q1, dep_q2, np.inf])
-                        bins['dep_model'].append(dep_model)
-                        bins['ml_model'].append(ml_model)
-                        bins['connection'].append(connection)
- 
-    ### Create a dataframe for each src_tgt_pair ####
-
-    f1_dict             = ddict(list)
-    bins_df             = pd.DataFrame(bins)
-
-    for src_lang in src_langs:
-        for tgt_lang in tgt_langs:
-
-             for connection in ['residual']:
-
-                for dep_model in ['stanza', 'trankit']:
-
-                    for ml_model in ['mbert-base', 'xlmr-base']:
-
-                        # find the bins for the current src_tgt pair
-
-                        curr_bins_df = bins_df[(bins_df['src_lang'] == src_lang) & (bins_df['tgt_lang'] == tgt_lang) & (bins_df['connection'] == connection) & (bins_df['dep_model'] == dep_model) & (bins_df['ml_model'] == ml_model)]
-
-                        sent_len_range =  curr_bins_df['sent_len'].values[0]
-                        lex_len_range  =  curr_bins_df['lex_len'].values[0]
-                        dep_len_range  =  curr_bins_df['dep_len'].values[0]
-
-                        for seed in [11737, 11747, 98105, 98109, 15232]:
-                            
-                            dep_df                      =  pd.read_csv(f'../predictions/{args.dataset}/{src_lang}_{tgt_lang}-model_{ml_model}-parser_{dep_model}-connection_{connection}-dep_1-gnn-depth_2-seed_{seed}.csv')
-
-                            dep_df['seed']              = seed
-                            dep_df['dep_pred_rel']      = dep_df['pred_rel']
-
-                            baseline_df                 =  pd.read_csv(f'../predictions/{args.dataset}/{src_lang}_{tgt_lang}-model_{ml_model}-parser_stanza-connection_{connection}-dep_0-gnn-depth_2-seed_{seed}.csv')
-
-                            baseline_df['seed']         = seed
-                            baseline_df['bl_pred_rel']  = baseline_df['pred_rel']    
+                            final_dep_df['dep_pred_rel']      = final_dep_df['pred_rel']
+                            final_baseline_df['bl_pred_rel']  = final_baseline_df['pred_rel']
 
                             # merge the dataframes into a single dataframe
-                            dep_df = dep_df.merge(baseline_df, on=['doc_text', 'true_rel', 'seed', 'id', 'sent_len', 'lex_dist', 'dep_path'], how='inner')
 
-                            dep_arr.append(dep_df)
+                            results_df = final_dep_df.merge(final_baseline_df, on=['doc_text', 'true_rel', 'seed', 'sidx', 'sent_len', 'dep_len', 'lex_len', 'sent_len_val', 'lex_len_val', 'dep_len_val'], how='inner')
+                            
+                            for dim in dimensions:
+
+                                for bin in ['Low', 'Medium', 'High']:
+
+                                    curr_df = results_df[results_df[dim] == bin]
+                                    if len(curr_df) == 0: continue
+
+                                    dep_f1 = f1_score(curr_df['true_rel'], curr_df['dep_pred_rel'], average='macro')
+                                    baseline_f1 = f1_score(curr_df['true_rel'], curr_df['bl_pred_rel'], average='macro')
+
+                                    f1_diff  = 100*(dep_f1 - baseline_f1)/(baseline_f1 + eps)
+
+
+                                    stats_dict['src'].append(src_lang)
+                                    stats_dict['tgt'].append(tgt_lang)
+                                    stats_dict['dep_model'].append(dep_model)
+                                    stats_dict['ml_model'].append(ml_model)
+                                    stats_dict['dimension'].append(dim)
+                                    stats_dict['bin'].append(bin)
+                                    stats_dict['gnn'].append(gnn)
+                                    stats_dict['f1_diff'].append(f1_diff)        
                         
-                        print(f'Done for {src_lang} - {tgt_lang} - {dep_model} - {ml_model} - {connection}', end='\r')
 
-                        dep_df                                                  = pd.concat(dep_arr)
+                            # print(f'{src_lang} - {tgt_lang} - {dep_model} - {ml_model} - {connection}')
 
-                        dimensions_dict                                         = ddict(lambda: ddict(lambda: ddict(list)))
-                        for idx in range(len(dep_df)):
+    ############# Create a dataframe for the test dataset ####################
 
-                            sent_len                                = dep_df.iloc[idx]['sent_len']
-                            lex_len                                 = dep_df.iloc[idx]['lex_dist']
-                            dep_path                                = dep_df.iloc[idx]['dep_path']
-
-                            baseline_gold                           = dep_df.iloc[idx]['true_rel']
-                            baseline_pred                           = dep_df.iloc[idx]['bl_pred_rel']
-                            dep_pred                                = dep_df.iloc[idx]['dep_pred_rel']
-
-                            dimensions_dict['sent_len'][obtain_mapper(sent_len, sent_len_range)]['baseline_pred'].append(baseline_pred)
-                            dimensions_dict['sent_len'][obtain_mapper(sent_len, sent_len_range)]['gold'].append(baseline_gold)
-                            dimensions_dict['sent_len'][obtain_mapper(sent_len, sent_len_range)]['dep_pred'].append(dep_pred)
-
-                            dimensions_dict['lex_len'][obtain_mapper(lex_len, lex_len_range)]['baseline_pred'].append(baseline_pred)
-                            dimensions_dict['lex_len'][obtain_mapper(lex_len, lex_len_range)]['gold'].append(baseline_gold)
-                            dimensions_dict['lex_len'][obtain_mapper(lex_len, lex_len_range)]['dep_pred'].append(dep_pred)
-
-                            dimensions_dict['dep_len'][obtain_mapper(dep_path, dep_len_range)]['baseline_pred'].append(baseline_pred)
-                            dimensions_dict['dep_len'][obtain_mapper(dep_path, dep_len_range)]['gold'].append(baseline_gold)
-                            dimensions_dict['dep_len'][obtain_mapper(dep_path, dep_len_range)]['dep_pred'].append(dep_pred)
+    stats_df    = pd.DataFrame(stats_dict)
+    stats_df.to_csv(f'../results/{args.dataset}_stats.csv', index=False)
 
 
-            
 
-                        for dimension in dimensions_dict:
-                            for val in dimensions_dict[dimension]:
-
-                                f1_dict['feature'].append(dimension)
-                                f1_dict['src_lang'].append(src_lang)
-                                f1_dict['tgt_lang'].append(tgt_lang)
-                                f1_dict['connection'].append(connection)
-                                f1_dict['dep_model'].append(dep_model)
-                                f1_dict['ml_model'].append(ml_model)
-                                f1_dict['val'].append(val)
-
-                                baseline_f1 = f1_score(dimensions_dict[dimension][val]['gold'], dimensions_dict[dimension][val]['baseline_pred'], average='macro')
-                                dep_f1      = f1_score(dimensions_dict[dimension][val]['gold'], dimensions_dict[dimension][val]['dep_pred'], average='macro')
-
-                                f1_dict['Dep Parse'].append(dep_f1 - baseline_f1)
-
-                                
-
-    f1_df               = pd.DataFrame(f1_dict)
-    f1_df.to_csv(f'../results/{args.dataset}_f1_stats.csv', index=False)
-
-    '''
 
 
 def legend_mapper(dim):
@@ -368,72 +271,111 @@ def legend_mapper(dim):
 
 def generate_images():
 
-    f1_df = pd.read_csv(f'../results/{args.dataset}_f1_stats.csv')
+    for dataset in ['indore', 'redfm']:
 
-    sns.set_theme(style="whitegrid")
-    sns.set_context("paper", font_scale=2.0)
+        f1_df = pd.read_csv(f'../results/{dataset}_stats.csv')
+
+        sns.set_theme(style="whitegrid")
+        sns.set_context("paper", font_scale=2.0)
 
 
-    for dimension in ['sent_len', 'lex_len', 'dep_len']:
+        for dimension in ['sent_len', 'lex_len', 'dep_len']:
 
-        for ml_model in ['mbert-base', 'xlmr-base']:
+            for ml_model in ['mbert-base', 'xlmr-base']:
 
-            hue_orders = ['Low','Medium','High']
+                hue_orders = ['Low','Medium','High']
 
-            dimension_df = f1_df[(f1_df['feature'] == dimension) & (f1_df['ml_model'] == ml_model)]
-            dimension_df[legend_mapper(dimension)] = dimension_df['val']
+                dimension_df = f1_df[(f1_df['dimension'] == dimension) & (f1_df['ml_model'] == ml_model)]
+                dimension_df[legend_mapper(dimension)] = dimension_df['bin']
 
-            dimension_df['score']    = dimension_df['Dep Parse']*100
+                dimension_df['score']    = dimension_df['f1_diff']
 
-            # draw a barplot with FacetGrid 
-            g = sns.catplot(x="dep_model", y= 'score', hue=legend_mapper(dimension), data=dimension_df, row= 'src_lang',
-                            col = 'tgt_lang', height=6, kind="bar", palette="muted", hue_order=hue_orders)
-            
-            sns.move_legend(g, "lower center", bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False)
-            g.set(ylabel= f'Diff in F1 score for Dep Parse')
-            # savefig g
-            g.savefig(f"../results/{args.dataset}_{dimension}_{ml_model}.png")
-            plt.show()
-            plt.clf()
-            plt.close()
+                # remove error bars 
+                # draw a barplot with FacetGrid 
+                g = sns.catplot(x="dep_model", y= 'score', hue=legend_mapper(dimension), data=dimension_df, row= 'src',
+                                col = 'tgt', height=6, kind="bar", palette="muted", hue_order=hue_orders, ci=None)
+                
+                sns.move_legend(g, "lower center", bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False)
+                g.set(ylabel= f'Diff in F1 score for F1 Diff')
+                # savefig g
+                g.savefig(f"../results/{dataset}_{dimension}_{ml_model}.png")
+                plt.show()
+                plt.clf()
+                plt.close()
 
 
 
 def generate_images_overall():
 
-    f1_df = pd.read_csv(f'../results/{args.dataset}_f1_stats.csv')
+    for dataset in ['indore', 'redfm']:
 
-    modes = []
-    for idx, row in f1_df.iterrows():
-        if row['src_lang'] == row['tgt_lang']:
-            modes.append('ID')
-        else:
-            modes.append('ZS')
+        f1_df = pd.read_csv(f'../results/{dataset}_stats.csv')
 
-    f1_df['mode'] = modes
+        modes = []
+        for idx, row in f1_df.iterrows():
+            if row['src'] == row['tgt']:
+                modes.append('ID')
+            else:
+                modes.append('ZS')
 
-    sns.set_theme(style="whitegrid")
-    sns.set_context("paper", font_scale=2.0)
+        f1_df['mode'] = modes
 
-    for dimension in ['sent_len', 'lex_len', 'dep_len']:
+        sns.set_theme(style="whitegrid")
+        sns.set_context("paper", font_scale=2.0)        
 
         hue_orders = ['Low','Medium','High']
 
-        dimension_df = f1_df[(f1_df['feature'] == dimension) & (f1_df['ml_model'] == ml_model)]
-        dimension_df[legend_mapper(dimension)] = dimension_df['val']
-
-        dimension_df['score']    = dimension_df['Dep Parse']*100
-
         # draw a barplot with FacetGrid 
-        g = sns.catplot(x="ml_model", y= 'score', hue=legend_mapper(dimension), data=dimension_df, height=6, kind="bar", palette="muted", hue_order=hue_orders, col = 'mode')
+        g = sns.catplot(x="ml_model", y= 'f1_diff', hue='bin', data=f1_df, height=6, kind="bar", palette="muted", hue_order=hue_orders, col = 'mode', row= 'dimension', ci=None)
 
         sns.move_legend(g, "lower center", bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False)
         g.set(ylabel= f'Diff in F1 score for Dep Parse')
         # savefig g
-        g.savefig(f"../results/{args.dataset}_{dimension}_overall.png")
+        g.savefig(f"../results/{dataset}_overall.png")
         plt.show()
         plt.clf()
         plt.close()
+
+
+
+
+def compute_dep_path_len(dep_data):
+
+    n1_nodes, n2_nodes = np.array(dep_data['n1_mask']), np.array(dep_data['n2_mask'])
+
+    edges   = np.array(dep_data['edge_index'])
+
+    G       = nx.Graph()
+
+    for e1, e2 in zip(edges[0], edges[1]):
+        G.add_edge(e1, e2)
+    
+    n1_nodes = np.where(n1_nodes == 1)[0]
+    n2_nodes = np.where(n2_nodes == 1)[0]
+
+    min_path = np.inf
+
+    # find the shortest path between all pairs of n1 and n2 nodes
+
+    path_len   = []
+    for n1 in n1_nodes:
+        for n2 in n2_nodes:
+            try:
+                path = nx.shortest_path(G, source=n1, target=n2)
+                # print(path)
+                path_len.append(len(path))
+            except Exception as e:
+                continue
+    
+    try:
+        max_min_path = max(path_len)
+        assert max_min_path >= 0
+    except Exception as e:
+        max_min_path = np.inf
+
+    return max_min_path
+
+
 
 
 
@@ -468,9 +410,8 @@ def compute_dataset_stats():
 
                     for idx in range(len(test_dataset)):
 
-                        sent_len                = len(test_dataset[idx]['tokens'])
-
-                        e1_ids, e2_ids          = test_dataset[idx]['e1_ids'], test_dataset[idx]['e2_ids']
+                        sent_len                        = len(test_dataset[idx]['tokens'])
+                        e1_ids, e2_ids                  = test_dataset[idx]['e1_ids'], test_dataset[idx]['e2_ids']
 
                         try:
                             assert 1 in e1_ids and 1 in e2_ids
@@ -496,24 +437,27 @@ def compute_dataset_stats():
                             lex_dist = np.inf
 
                         sent_len_list.append(sent_len)
-                        lex_len_list.append(lex_dist)
+                        lex_len_list.append(lex_dist)                        
+                        
+                        dep_data    = test_dataset[idx]['dep_data']
 
-                        import pdb; pdb.set_trace()
+                        dep_len     = compute_dep_path_len(dep_data)
+                        dep_len_list.append(dep_len)
 
-
-
-
-
-                    sent_q1, sent_q2    = np.percentile(sent_len_list, 25), np.percentile(sent_len_list, 75)
-                    lex_q1, lex_q2      = np.percentile(lex_len_list, 25), np.percentile(lex_len_list, 75)
+                    ############## Create a dataframe for the test dataset ####################
+                    sent_q1, sent_q2  = np.percentile(sent_len_list, 25), np.percentile(sent_len_list, 75)
+                    lex_q1, lex_q2    = np.percentile(lex_len_list, 25), np.percentile(lex_len_list, 75)
+                    dep_q1, dep_q2    = np.percentile(dep_len_list, 25), np.percentile(dep_len_list, 75)
 
                     for idx in range(len(test_dataset)):
 
                         lex_len                 = lex_len_list[idx]
                         sent_len                = sent_len_list[idx]
-                        
-                        lex_category            = obtain_mapper(lex_len,    [ -np.inf,lex_q1, lex_q2, np.inf])
+                        dep_len                 = dep_len_list[idx]
+
+                        lex_category            = obtain_mapper(lex_len,    [-np.inf, lex_q1,  lex_q2, np.inf])
                         sent_category           = obtain_mapper(sent_len,   [-np.inf, sent_q1, sent_q2, np.inf])
+                        dep_category            = obtain_mapper(dep_len,    [-np.inf, dep_q1,  dep_q2, np.inf])
 
 
                         test_dataset_stats['idx'].append(idx)
@@ -521,10 +465,14 @@ def compute_dataset_stats():
                         test_dataset_stats['lex_len'].append(lex_category)
                         test_dataset_stats['sent_len_val'].append(sent_len)
                         test_dataset_stats['lex_len_val'].append(lex_len)
+                        test_dataset_stats['dep_len'].append(dep_category)
+                        test_dataset_stats['dep_len_val'].append(dep_len)
                         test_dataset_stats['doc_text'].append(test_dataset[idx]['doc_text'])
 
+
                     print(f'{dataset} - {lang} - {model_name} - {dep_model} Sent Len: {sent_q1} - {sent_q2}')
-                    print(f'{dataset} - {lang} - {model_name} - {dep_model} Lex Len: {lex_q1} - {lex_q2}')
+                    print(f'{dataset} - {lang} - {model_name} - {dep_model} Lex Len:  {lex_q1}  - {lex_q2}')
+                    print(f'{dataset} - {lang} - {model_name} - {dep_model} Dep Len:  {dep_q1}  - {dep_q2}')
 
                     test_dataset_stats_df = pd.DataFrame(test_dataset_stats)
 
@@ -890,7 +838,8 @@ if __name__ =='__main__':
     args                            =   get_args()
 
     if args.step                    == 'create_df':
-        create_df()
+        create_dataset_df()
+
     elif args.step                  == 'sigtest':
         do_sigtest()
 
