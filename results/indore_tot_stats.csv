@@ -1,0 +1,13 @@
+src,ml_model,dep_model,split,sent_len_mean,lex_len_mean,dep_len_mean,sent_len_median,lex_len_median,dep_len_median,num_docs,num_relations
+en,mbert-base,stanza,total,31.23,13.92,5.43,29.0,11.0,5.0,8486,51
+hi,mbert-base,stanza,total,66.76,27.29,5.7,56.0,21.0,5.0,6963,51
+te,mbert-base,stanza,total,151.45,44.74,6.05,140.0,31.0,6.0,8154,51
+en,mbert-base,trankit,total,31.23,13.92,5.42,29.0,11.0,5.0,8486,51
+hi,mbert-base,trankit,total,66.76,27.29,5.85,56.0,21.0,6.0,6963,51
+te,mbert-base,trankit,total,151.45,44.74,5.69,140.0,31.0,6.0,8154,51
+en,xlmr-base,stanza,total,34.4,15.95,5.43,32.0,13.0,5.0,8486,51
+hi,xlmr-base,stanza,total,56.25,22.85,5.7,48.0,17.0,5.0,6963,51
+te,xlmr-base,stanza,total,125.6,37.43,6.05,113.0,26.0,6.0,8154,51
+en,xlmr-base,trankit,total,34.4,15.95,5.42,32.0,13.0,5.0,8486,51
+hi,xlmr-base,trankit,total,56.25,22.85,5.85,48.0,17.0,6.0,6963,51
+te,xlmr-base,trankit,total,125.6,37.43,5.69,113.0,26.0,6.0,8154,51

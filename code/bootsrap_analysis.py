@@ -12,6 +12,12 @@ from collections import Counter
 from helper import *
 import dill
 from dataloader import *
+from statsmodels.stats.anova import anova_lm
+import statsmodels.api as sm 
+from statsmodels.formula.api import ols 
+from statsmodels.multivariate.manova import MANOVA
+from scipy.stats import ks_2samp
+
 import networkx as nx
 
 
@@ -383,8 +389,160 @@ def compute_dep_path_len(dep_data):
 
 
 
-
 def compute_dataset_stats():
+
+    for dataset in ['indore', 'redfm']:
+
+        if dataset == 'redfm':
+            src_langs   = ['en', 'es', 'fr', 'it', 'de']
+            tgt_langs   = ['en', 'es', 'fr', 'it', 'de', 'ar', 'zh']
+        if dataset == 'indore':
+            src_langs   = ['en', 'hi', 'te']
+            tgt_langs   = ['en', 'hi', 'te']
+
+
+        stats_dict      = ddict(list)
+        tot_stats_dict  = ddict(list)
+
+        relations_dict = json.load(open(f'../data/{dataset}/relation_dict.json'))
+
+
+        for model_name in ['mbert-base', 'xlmr-base']:
+
+            for dep_model in ['stanza', 'trankit']:
+
+                for lang in tgt_langs:
+
+                    test_dataset_stats = ddict(list)
+
+                    with open(f'../data/{dataset}/{lang}_{model_name}_{dep_model}.dill', 'rb') as f:
+                        loaded_dataset = dill.load(f)
+
+                    splits = ['train', 'validation', 'test']
+
+                    tot_sent_len_list   = []
+                    tot_lex_len_list    = []
+                    tot_dep_len_list    = []
+                    tot_rel_freq_dict   = ddict(int)
+
+
+                    for split in splits:
+
+                        test_dataset     = loaded_dataset[split]
+
+                        sent_len_list    = []
+                        lex_len_list     = []
+                        dep_len_list     = []
+                        rel_freq_dict    = ddict(int)
+
+                        for idx in range(len(test_dataset)):
+
+                            sent_len                        = len(test_dataset[idx]['tokens'])
+                            e1_ids, e2_ids                  = test_dataset[idx]['e1_ids'], test_dataset[idx]['e2_ids']
+
+                            try:
+                                assert 1 in e1_ids and 1 in e2_ids
+                            
+                                try:
+                                    indices                 = [i for i, x in enumerate(e1_ids) if x == 1]
+                                    first_e1, last_e1       = indices[0], indices[-1]
+                                except Exception as e:
+                                    first_e1, last_e1       = indices[0], indices[0]
+
+                                try:
+                                    indices                 = [i for i, x in enumerate(e2_ids) if x == 1]
+                                    first_e2, last_e2       = indices[0], indices[-1]
+                                except Exception as e:
+                                    first_e2, last_e2       = indices[0], indices[0]
+
+
+                                lex_dist                    = max(last_e1 - first_e2, last_e2 - first_e1)
+
+                                assert lex_dist >= 0
+                            
+                            except Exception as e:
+                                lex_dist = np.inf
+
+                            sent_len_list.append(sent_len)
+
+                            if lex_dist == np.inf:
+                                lex_dist = 0
+
+                            lex_len_list.append(lex_dist)                        
+                            
+                            dep_data    = test_dataset[idx]['dep_data']
+
+                            dep_len     = compute_dep_path_len(dep_data)
+
+                            if dep_len == np.inf:
+                                dep_len = 0
+
+
+                            dep_len_list.append(dep_len)
+
+                            lbl_idx         = np.where(test_dataset[idx]['label'] == 1)[0][0]
+
+                            if lbl_idx not in relations_dict:
+                                rel         = relations_dict[str(lbl_idx)]
+                            else:
+                                rel         = relations_dict[lbl_idx]
+
+                            rel_freq_dict[rel] += 1
+
+                        ############## Create a dataframe for the test dataset ####################
+
+                        stats_dict['src'].append(lang)
+                        stats_dict['ml_model'].append(model_name)
+                        stats_dict['dep_model'].append(dep_model)
+                        stats_dict['split'].append(split)
+
+                        stats_dict['sent_len_mean'].append(round(np.mean(sent_len_list),2))
+                        stats_dict['lex_len_mean'].append(round(np.mean(lex_len_list),2))
+                        stats_dict['dep_len_mean'].append(round(np.mean(dep_len_list),2))
+
+                        stats_dict['sent_len_median'].append(round(np.median(sent_len_list),2))
+                        stats_dict['lex_len_median'].append(round(np.median(lex_len_list),2))
+                        stats_dict['dep_len_median'].append(round(np.median(dep_len_list),2))
+
+                        stats_dict['num_docs'].append(len(test_dataset))
+                        stats_dict['num_relations'].append(len(rel_freq_dict))
+
+                        print(f'Done for {dataset} - {lang} - {model_name} - {dep_model} - {split}')
+
+
+                        tot_sent_len_list.extend(sent_len_list)
+                        tot_lex_len_list.extend(lex_len_list)
+                        tot_dep_len_list.extend(dep_len_list)
+                        for rel, freq in rel_freq_dict.items():
+                            tot_rel_freq_dict[rel] += freq
+                        
+                    ############## Create a dataframe for the test dataset ####################
+
+                    tot_stats_dict['src'].append(lang)
+                    tot_stats_dict['ml_model'].append(model_name)
+                    tot_stats_dict['dep_model'].append(dep_model)
+                    tot_stats_dict['split'].append('total')
+                    tot_stats_dict['sent_len_mean'].append(round(np.mean(tot_sent_len_list),2))
+                    tot_stats_dict['lex_len_mean'].append(round(np.mean(tot_lex_len_list),2))
+                    tot_stats_dict['dep_len_mean'].append(round(np.mean(tot_dep_len_list),2))
+                    tot_stats_dict['sent_len_median'].append(round(np.median(tot_sent_len_list),2))
+                    tot_stats_dict['lex_len_median'].append(round(np.median(tot_lex_len_list),2))
+                    tot_stats_dict['dep_len_median'].append(round(np.median(tot_dep_len_list),2))
+                    tot_stats_dict['num_docs'].append(len(tot_sent_len_list))
+                    tot_stats_dict['num_relations'].append(len(tot_rel_freq_dict))
+
+
+
+
+        stats_df    = pd.DataFrame(stats_dict)
+        stats_df.to_csv(f'../results/{dataset}_stats.csv', index=False)
+
+        tot_stats_df    = pd.DataFrame(tot_stats_dict)
+        tot_stats_df.to_csv(f'../results/{dataset}_tot_stats.csv', index=False)
+
+
+
+def compute_test_dataset_stats():
 
     for dataset in ['indore', 'redfm']:
 
@@ -837,6 +995,146 @@ def get_args():
     return args
 
 
+
+###### GET ANOVA RESULTS ######
+
+def anova_results():
+    eps = 1e-10
+    stats_df = pd.read_csv(f'../results/{args.dataset}_overall_results.csv')
+
+    # identify the common set of source and target languages
+
+    aggregated_dict = ddict(list)
+
+    if args.dataset == 'redfm':
+        src_langs   = ['en', 'es', 'fr', 'it', 'de']
+        tgt_langs   = ['en', 'es', 'fr', 'it', 'de', 'ar', 'zh']
+
+    if args.dataset == 'indore':
+        src_langs   = ['en', 'hi', 'te']
+        tgt_langs   = ['en', 'hi', 'te']
+
+    ### create a simple csv file for the indomain and cross domain results
+
+    indomain_dict = ddict(list)
+
+    for src_lang in src_langs:
+        for tgt_lang in tgt_langs:
+            for ml_model in ['mbert-base', 'xlmr-base']:        
+
+                
+                dep_dict        = {}
+                for seed in [11737, 98105, 98109, 15232, 15123]:
+
+                    try:
+                        dep_f1 = stats_df[(stats_df['src'] == src_lang) & (stats_df['tgt'] == tgt_lang) & (stats_df['dep_model'] == '-') & (stats_df['gnn_model'] == '-') & (stats_df['ml_model'] == ml_model) & (stats_df['seed'] == seed)]['f1'].values[0]
+
+
+                        dep_dict[seed] = dep_f1
+                    except Exception as e:
+                        import pdb; pdb.set_trace()
+                        print(f"Absent File: {src_lang} - {tgt_lang} - None - None - {ml_model} - {seed}")
+                
+                top_seeds  = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
+                f1s    = [dep_dict[seed] for seed in top_seeds]
+
+                baseline_f1 = np.mean(f1s)
+
+                for dep_model in ['stanza', 'trankit']:
+                    for gnn_model in ['rgcn', 'rgat']:
+
+                        dep_dict    = {}
+                        
+                        for seed in [11737, 98105, 98109, 15232, 15123]:
+
+
+                            dep_f1 = stats_df[(stats_df['src'] == src_lang) & (stats_df['tgt'] == tgt_lang) & (stats_df['dep_model'] == dep_model) & (stats_df['gnn_model'] == gnn_model) & (stats_df['ml_model'] == ml_model) & (stats_df['seed'] == seed)]['f1'].values[0]
+
+                            dep_dict[seed] = dep_f1
+                        
+                        # select the top 3 seeds for each src_tgt pair
+                        top_seeds  = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
+                        f1s    = [dep_dict[seed] for seed in top_seeds]
+                        
+
+                        mean_f1 = np.mean(f1s)
+                        std_f1  = np.std(f1s) 
+
+                        aggregated_dict['src'].append(src_lang)
+                        aggregated_dict['tgt'].append(tgt_lang)
+                        aggregated_dict['DEP'].append(dep_model)
+                        aggregated_dict['GNN'].append(gnn_model)
+                        aggregated_dict['ENC'].append(ml_model)
+
+                        f1_diff = 100* (mean_f1 - baseline_f1)/(baseline_f1 + eps)
+                        
+                        print(f'{src_lang} - {tgt_lang} - {dep_model} - {gnn_model} - {ml_model} - {f1_diff}')
+                        aggregated_dict['F1_diff'].append(f1_diff)
+
+    aggregated_df = pd.DataFrame(aggregated_dict)
+
+    df           = aggregated_df[(aggregated_df['src'] == aggregated_df['tgt'])]
+
+    reg_model   = ols('F1_diff ~ C(src)+ C(DEP) + C(GNN) + C(ENC)', data=df).fit()
+    anova_table = sm.stats.anova_lm(reg_model, typ=2)
+
+    results_text = f'''Anova Results:\n
+    {anova_table}\n
+    ====================================================================================\n
+    Regression Model Parameters:\n
+    {reg_model.params}\n
+    '''
+
+    reg_model2   = ols('F1_diff ~ C(src)+ C(GNN) + C(DEP) + C(ENC) \
+        + C(src):C(DEP) + C(src):C(ENC) + C(src):C(GNN)\
+        + C(DEP):C(GNN) + C(ENC):C(GNN)\
+        + C(DEP):C(ENC)', data=df).fit()
+    
+    anova_table2 = sm.stats.anova_lm(reg_model2, typ=2)
+
+    results_text += f'''Anova Results:\n
+    {anova_table2}\n
+    ====================================================================================\n
+    Regression Model Parameters:\n
+    {reg_model2.params}\n
+    '''
+
+    with open(f'../results/anova_{args.dataset}_indomain_results.txt', 'w') as f:
+        f.write(results_text)
+
+    ### cross domain results
+    df           = aggregated_df[(aggregated_df['src'] != aggregated_df['tgt'])]
+
+    reg_model   = ols('F1_diff ~ C(src)+ C(DEP) + C(GNN) + C(ENC) + C(tgt)', data=df).fit()
+    anova_table = sm.stats.anova_lm(reg_model, typ=2)
+
+    results_text = f'''Anova Results:\n
+    {anova_table}\n
+    ====================================================================================\n
+    Regression Model Parameters:\n
+    {reg_model.params}\n
+    '''
+
+    reg_model2   = ols('F1_diff ~ C(src)+ C(GNN) + C(DEP) + C(ENC) + C(tgt) \
+        + C(tgt):C(DEP) + C(tgt):C(ENC) + C(tgt):C(GNN) + C(tgt):C(src) \
+        + C(src):C(DEP) + C(src):C(ENC) + C(src):C(GNN)\
+        + C(DEP):C(GNN) + C(ENC):C(GNN)\
+        + C(DEP):C(ENC)', data=df).fit()
+    
+    anova_table2 = sm.stats.anova_lm(reg_model2, typ=2)
+
+    results_text += f'''Anova Results:\n
+    {anova_table2}\n
+    ====================================================================================\n
+    Regression Model Parameters:\n
+    {reg_model2.params}\n
+    '''
+
+    with open(f'../results/anova_{args.dataset}_crosslingual_results.txt', 'w') as f:
+        f.write(results_text)
+
+    
+
 if __name__ =='__main__':	
 
     args                            =   get_args()
@@ -861,4 +1159,8 @@ if __name__ =='__main__':
     
     elif args.step                 == 'dataset_stats':
         compute_dataset_stats()
+    
+    elif args.step                 == 'anova':
+        anova_results()
+        
 
