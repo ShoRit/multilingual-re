@@ -447,11 +447,20 @@ def compute_dataset_stats():
                                 lex_dist = np.inf
 
                             sent_len_list.append(sent_len)
+
+                            if lex_dist == np.inf:
+                                lex_dist = 0
+                                
                             lex_len_list.append(lex_dist)                        
                             
                             dep_data    = test_dataset[idx]['dep_data']
 
                             dep_len     = compute_dep_path_len(dep_data)
+
+                            if dep_len == np.inf:
+                                dep_len = 0
+
+
                             dep_len_list.append(dep_len)
 
                             lbl_idx         = np.where(test_dataset[idx]['label'] == 1)[0][0]
@@ -470,13 +479,13 @@ def compute_dataset_stats():
                         stats_dict['dep_model'].append(dep_model)
                         stats_dict['split'].append(split)
 
-                        stats_dict['sent_len_mean'].append(f'{round(100*np.mean(sent_len_list),2)}')
-                        stats_dict['lex_len_mean'].append(f'{round(100*np.mean(lex_len_list),2)}')
-                        stats_dict['dep_len_mean'].append(f'{round(100*np.mean(dep_len_list),2)}')
+                        stats_dict['sent_len_mean'].append(round(np.mean(sent_len_list),2))
+                        stats_dict['lex_len_mean'].append(round(np.mean(lex_len_list),2))
+                        stats_dict['dep_len_mean'].append(round(np.mean(dep_len_list),2))
 
-                        stats_dict['sent_len_median'].append(f'{round(100*np.median(sent_len_list),2)}')
-                        stats_dict['lex_len_median'].append(f'{round(100*np.median(lex_len_list),2)}')
-                        stats_dict['dep_len_median'].append(f'{round(100*np.median(dep_len_list),2)}')
+                        stats_dict['sent_len_median'].append(round(np.median(sent_len_list),2))
+                        stats_dict['lex_len_median'].append(round(np.median(lex_len_list),2))
+                        stats_dict['dep_len_median'].append(round(np.median(dep_len_list),2))
 
                         stats_dict['num_docs'].append(len(test_dataset))
                         stats_dict['num_relations'].append(len(rel_freq_dict))
