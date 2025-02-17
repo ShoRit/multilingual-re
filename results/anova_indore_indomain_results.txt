@@ -1,0 +1,58 @@
+Anova Results:
+
+                 sum_sq    df         F    PR(>F)
+C(src)     1.844250   2.0  1.377182  0.277631
+C(DEP)     1.226062   1.0  1.831108  0.192749
+C(GNN)     0.185097   1.0  0.276440  0.605462
+C(ENC)     0.308134   1.0  0.460194  0.506162
+Residual  12.052326  18.0       NaN       NaN
+
+    ====================================================================================
+
+    Regression Model Parameters:
+
+    Intercept              0.300131
+C(src)[T.hi]           0.591709
+C(src)[T.te]           0.007399
+C(DEP)[T.trankit]     -0.452044
+C(GNN)[T.rgcn]         0.175640
+C(ENC)[T.xlmr-base]   -0.226618
+dtype: float64
+
+    Anova Results:
+
+                     sum_sq   df          F    PR(>F)
+C(src)         1.844250  2.0   6.265161  0.019741
+C(GNN)         0.185097  1.0   1.257600  0.291134
+C(DEP)         1.226062  1.0   8.330188  0.017995
+C(ENC)         0.308134  1.0   2.093542  0.181838
+C(src):C(DEP)  0.165065  2.0   0.560747  0.589509
+C(src):C(ENC)  7.123628  2.0  24.199910  0.000239
+C(src):C(GNN)  1.334765  2.0   4.534375  0.043442
+C(DEP):C(GNN)  0.054666  1.0   0.371414  0.557304
+C(ENC):C(GNN)  1.044715  1.0   7.098071  0.025866
+C(DEP):C(ENC)  1.004840  1.0   6.827150  0.028137
+Residual       1.324646  9.0        NaN       NaN
+
+    ====================================================================================
+
+    Regression Model Parameters:
+
+    Intercept                                0.425411
+C(src)[T.hi]                            -0.304073
+C(src)[T.te]                             0.658456
+C(GNN)[T.rgcn]                          -0.097739
+C(DEP)[T.trankit]                       -0.726081
+C(ENC)[T.xlmr-base]                     -0.017173
+C(src)[T.hi]:C(DEP)[T.trankit]          -0.382944
+C(src)[T.te]:C(DEP)[T.trankit]          -0.309005
+C(src)[T.hi]:C(ENC)[T.xlmr-base]         1.020953
+C(src)[T.te]:C(ENC)[T.xlmr-base]        -1.625165
+C(src)[T.hi]:C(GNN)[T.rgcn]              1.153556
+C(src)[T.te]:C(GNN)[T.rgcn]              0.632056
+C(DEP)[T.trankit]:C(GNN)[T.rgcn]         0.190903
+C(ENC)[T.xlmr-base]:C(GNN)[T.rgcn]      -0.834552
+C(DEP)[T.trankit]:C(ENC)[T.xlmr-base]    0.818470
+dtype: float64
+
+    

@@ -1,0 +1,68 @@
+Anova Results:
+
+                 sum_sq    df          F        PR(>F)
+C(src)     1.861920   4.0   0.397864  8.086572e-01
+C(DEP)     3.612589   1.0   3.087820  8.844555e-02
+C(GNN)     0.718502   1.0   0.614131  4.389988e-01
+C(ENC)    51.586388   1.0  44.092887  1.723886e-07
+Residual  37.438338  32.0        NaN           NaN
+
+    ====================================================================================
+
+    Regression Model Parameters:
+
+    Intercept              2.356785
+C(src)[T.en]          -0.487877
+C(src)[T.es]          -0.046989
+C(src)[T.fr]          -0.520447
+C(src)[T.it]          -0.272786
+C(DEP)[T.trankit]     -0.601048
+C(GNN)[T.rgcn]        -0.268049
+C(ENC)[T.xlmr-base]   -2.271264
+dtype: float64
+
+    Anova Results:
+
+                sum_sq    df          F    PR(>F)
+C(src)          1.861920   4.0   0.408107  0.800290
+C(GNN)          0.718502   1.0   0.629942  0.438315
+C(DEP)          3.612589   1.0   3.167318  0.093008
+C(ENC)         51.586388   1.0  45.228089  0.000004
+C(src):C(DEP)   2.027077   4.0   0.444307  0.775010
+C(src):C(ENC)   9.053119   4.0   1.984318  0.142706
+C(src):C(GNN)   3.373044   4.0   0.739325  0.578058
+C(DEP):C(GNN)   0.221275   1.0   0.194002  0.665156
+C(ENC):C(GNN)   1.773324   1.0   1.554752  0.229342
+C(DEP):C(ENC)   1.600589   1.0   1.403308  0.252468
+Residual       19.389911  17.0        NaN       NaN
+
+    ====================================================================================
+
+    Regression Model Parameters:
+
+    Intercept                                2.016351
+C(src)[T.en]                            -0.918359
+C(src)[T.es]                            -0.144472
+C(src)[T.fr]                            -0.820877
+C(src)[T.it]                             0.576706
+C(GNN)[T.rgcn]                          -0.470307
+C(DEP)[T.trankit]                       -1.046098
+C(ENC)[T.xlmr-base]                     -0.270660
+C(src)[T.en]:C(DEP)[T.trankit]           0.549537
+C(src)[T.es]:C(DEP)[T.trankit]           1.074687
+C(src)[T.fr]:C(DEP)[T.trankit]           1.286489
+C(src)[T.it]:C(DEP)[T.trankit]           0.571137
+C(src)[T.en]:C(ENC)[T.xlmr-base]        -0.481359
+C(src)[T.es]:C(ENC)[T.xlmr-base]        -0.827601
+C(src)[T.fr]:C(ENC)[T.xlmr-base]        -2.153450
+C(src)[T.it]:C(ENC)[T.xlmr-base]        -2.434700
+C(src)[T.en]:C(GNN)[T.rgcn]              0.792785
+C(src)[T.es]:C(GNN)[T.rgcn]             -0.052120
+C(src)[T.fr]:C(GNN)[T.rgcn]              1.467821
+C(src)[T.it]:C(GNN)[T.rgcn]              0.164579
+C(DEP)[T.trankit]:C(GNN)[T.rgcn]         0.297506
+C(ENC)[T.xlmr-base]:C(GNN)[T.rgcn]      -0.842217
+C(DEP)[T.trankit]:C(ENC)[T.xlmr-base]   -0.800147
+dtype: float64
+
+    
