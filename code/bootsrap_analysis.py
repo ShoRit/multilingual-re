@@ -379,8 +379,119 @@ def compute_dep_path_len(dep_data):
 
 
 
-
 def compute_dataset_stats():
+
+    for dataset in ['indore', 'redfm']:
+
+        if dataset == 'redfm':
+            src_langs   = ['en', 'es', 'fr', 'it', 'de']
+            tgt_langs   = ['en', 'es', 'fr', 'it', 'de', 'ar', 'zh']
+        if dataset == 'indore':
+            src_langs   = ['en', 'hi', 'te']
+            tgt_langs   = ['en', 'hi', 'te']
+
+
+        stats_dict      = ddict(list)
+
+        relations_dict = json.load(open(f'../data/{dataset}/relation_dict.json'))
+
+
+        for model_name in ['mbert-base', 'xlmr-base']:
+
+            for dep_model in ['stanza', 'trankit']:
+
+                for lang in tgt_langs:
+
+                    test_dataset_stats = ddict(list)
+
+                    with open(f'../data/{dataset}/{lang}_{model_name}_{dep_model}.dill', 'rb') as f:
+                        loaded_dataset = dill.load(f)
+
+                    splits = ['train', 'validation', 'test']
+
+                    for split in splits:
+
+                        test_dataset     = loaded_dataset[split]
+
+                        sent_len_list    = []
+                        lex_len_list     = []
+                        dep_len_list     = []
+                        rel_freq_dict    = ddict(int)
+
+                        for idx in range(len(test_dataset)):
+
+                            sent_len                        = len(test_dataset[idx]['tokens'])
+                            e1_ids, e2_ids                  = test_dataset[idx]['e1_ids'], test_dataset[idx]['e2_ids']
+
+                            try:
+                                assert 1 in e1_ids and 1 in e2_ids
+                            
+                                try:
+                                    indices                 = [i for i, x in enumerate(e1_ids) if x == 1]
+                                    first_e1, last_e1       = indices[0], indices[-1]
+                                except Exception as e:
+                                    first_e1, last_e1       = indices[0], indices[0]
+
+                                try:
+                                    indices                 = [i for i, x in enumerate(e2_ids) if x == 1]
+                                    first_e2, last_e2       = indices[0], indices[-1]
+                                except Exception as e:
+                                    first_e2, last_e2       = indices[0], indices[0]
+
+
+                                lex_dist                    = max(last_e1 - first_e2, last_e2 - first_e1)
+
+                                assert lex_dist >= 0
+                            
+                            except Exception as e:
+                                lex_dist = np.inf
+
+                            sent_len_list.append(sent_len)
+                            lex_len_list.append(lex_dist)                        
+                            
+                            dep_data    = test_dataset[idx]['dep_data']
+
+                            dep_len     = compute_dep_path_len(dep_data)
+                            dep_len_list.append(dep_len)
+
+                            lbl_idx         = np.where(test_dataset[idx]['label'] == 1)[0][0]
+
+                            if lbl_idx not in relations_dict:
+                                rel         = relations_dict[str(lbl_idx)]
+                            else:
+                                rel         = relations_dict[lbl_idx]
+
+                            rel_freq_dict[rel] += 1
+
+                        ############## Create a dataframe for the test dataset ####################
+
+                        stats_dict['src'].append(lang)
+                        stats_dict['ml_model'].append(model_name)
+                        stats_dict['dep_model'].append(dep_model)
+                        stats_dict['split'].append(split)
+
+                        stats_dict['sent_len_mean'].append(f'{round(100*np.mean(sent_len_list),2)}')
+                        stats_dict['lex_len_mean'].append(f'{round(100*np.mean(lex_len_list),2)}')
+                        stats_dict['dep_len_mean'].append(f'{round(100*np.mean(dep_len_list),2)}')
+
+                        stats_dict['sent_len_median'].append(f'{round(100*np.median(sent_len_list),2)}')
+                        stats_dict['lex_len_median'].append(f'{round(100*np.median(lex_len_list),2)}')
+                        stats_dict['dep_len_median'].append(f'{round(100*np.median(dep_len_list),2)}')
+
+                        stats_dict['num_docs'].append(len(test_dataset))
+                        stats_dict['num_relations'].append(len(rel_freq_dict))
+
+                        print(f'Done for {dataset} - {lang} - {model_name} - {dep_model} - {split}')
+
+        stats_df    = pd.DataFrame(stats_dict)
+        stats_df.to_csv(f'../results/{dataset}_stats.csv', index=False)
+
+    
+
+                    
+
+
+def compute_test_dataset_stats():
 
     for dataset in ['indore', 'redfm']:
 
