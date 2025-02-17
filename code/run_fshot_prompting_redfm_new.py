@@ -1,37 +1,22 @@
 import json
 from tqdm import tqdm
 import torch
-import torch.distributed as dist
-from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import Dataset, DataLoader
-from torch.utils.data.distributed import DistributedSampler
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from collections import defaultdict
 import argparse
 from natsort import natsorted
 import re
 import networkx as nx
 from collections import deque
 import advertools as adv
-import os
-
 
 with open('dependency_mapping.json', 'r') as file:
     dependency_definitions = json.load(file)
 
-
-
-def setup(rank, world_size):
-    os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12355'
-    dist.init_process_group("nccl", rank=rank, world_size=world_size)
-
-def cleanup():
-    dist.destroy_process_group()
-
 # 1. Define the Custom Dataset
 class LabelDatasetSingleChoice(Dataset):
-    def __init__(self, data, labels, prompt_func, stop_words, dependency_definitions):
-        """
+    def __init__(self, data, labels, prompt_func, stop_words, dependency_definitions):        """
         Args:
             data (list): List of examples.
             labels (list): List of possible labels.
@@ -42,9 +27,10 @@ class LabelDatasetSingleChoice(Dataset):
         self.prompt_func = prompt_func
         self.stop_words = stop_words
         self.dependency_definitions = dependency_definitions
-
+    
     def __len__(self):
         return len(self.data)
+    
     def __getitem__(self, idx):
         example = self.data[idx]
         prompt = self.prompt_func(example,  self.labels, self.stop_words, self.dependency_definitions)
@@ -189,7 +175,8 @@ def find_entity_connecting_path(e1,e2,dep_graph):
 
     return unique_parses
 
-def construct_prompt_single_choice(example, labels, stopwords,dep_choice):
+def construct_prompt_single_choice(example, labels, stopwords,dep_choice):):
+
     label_text = ""
     for key, value in labels.items():
         label_text += f"{key}: {value}\n"
@@ -216,57 +203,63 @@ def construct_prompt_dependency_choice(example, labels):
     
     return prompt
 
-def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, dependency_definitions):
+def construct_prompt_dependency_choice_trimmed(example, labels):
     # Create a comma-separated list of labels
     # print('example:', example)
-    label_text = ""
-    for key, value in labels.items():
-        label_text += f"{key}: {value}\n"
+    label_list = ", ".join(labels)
 
+    label_text = ""
+
+    for label_idx, label in enumerate(labels):
+        label_text += f"{label_idx}: {label}\n"
 
     dependency_list = example["dep_graph"]
     dep_text = ""
     # (node_dict[n1], rel, node_dict[n2])
 
-    try:
+    e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
+    e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
+    words_e1 = re.findall(r'\b\w+\b', e1)
+    words_e2 = re.findall(r'\b\w+\b', e2)
 
-        e1 = re.search(r'<e1>(.*?)</e1>', example['annotated_sent']).group(1)
-        e2 = re.search(r'<e2>(.*?)</e2>', example['annotated_sent']).group(1)
-        words_e1 = re.findall(r'\b\w+\b', e1)
-        words_e2 = re.findall(r'\b\w+\b', e2)
+    #Filter out stop words
+    words_e1 = [word for word in words_e1 if word.lower() not in stop_words]
+    words_e2 = [word for word in words_e2 if word.lower() not in stop_words]
 
-        #Filter out stop words
-        words_e1 = [word for word in words_e1 if word.lower() not in stop_words]
-        words_e2 = [word for word in words_e2 if word.lower() not in stop_words]
+    pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
 
-        pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
-
-        for dep in pruned_dep_list:
-            if dep[1] == "root":
-                descriptive_relations = f"{dep[0]} is the root word, "
-            else:
-                descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
-            dep_text+=descriptive_relations
-    except Exception as e:
-        dep_text=""
-    except KeyboardInterrupt:
-        raise
+    for dep in pruned_dep_list:
+        if dep[1] == "root":
+            descriptive_relations = f"{dep[0]} is the root word, "
+        else:
+            descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
+        dep_text+=descriptive_relations
+    
     # import pdb; pdb.set_trace()
     
-    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-    # print(prompt)
+    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+    #print(prompt)
     return prompt
 
 
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
-    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
+    # Tokenize the prompts with padding and no truncation
+    inputs = tokenizer(
+        prompts,
+        return_tensors="pt",
+        padding=True,
+        truncation=False,  # Disable truncation
+    ).to(model.device)
+    
     with torch.no_grad():
-        outputs = model.module.generate(
+        outputs = model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
             return_dict_in_generate=True,
             output_scores=False
         )
+    
+    # Decode the generated sequences
     generated_texts = tokenizer.batch_decode(outputs.sequences, skip_special_tokens=True)
     return generated_texts
 
@@ -285,21 +278,7 @@ def get_args():
     
     return args
 
-def tensor_to_native(obj):
-    if isinstance(obj, torch.Tensor):
-        return obj.tolist()
-    elif isinstance(obj, dict):
-        return {k: tensor_to_native(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [tensor_to_native(v) for v in obj]
-    return obj
-
-
-
-def main(rank, world_size, args):
-    setup(rank, world_size)
-    torch.cuda.set_device(rank)
-
+if __name__ =='__main__':	
     args = get_args()
 
     if args.dep_parser.lower() != 'none':
@@ -312,14 +291,6 @@ def main(rank, world_size, args):
 
     split_data = data.get(args.split, [])
 
-<<<<<<< HEAD
-    with open(f"../data/{args.dataset}/relation_dict.json") as f:
-        relation_labels = json.load(f)
-
-    labels= dict(natsorted(relation_labels.items()))
-
-=======
->>>>>>> 5f45762a785cf172f4d9593080805a6fe8fce96d
     with open('dependency_mapping.json', 'r') as file:
         dependency_definitions = json.load(file)
 
@@ -341,6 +312,10 @@ def main(rank, world_size, args):
 
 
     # List of possible labels
+    with open(f"../data/{args.dataset}/relation_dict.json") as f:
+        relation_labels = json.load(f)
+
+    labels= dict(natsorted(relation_labels.items()))
 
     # Flatten the data: one entry per relation
     flattened_data = []
@@ -396,26 +371,23 @@ def main(rank, world_size, args):
 
     print(f"Total flattened examples: {len(flattened_data)}")
 
-
-    dataset = LabelDatasetSingleChoice(
-        data=flattened_data,
-        labels=labels,
-        prompt_func=construct_prompt_dependency_choice_trimmed if args.dep_parser.lower() != 'none' else construct_prompt_single_choice,
-        stop_words=stop_words,
-        dependency_definitions=dependency_definitions
-    )
-
-    sampler = DistributedSampler(dataset, num_replicas=world_size, rank=rank, shuffle=False)
-    dataloader = DataLoader(
-        dataset,
-        batch_size=args.batch_size,
-        num_workers=4,
-        pin_memory=True,
-        sampler=sampler
-    )
+    if args.dep_parser.lower() == 'none':    
+        # Create the dataset
+        dataset = LabelDatasetSingleChoice(
+            data=flattened_data,
+            labels=labels,
+            prompt_func=construct_prompt_single_choice
+        )
+    else:
+        # Create the dataset
+        dataset = LabelDatasetSingleChoice(
+            data=flattened_data,
+            labels=labels,
+            prompt_func=construct_prompt_dependency_choice_trimmed
+        )
 
     # Define DataLoader
-    dataloader = DataLoader(dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True,shuffle=False)
+    dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
     # Map model names to Hugging Face model IDs
     model_id_mapping = {
@@ -425,64 +397,73 @@ def main(rank, world_size, args):
         'qwen':'Qwen/Qwen2-7B-Instruct'
         }
 
-    model_id = model_id_mapping.get(args.model_name.lower())
+    model_id = model_id_mapping.get(args.model_name.lower(), None)
     if model_id is None:
         raise ValueError(f"Unsupported model_name '{args.model_name}'. Choose from {list(model_id_mapping.keys())}.")
 
     tokenizer = AutoTokenizer.from_pretrained(model_id, padding_side="left")
+
+    # Assign pad_token to eos_token if not set
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
+        print("pad_token was not set. Using eos_token as pad_token.")
 
-    model = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        torch_dtype=torch.bfloat16,
-        device_map={"": rank}
-    )
-    model = DDP(model, device_ids=[rank])
-    model.eval()
+    # Load model with appropriate precision and device mapping
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id,
+            torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+            device_map="auto"
+        )
+    except Exception as e:
+        print(f"Error loading model '{model_id}': {e}")
+        raise e
 
+    model.eval()  # Set model to evaluation mode
     results = []
-    for batch in tqdm(dataloader, desc=f"Generating Responses (GPU {rank})"):
+    count = 0
+    for batch in tqdm(dataloader, desc="Generating Responses"):
         try:
-            prompts = batch["prompt"]
+            prompts     = batch["prompt"]
             example_ids = batch["example_id"]
             true_labels = batch["true_label"]
 
+            # Generate responses
             generated_texts = generate_responses(prompts, model, tokenizer)
 
-            for ex_id, gen_text, prompt, true_label in zip(example_ids, generated_texts, prompts, true_labels):
-                cleaned_gen_text = gen_text[len(prompt):].strip() if gen_text.startswith(prompt) else gen_text.strip()
-                results.append({
+            # Map responses
+            count=0
+            for ex_id, gen_text, prompt in zip(example_ids, generated_texts, prompts):
+                # Clean and normalize the generated text by removing the prompt
+                # Assuming the model appends its answer after the prompt
+                if gen_text.startswith(prompt):
+                    cleaned_gen_text = gen_text[len(prompt):].strip()
+                else:
+                    # If the prompt isn't at the start, attempt to find and remove it
+                    idx = gen_text.find(prompt)
+                    if idx != -1:
+                        cleaned_gen_text = gen_text[idx + len(prompt):].strip()
+                    else:
+                        cleaned_gen_text = gen_text.strip()
+                
+                curr_data = {
                     'id': ex_id,
-                    'true_label': true_label,
+                    'true_label': true_labels[count],
                     'gen_text': cleaned_gen_text,
                     'prompt': prompt
-                })
+                }
+                #print(count)
+                results.append(curr_data)
+                count+=1
+        # import pdb; pdb.set_trace()
         except KeyboardInterrupt:
             raise
         except Exception as e:
-            print(f"Error processing batch on GPU {rank}: {e}")
             continue
 
-    # Gather results from all processes
-    all_results = [None for _ in range(world_size)]
-    dist.all_gather_object(all_results, results)
+    print("Generation completed.")
 
-    if rank == 0:
-        # Combine and save results
-        combined_results = [item for sublist in all_results for item in sublist]
-        combined_results = tensor_to_native(combined_results)
-        output_filename = f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}-better_prompt.json'
-        with open(output_filename, 'w') as f:
-            json.dump(combined_results, f, indent=4)
-        print(f"Results saved to {output_filename}")
-
-    cleanup()
-
-if __name__ == '__main__':
-    args = get_args()
-    world_size = torch.cuda.device_count()
-    torch.multiprocessing.spawn(main, args=(world_size, args), nprocs=world_size, join=True)
-
-
-
+    output_filename = f'../prompting_predictions/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}-better_prompt.json'
+    with open(output_filename, 'w') as f:
+        json.dump(results, f, indent=4)
+    print(f"Results saved to {output_filename}")

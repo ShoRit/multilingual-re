@@ -1,0 +1,11 @@
+DEP,GNN,ENC,en,hi,te
+stanza,rgcn,mbert-base,94.4\pm0.2,90.9\pm0.3,86.1\pm0.9
+stanza,rgat,mbert-base,94.9\pm0.3,89.5\pm1.4,85.9\pm1.1
+trankit,rgcn,mbert-base,94.0\pm0.2,89.7\pm0.1,85.9\pm1.9
+trankit,rgat,mbert-base,94.1\pm0.5,88.9\pm0.5,84.6\pm0.8
+-,-,mbert-base,94.3\pm0.6,89.6\pm0.4,84.9\pm0.4
+stanza,rgcn,xlmr-base,91.8\pm0.8,89.6\pm1.1,85.6\pm0.7
+stanza,rgat,xlmr-base,92.2\pm0.4,89.9\pm0.9,85.7\pm0.6
+trankit,rgcn,xlmr-base,91.9\pm0.9,89.9\pm0.8,85.2\pm0.5
+trankit,rgat,xlmr-base,92.6\pm0.7,89.2\pm1.0,85.9\pm1.6
+-,-,xlmr-base,92.1\pm0.8,88.7\pm0.9,86.3\pm1.1
