@@ -312,6 +312,14 @@ def main(rank, world_size, args):
 
     split_data = data.get(args.split, [])
 
+<<<<<<< HEAD
+    with open(f"../data/{args.dataset}/relation_dict.json") as f:
+        relation_labels = json.load(f)
+
+    labels= dict(natsorted(relation_labels.items()))
+
+=======
+>>>>>>> 5f45762a785cf172f4d9593080805a6fe8fce96d
     with open('dependency_mapping.json', 'r') as file:
         dependency_definitions = json.load(file)
 

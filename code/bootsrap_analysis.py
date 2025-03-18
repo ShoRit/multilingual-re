@@ -326,6 +326,10 @@ def generate_images_overall():
 
         f1_df['mode'] = modes
 
+        f1_df = f1_df[f1_df['ml_model'] == 'mbert-base']
+
+        print(f1_df)
+
         sns.set_theme(style="whitegrid")
         sns.set_context("paper", font_scale=2.0)        
 
