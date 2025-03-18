@@ -6,7 +6,7 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=rdutt@andrew.cmu.edu
 #SBATCH --mem=20G
-#SBATCH --array=1-7
+#SBATCH --array=123
 #SBATCH --time=23:00:00
 
 # ArrayTaskID DATASET MLM DEP_MODEL SRC_LANG TGT_LANG DEP SEED GNN_MODEL

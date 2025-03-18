@@ -203,7 +203,7 @@ def main(args):
         model 											= MLRelResidualClassifier(args)
     elif args.connection	== 'concat':
         model											= MLRelConcatClassifier(args)
-
+    
     model       										= model.to(device)
 
     ce_loss 											= nn.CrossEntropyLoss()

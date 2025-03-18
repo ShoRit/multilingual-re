@@ -1131,6 +1131,87 @@ def anova_results():
 
     
 
+def get_anova_ICL_results():
+
+    eps = 1e-10
+
+
+    for dataset in ['indore', 'redfm']:
+
+        df = pd.read_csv(f'../results/{dataset}_LLM.csv', sep='\t')
+
+        if dataset == 'redfm':
+            src_langs   = ['en', 'es', 'fr', 'it', 'de']
+            tgt_langs   = ['en', 'es', 'fr', 'it', 'de', 'ar', 'zh']
+        if dataset == 'indore':
+            src_langs   = ['en', 'hi', 'te']
+            tgt_langs   = ['en', 'hi', 'te']
+        
+
+        print(df.columns)
+
+        baseline_df  = df[df['Parser'] == 'baseline']
+
+        baseline_model_f1 = {}
+
+        for idx, row in baseline_df.iterrows():
+            baseline_model_f1[f"{row['Model']-{row['Language']}}"] = row['Macro F1 Score']
+
+
+        dep_df       = df[df['Parser'] != 'baseline']
+
+        results_df   = ddict(list)
+
+        for idx, row in dep_df.iterrows():
+
+            key = f"{row['Model']-{row['Language']}}"
+            baseline_f1 = baseline_model_f1[key]
+            f1_diff = 100* (row['Macro F1 Score'] - baseline_f1)/(baseline_f1 + eps)
+
+            results_df['model'].append(row['Model'])
+            results_df['DEP'].append(row['Parser'])
+            results_df['src'].append(row['Language'])
+            results_df['F1_diff'].append(f1_diff)
+            results_df['prompt'].append(row['Prompting'])
+
+        df = pd.DataFrame(results_df)
+
+
+        reg_model   = ols('F1_diff ~ C(src)+ C(DEP) + C(model) + C(prompt)', data=df).fit()
+        anova_table = sm.stats.anova_lm(reg_model, typ=2)
+
+        results_text = f'''Anova Results:\n
+        {anova_table}\n
+        ====================================================================================\n
+        Regression Model Parameters:\n
+        {reg_model.params}\n
+        '''
+
+        reg_model2   = ols('F1_diff ~ C(src)+ C(DEP) + C(model) + C(prompt) \
+            + C(src):C(DEP) + C(src):C(model) + C(src):C(prompt)\
+            + C(DEP):C(model) + C(DEP):C(prompt)\
+            + C(model):C(prompt)', data=df).fit()
+        
+        anova_table2 = sm.stats.anova_lm(reg_model2, typ=2)
+
+        results_text += f'''Anova Results:\n
+        {anova_table2}\n
+        ====================================================================================\n
+        Regression Model Parameters:\n
+        {reg_model2.params}\n
+        '''
+
+        with open(f'../results/anova_{dataset}_ICL_results.txt', 'w') as f:
+            f.write(results_text)
+
+        
+        
+    
+
+
+    pass
+
+
 if __name__ =='__main__':	
 
     args                            =   get_args()
@@ -1158,5 +1239,8 @@ if __name__ =='__main__':
     
     elif args.step                 == 'anova':
         anova_results()
+
+    elif args.step                 == 'anova_ICL':
+        get_anova_ICL_results()
         
 

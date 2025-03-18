@@ -10,6 +10,7 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from transformers import AutoModel, AutoTokenizer
 from torch_geometric.nn import FastRGCNConv, RGCNConv, RGATConv
 
+
 class GNNDropout(torch.nn.Module):
 	def __init__(self, params):
 		super().__init__()
@@ -257,6 +258,7 @@ class MLRelConcatClassifier(nn.Module):
 	def forward(self, bat):
 
 
+
 		tokens_tensors 					= bat['tokens_tensors']
 		segments_tensors 				= bat['segments_tensors']
 		e1_mask 						= bat['marked_e1']
@@ -310,9 +312,10 @@ class MLRelConcatClassifier(nn.Module):
 		rel_logits 		  				= self.rel_classifier(rel_output)
 
 		
-		return  {'rel_output': rel_output, 
-	   			'rel_logits': rel_logits, 
-	   			}
+		return  {
+			'rel_output': rel_output, 
+	   		'rel_logits': rel_logits, 
+	   	}
 
 
 
