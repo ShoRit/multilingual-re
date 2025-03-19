@@ -5,7 +5,7 @@ import csv
 from collections import defaultdict as ddict
 
 # Get list of json files
-json_files = sorted(os.listdir('../prompting_predictions/'))
+json_files = sorted(os.listdir('../prompting_predictions_improve_dag/'))
 
 # Prepare CSV header
 csv_file = 'metrics_output.csv'
@@ -34,7 +34,7 @@ with open(csv_file, 'w', newline='') as csvfile:
 		true_labels = []
 		predicted_labels = []
 		try:
-			with open(f'../prompting_predictions/{file}', 'r') as f:
+			with open(f'../prompting_predictions_improve_dag/{file}', 'r') as f:
 				data = json.load(f)
 				if(len(data) != 0):
 					dataset = file.split('-')[0]
