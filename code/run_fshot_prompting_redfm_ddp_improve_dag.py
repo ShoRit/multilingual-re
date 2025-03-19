@@ -3,24 +3,26 @@ from tqdm import tqdm
 import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
-from torch.utils.data.distributed import DistributedSampler
 from torch.utils.data import Dataset, DataLoader
+from torch.utils.data.distributed import DistributedSampler
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from collections import defaultdict
 import argparse
+from natsort import natsorted
 import re
 import networkx as nx
 from collections import deque
 import advertools as adv
 import os
-from natsort import natsorted
+
 
 with open('dependency_mapping.json', 'r') as file:
     dependency_definitions = json.load(file)
 
+
+
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12356'
+    os.environ['MASTER_PORT'] = '12355'
     dist.init_process_group("nccl", rank=rank, world_size=world_size)
 
 def cleanup():
@@ -40,19 +42,47 @@ class LabelDatasetSingleChoice(Dataset):
         self.prompt_func = prompt_func
         self.stop_words = stop_words
         self.dependency_definitions = dependency_definitions
-    
+
     def __len__(self):
         return len(self.data)
-    
     def __getitem__(self, idx):
         example = self.data[idx]
-        prompt, len_dag_path = self.prompt_func(example, self.labels, self.stop_words, self.dependency_definitions)
+        prompt = self.prompt_func(example,  self.labels, self.stop_words, self.dependency_definitions)
         return {
             "example_id": example.get("id", idx),  # Ensure each example has a unique ID
             "prompt": prompt,
-            "true_label": example["label"],
-            "len_dag_path": len_dag_path
+            "true_label": example["label"]
         }
+
+def annotate_entities(text, subject_entity, object_entity):
+    """
+    Wrap the subject and object entities in the text with <e1> and <e2> tags.
+
+    Args:
+        text (str): Original sentence.
+        subject_entity (dict): Dictionary containing 'surfaceform', 'start', 'end' for the subject.
+        object_entity (dict): Dictionary containing 'surfaceform', 'start', 'end' for the object.
+
+    Returns:
+        str: Annotated sentence.
+    """
+    # Sort entities by start position to handle replacements correctly
+    entities = sorted([('e1', subject_entity), ('e2', object_entity)], key=lambda x: x[1]['start'], reverse=True)
+    
+    for tag, entity in entities:
+        start = entity['start']
+        end = entity['end']
+        surface = entity['surfaceform']
+        
+        # Verify that the surface form matches the text slice
+        if text[start:end] != surface:
+            print(f"Warning: Surface form mismatch for {tag} entity. Expected '{surface}', found '{text[start:end]}'.")
+        
+        # Insert the closing tag first to not mess up the indices
+        text = text[:end] + f"</{tag}>" + text[end:]
+        text = text[:start] + f"<{tag}>" + text[start:]
+    
+    return text
 
 # BFS function to find the first entry point for an entity starting from the root
 def find_first_entry_point(graph, root, entity_words):
@@ -83,7 +113,7 @@ def find_entity_connecting_path(e1,e2,dep_graph):
         G.add_edge(target, source, label=label)
 
     # Find first entry points for e1 and e2 from the root
-    root = "root"
+    root = "ROOT"
     first_entry_e1 = find_first_entry_point(G, root, e1)
     first_entry_e2 = find_first_entry_point(G, root, e2)
 
@@ -159,40 +189,31 @@ def find_entity_connecting_path(e1,e2,dep_graph):
 
     return unique_parses
 
-
-def construct_prompt_single_choice(example, labels,stopwords,dep_choice):
-    # Create a comma-separated list of labels
-    # print('example:', example)
+def construct_prompt_single_choice(example, labels, stopwords,dep_choice):
     label_text = ""
     for key, value in labels.items():
         label_text += f"{key}: {value}\n"
 
-
-    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-
-
+    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nChoose one from this list of {len(labels)} options:\n{label_text}\nThe answer is: '''
+    
     return prompt
 
 def construct_prompt_dependency_choice(example, labels):
     # Create a comma-separated list of labels
-    # print('example:', example)
     label_text = ""
     for key, value in labels.items():
         label_text += f"{key}: {value}\n"
 
-    dependency_list = example["dep_graph"]
+    dependency_list = example.get("dep_graph", [])
     dep_graph = []
     # (node_dict[n1], rel, node_dict[n2])
     for dep in dependency_list:
         dep_graph.append({'head': dep[2], 'rel': dep[1], 'word': dep[0]})
     
-    # import pdb; pdb.set_trace()
-
     dep_text = json.dumps(dep_graph)
     
-    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parse in the form of head, rel, and word: {dep_text}\n. Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-
-
+    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\nWe also provide the dependency parses connecting the entities as follows: {dep_text}\nChoose one from this list of {len(labels)} options:\n{label_text}\nThe answer is: '''
+    
     return prompt
 
 def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, dependency_definitions):
@@ -202,62 +223,58 @@ def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, depe
     for key, value in labels.items():
         label_text += f"{key}: {value}\n"
 
-    dependency_list = example["dep_graph"]
+
+    dependency_list = example["filtered_tuples"]
     dep_text = ""
     # (node_dict[n1], rel, node_dict[n2])
 
     try:
-
-        e1 = re.search(r'<e1>(.*?)</e1>', example['orig_sent']).group(1)
-        e2 = re.search(r'<e2>(.*?)</e2>', example['orig_sent']).group(1)
-        words_e1 = re.findall(r'\b\w+\b', e1)
-        words_e2 = re.findall(r'\b\w+\b', e2)
-
-        #Filter out stop words
-
-        words_e1 = [word.lower() for word in words_e1 if word.lower() not in stop_words]
-        words_e2 = [word.lower() for word in words_e2 if word.lower() not in stop_words]
-
-        dependency_list = [[word.lower() if isinstance(word, str) else word for word in sublist] for sublist in dependency_list]
-
-        pruned_dep_list=find_entity_connecting_path(words_e1,words_e2,dependency_list)
-
-        # print('############# Pruned_dep_list:', pruned_dep_list, flush=True)
-
-        for dep in pruned_dep_list:
+        for dep in dependency_list:
             if dep[1] == "root":
                 descriptive_relations = f"{dep[0]} is the root word, "
             else:
-                descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
+                descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[2], dep[2])} of {dep[1]}, " 
             dep_text+=descriptive_relations
-
     except Exception as e:
         dep_text=""
-        prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-        return prompt, 0
     except KeyboardInterrupt:
         raise
-    
     # import pdb; pdb.set_trace()
-
-
     
-    prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
-    #print(prompt)
-    if len(pruned_dep_list) == 0:
-        print(words_e1, words_e2, dependency_list, prompt)
-        print("BUFFER\n")
-    return prompt, len(pruned_dep_list)
+    prompt = f'''Given the sentence: "{example['annotated_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+    # print(prompt)
+    return prompt
+
+# def construct_prompt_dependency_choice_trimmed(example, labels, stop_words, dependency_definitions):
+#     label_text = ""
+#     for key, value in labels.items():
+#         label_text += f"{key}: {value}\n"
+
+#     dependency_list = example["dep_graph"]
+#     dep_text = ""
+#     # (node_dict[n1], rel, node_dict[n2])
+
+#     try:
+#         for dep in dependency_list:
+#             if dep[1] == "root":
+#                 descriptive_relations = f"{dep[0]} is the root word, "
+#             else:
+#                 descriptive_relations = f"{dep[0]} is {dependency_definitions.get(dep[1], dep[1])} of {dep[2]}, " 
+#             dep_text+=descriptive_relations
+#     except Exception as e:
+#         dep_text=""
+#     except KeyboardInterrupt:
+#         raise
+    
+#     # import pdb; pdb.set_trace()
+    
+#     prompt = f'''Given the sentence: "{example['orig_sent']}", which one of the following relations between the two entities <e1> and <e2> is being discussed?\n We also provide the dependency parses as follows: "{dep_text}"\n Choose one from this list of {len(labels)} options:\n{label_text}\nThe answer is : '''
+#     # print(prompt)
+#     return prompt
+
 
 def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
-    # Tokenize the prompts with padding and no truncation
-    inputs = tokenizer(
-        prompts,
-        return_tensors="pt",
-        padding=True,
-        truncation=False,  # Disable truncation
-    ).to(model.device)
-    
+    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
     with torch.no_grad():
         outputs = model.module.generate(
             **inputs,
@@ -265,10 +282,23 @@ def generate_responses(prompts, model, tokenizer, max_new_tokens=100):
             return_dict_in_generate=True,
             output_scores=False
         )
-    
-    # Decode the generated sequences
     generated_texts = tokenizer.batch_decode(outputs.sequences, skip_special_tokens=True)
     return generated_texts
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
+    parser.add_argument('--dataset',        help='choice of dataset',                  type=str, default='indore')
+
+    parser.add_argument("--batch_size",                                    type=int, default=8)
+    parser.add_argument('--model_name',      help='name of the LL to use',            type=str, default='llama3')
+    parser.add_argument('--dep_parser',      help='name of the dependency parser',    type=str, default='stanza') # 'None' if no dependency parser is used
+    parser.add_argument('--split',           help='split',                             type=str, default='test')
+    parser.add_argument('--mode',            help='mode',                              type=str, default='zshot')
+    
+    args = parser.parse_args()
+    
+    return args
 
 def tensor_to_native(obj):
     if isinstance(obj, torch.Tensor):
@@ -281,38 +311,26 @@ def tensor_to_native(obj):
 
 
 
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--src_lang",       help="choice of source language",           type=str, default='en')
-    parser.add_argument('--dataset', 	    help='choice of dataset', 			        type=str, default='indore')
-
-    parser.add_argument("--batch_size", 										        type=int, default=4)
-    parser.add_argument('--model_name', 	help='name of the LL to use', 	            type=str, default='llama3')
-    parser.add_argument('--dep_parser', 	help='name of the dependecy parser', 	    type=str, default='stanza') # None if no dependency parser is used
-    parser.add_argument('--split', 	        help='split', 	                            type=str, default='test')
-    parser.add_argument('--mode',           help='mode', 	                            type=str, default='zshot')
-    
-    # default parameters
-    
-    args                  = parser.parse_args()
-    
-    return args
-
 def main(rank, world_size, args):
     setup(rank, world_size)
     torch.cuda.set_device(rank)
 
-    args                            =   get_args()
+    args = get_args()
 
-    if args.dep_parser != 'None':
-        annot_file                      =   f'../data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}.json'
+    if args.dep_parser.lower() != 'none':
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}_test_filtered.json'
     else:
-        annot_file                      =   f'../data/{args.dataset}/{args.src_lang}_prompt_trankit.json'
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_trankit_test_filtered.json'
 
     with open(annot_file) as f:
         data = json.load(f)
 
-    split_data = data.get(args.split, [])
+    split_data = data
+
+    with open(f"../data/{args.dataset}/relation_dict.json") as f:
+        relation_labels = json.load(f)
+
+    labels= dict(natsorted(relation_labels.items()))
 
     with open('dependency_mapping.json', 'r') as file:
         dependency_definitions = json.load(file)
@@ -333,14 +351,66 @@ def main(rank, world_size, args):
 
     stop_words = adv.stopwords[language]
 
-    # List of possible labels
-    with open(f"../data/{args.dataset}/relation_dict.json") as f:
-        relation_labels = json.load(f)
 
-    labels= dict(natsorted(relation_labels.items()))
+    # List of possible labels
+
+    # Flatten the data: one entry per relation
+    flattened_data = []
+    for example in split_data:
+        docid = example.get("docid", example.get("id", ""))
+        text = example.get("text", "")
+        dep_graph = example.get("dep_graph", []) if args.dep_parser.lower() != 'none' else None
+        relations = example.get("relations", [])
+        entities = example.get("entities", [])
+
+        # Create a mapping from entity URI to entity details for quick lookup
+        entity_map = {entity['uri']: entity for entity in entities}
+
+        for rel_idx, relation in enumerate(relations):
+            predicate = relation.get("predicate", None)
+            if predicate is None:
+                continue  # Skip if no predicate
+
+            if isinstance(predicate, int):
+                if predicate < 0 or predicate >= len(relation_labels):
+                    print(f"Warning: predicate index {predicate} out of range for labels.")
+                    continue
+                label = relation_labels[str(predicate)]
+            else:
+                print(f"Warning: unexpected predicate type {type(predicate)}.")
+                continue
+
+            # Retrieve subject and object entities
+            subject = relation.get("subject", None)
+            obj = relation.get("object", None)
+
+            if subject is None or obj is None:
+                print(f"Warning: Relation {rel_idx} in docid {docid} lacks subject or object.")
+                continue
+
+            # Optionally, you can resolve entities using entity_map if needed
+            # For now, we'll assume that 'subject' and 'object' contain the necessary fields
+
+            # Annotate the text with <e1> and <e2> tags
+            annotated_text = annotate_entities(text, subject, obj)
+
+            # Create a unique example_id by combining docid and relation index
+            example_id = f"{docid}-{rel_idx}"
+
+            new_example = {
+                "example_id": example_id,
+                "annotated_sent": annotated_text,
+                "dep_graph": dep_graph,
+                "label": label
+            }
+
+            flattened_data.append(new_example)
+
+    print(f"Total flattened examples: {len(flattened_data)}")
+
 
     dataset = LabelDatasetSingleChoice(
-        data=split_data,
+        data=flattened_data,
         labels=labels,
         prompt_func=construct_prompt_dependency_choice_trimmed if args.dep_parser.lower() != 'none' else construct_prompt_single_choice,
         stop_words=stop_words,
@@ -351,12 +421,13 @@ def main(rank, world_size, args):
     dataloader = DataLoader(
         dataset,
         batch_size=args.batch_size,
-        num_workers=4,
+        num_workers=10,
         pin_memory=True,
         sampler=sampler
     )
-        # Define DataLoader
-    dataloader = DataLoader(dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True,shuffle=False)
+
+    # # Define DataLoader
+    # dataloader = DataLoader(dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True,shuffle=False)
 
     # Map model names to Hugging Face model IDs
     model_id_mapping = {
@@ -383,20 +454,21 @@ def main(rank, world_size, args):
     model.eval()
 
     results = []
-    count = 0
     for batch in tqdm(dataloader, desc=f"Generating Responses (GPU {rank})"):
         try:
             prompts = batch["prompt"]
             example_ids = batch["example_id"]
             true_labels = batch["true_label"]
-            len_dag_paths = batch["len_dag_path"]
 
-            # generated_texts = generate_responses(prompts, model, tokenizer)
+            generated_texts = generate_responses(prompts, model, tokenizer)
 
-            for ex_id, len_dag_path, prompt, true_label in zip(example_ids, len_dag_paths, prompts, true_labels):
+            for ex_id, gen_text, prompt, true_label in zip(example_ids, generated_texts, prompts, true_labels):
+                cleaned_gen_text = gen_text[len(prompt):].strip() if gen_text.startswith(prompt) else gen_text.strip()
                 results.append({
                     'id': ex_id,
-                    'len_dag_path': len_dag_path
+                    'true_label': true_label,
+                    'gen_text': cleaned_gen_text,
+                    'prompt': prompt
                 })
         except KeyboardInterrupt:
             raise
@@ -412,13 +484,17 @@ def main(rank, world_size, args):
         # Combine and save results
         combined_results = [item for sublist in all_results for item in sublist]
         combined_results = tensor_to_native(combined_results)
-        output_filename = f'../dag_path_lengths/{args.dataset}-{args.src_lang}-{args.dep_parser}-{args.split}.json'
+        output_filename = f'../prompting_predictions_improve_dag/{args.dataset}-{args.src_lang}-{args.model_name}_zshot_prompt-{args.dep_parser}-{args.split}-better_prompt.json'
         with open(output_filename, 'w') as f:
             json.dump(combined_results, f, indent=4)
         print(f"Results saved to {output_filename}")
+
     cleanup()
 
 if __name__ == '__main__':
     args = get_args()
     world_size = torch.cuda.device_count()
     torch.multiprocessing.spawn(main, args=(world_size, args), nprocs=world_size, join=True)
+
+
+
