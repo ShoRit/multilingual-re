@@ -4,6 +4,7 @@ import stanza, torch
 from trankit import Pipeline
 from torch_geometric.data import Data
 from transformers import AutoTokenizer, AutoModel 
+import networkx as nx
 
 
 def create_indore_el_data():
@@ -288,50 +289,147 @@ def get_dep_arr(doc_text, dep_nlp, e1_start, e1_end, e2_start, e2_end):
     return dep_arr, num_sents
 
 
-def get_dep_graph(doc_text, dep_nlp):
 
-    dep_arr                                                     = []
+
+def get_dep_graph_arr(doc_text, dep_nlp, e1_start, e1_end, e2_start, e2_end):
+
+    dep_arr            = []
 
     if args.dep_model == 'stanza':
         dep_doc                                        = dep_nlp(doc_text)    
         num_sents                                      = len(dep_doc.sentences)
-        
-        for sent_cnt, dep_sent in enumerate(dep_doc.sentences):        
-            node_dict                                          = {0: 'ROOT'}
-            edge_arr                                           = []
+
+        for sent_cnt, dep_sent in enumerate(dep_doc.sentences):
+            
+            words                = []
+            start_char, end_char = 0, 0
 
             for word in dep_sent.words:
-                if word.deprel is not None:
-                    node_dict[word.id]   = word.text
-                    edge_arr.append((word.id, word.head, word.deprel))
 
-            for edge in edge_arr:
-                n1, n2, rel = edge
-                dep_arr.append((node_dict[n1], rel, node_dict[n2]))            
+                if  word.start_char is not None and word.end_char is not None:
+                    start_char, end_char = word.start_char, word.end_char
+
+                if      start_char >= e1_start and end_char <= e1_end: dep_val = 1
+
+                elif    start_char >= e2_start and end_char <= e2_end: dep_val = 2
+
+                else:   dep_val = 0
+
+                if  word.deprel is not None:
+                    dep_arr.append(
+                        {
+                            'node_idx': (sent_cnt, word.id),
+                            'text': word.text,
+                            'head_idx': (sent_cnt, word.head),
+                            'deprel': word.deprel,
+                            'ent_mask': dep_val,
+                        }
+                    )
+                    # dep_arr.append(((sent_cnt, word.id), word.text, (sent_cnt, word.head), word.deprel, start_char, end_char, dep_val))
 
     elif args.dep_model == 'trankit':
         dep_doc                                             = dep_nlp(doc_text)    
         num_sents                                           = len(dep_doc["sentences"])
 
         for sent_cnt, dep_sent in enumerate(dep_doc["sentences"]):
-            node_dict                                          = {0: 'ROOT'}
-            edge_arr                                           = []
-
             for word in dep_sent["tokens"]:
+                
+                start_char, end_char    = word["dspan"]
+                if      start_char      >= e1_start and end_char <= e1_end: dep_val = 1
+                elif    start_char      >= e2_start and end_char <= e2_end: dep_val = 2
+
+                else:   dep_val = 0
+
                 if 'expanded' in word:                                        
                     for elem in word['expanded']:
-                        node_dict[elem["id"]]   = elem["text"]
-                        edge_arr.append((elem["id"], elem["head"], elem["deprel"]))        
-                else:
-                    node_dict[word["id"]]   = word["text"]
-                    edge_arr.append((word["id"], word["head"], word["deprel"]))
+                        
+                        dep_arr.append(
+                            {
+                                'node_idx': (sent_cnt, elem["id"]),
+                                'text': elem["text"],
+                                'head_idx': (sent_cnt, elem["head"]),
+                                'deprel': elem["deprel"],
+                                'ent_mask': dep_val,
+                            }
+                        )
+                        # dep_arr.append(((sent_cnt, elem["id"]), elem["text"], (sent_cnt, elem["head"]), elem["deprel"], start_char, end_char, dep_val))
 
-            for edge in edge_arr:
-                n1, n2, rel = edge
-                dep_arr.append((node_dict[n1], rel, node_dict[n2]))            
-                
+                else:
+                    dep_arr.append(
+                        {
+                            'node_idx': (sent_cnt, word["id"]),
+                            'text': word["text"],
+                            'head_idx': (sent_cnt, word["head"]),
+                            'deprel': word["deprel"],
+                            'ent_mask': dep_val,
+                        }
+                    )
+                    # dep_arr.append(((sent_cnt, word["id"]), word["text"], (sent_cnt, word["head"]), word["deprel"], start_char, end_char, dep_val))
 
     return dep_arr
+
+
+# def get_dep_graph(doc_text, dep_nlp, ent1_start, ent2_start, ent1_end, ent2_end):
+
+#     dep_arr                                                     = []
+
+
+#     if args.dep_model == 'stanza':
+#         dep_doc                                        = dep_nlp(doc_text)    
+#         num_sents                                      = len(dep_doc.sentences)
+#         node_dict                                      = {0: 'ROOT'}
+
+#         for sent_cnt, dep_sent in enumerate(dep_doc.sentences):        
+            
+#             ent_dict                                           = {0: 0} 
+#             edge_arr                                           = []
+
+#             for word in dep_sent.words:
+#                 if word.deprel is not None:
+#                     node_dict[word.id]   = word.text
+
+                    
+#                     if  word.start_char is not None and word.end_char is not None:
+#                         start_char, end_char = word.start_char, word.end_char
+
+#                     if      start_char >= e1_start and end_char <= e1_end: dep_val = 1
+
+#                     elif    start_char >= e2_start and end_char <= e2_end: dep_val = 2
+
+#                     else:   dep_val = 0
+
+#                     ent_dict[word.id] = dep_val
+#                     edge_arr.append((word.id, word.head, word.deprel))
+
+
+#             for edge in edge_arr:
+#                 n1, n2, rel = edge
+#                 dep_arr.append((node_dict[n1], rel, node_dict[n2]))            
+
+#     elif args.dep_model == 'trankit':
+#         dep_doc                                             = dep_nlp(doc_text)    
+#         num_sents                                           = len(dep_doc["sentences"])
+#         node_dict                                          = {0: 'ROOT'}
+#         ent_dict                                           = {0: 0} 
+
+#         for sent_cnt, dep_sent in enumerate(dep_doc["sentences"]):
+#             edge_arr                                           = []
+
+#             for word in dep_sent["tokens"]:
+#                 if 'expanded' in word:                                        
+#                     for elem in word['expanded']:
+#                         node_dict[elem["id"]]   = elem["text"]
+#                         edge_arr.append((elem["id"], elem["head"], elem["deprel"]))        
+#                 else:
+#                     node_dict[word["id"]]   = word["text"]
+#                     edge_arr.append((word["id"], word["head"], word["deprel"]))
+
+#             for edge in edge_arr:
+#                 n1, n2, rel = edge
+#                 dep_arr.append((node_dict[n1], rel, node_dict[n2]))            
+                
+
+#     return dep_arr
 
 
 
@@ -1048,8 +1146,9 @@ def create_redfm_prompt_data():
         num_rows: 10337
     })
     '''
-    splits = ['train', 'validation', 'test']
+    # splits = ['train', 'validation', 'test']
     # splits = ['validation']
+    splits = ['test']
 
     model_dict = {
         'mbert-base'     : 'bert-base-multilingual-uncased',
@@ -1073,33 +1172,105 @@ def create_redfm_prompt_data():
     
     # code to check if a given file exists or not
 
-    if os.path.exists(f'{args.rel_dir}/redfm/{args.lang}_prompt_{args.dep_model}.json'):
-        print("File exists")
-        exit()    
+    # if os.path.exists(f'{args.rel_dir}/redfm/{args.lang}_prompt_{args.dep_model}_test_split.json'):
+    #     print("File exists")
+    #     exit()    
+    # lang                                                          = args.lang            
+    # 
+    for lang in ['it', 'zh', 'es', 'en', 'de', 'ar', 'fr']:     
+        splitwise_data                                                = ddict(list)      
+        args.lang = lang
 
-    splitwise_data                                                = ddict(list)      
-    lang                                                          = args.lang                 
+        if args.dep_model == 'stanza':
+            dep_nlp      = stanza.Pipeline(lang=lang, processors='tokenize,pos,lemma,depparse', use_gpu=False)
 
-    if args.dep_model == 'stanza':
-        dep_nlp      = stanza.Pipeline(lang=lang, processors='tokenize,pos,lemma,depparse', use_gpu=False)
+        elif args.dep_model == 'trankit':
+            dep_nlp     = Pipeline(lang_code_dict[lang], gpu=False)
 
-    elif args.dep_model == 'trankit':
-        dep_nlp     = Pipeline(lang_code_dict[lang], gpu=False)
 
-    for split in splits:
-        data                                                         = ds[split].filter(lambda x: x['lan'] == lang)
+        for split in splits:
+            data                                                         = ds[split].filter(lambda x: x['lan'] == lang)
 
-        for curr_data in tqdm(data, desc=f'{lang}_{split}'):
-            rels                                                     = curr_data['relations']
-            doc_text                                                 = curr_data['text']
+            for curr_data in tqdm(data, desc=f'{lang}_{split}'):
+                rels                                                        = curr_data['relations']
+                sent                                                        = curr_data['text']
 
-            dep_graph_arr                                            = get_dep_graph(doc_text, dep_nlp)                    
-            
-            curr_data['dep_graph']                                   = dep_graph_arr
+                for rel in rels:
+                    
+                    predicate                                         = rel['predicate']
+                    e1, e2                                            = rel['subject'], rel['object']
+                    
+                    e1_start, e1_end                                  = e1['start'], e1['end']
+                    e2_start, e2_end                                  = e2['start'], e2['end']
 
-            splitwise_data[split].append(curr_data)
 
-    dump_json(splitwise_data, f'{args.rel_dir}/redfm/{args.lang}_prompt_{args.dep_model}.json')        
+                    '''
+                    Create the dependency array for the current sentence
+                    '''
+
+                    dep_graph_arr                                     = get_dep_graph_arr(sent, dep_nlp, e1_start, e1_end, e2_start, e2_end)                    
+                
+                    # import pdb; pdb.set_trace()
+                    
+                    splitwise_data[split].append({
+                            'ent1'       : e1,
+                            'ent2'       : e2,
+                            'doc_text'   : sent,
+                            'dep_graph'  : dep_graph_arr,
+                            'label'      : rel,
+                            'orig_sent'  : sent
+                        })
+
+        dump_json(splitwise_data, f'../prompt_data/indore/{args.lang}_prompt_{args.dep_model}_test.json')        
+
+
+def get_filtered_tuples(dep_graph):
+
+    node_dict = {}
+    edges     = []
+    ent1_idxs = []
+    ent2_idxs = [] 
+    node2word = {}
+    edges2rel = {}
+
+    for idx, elem in enumerate(dep_graph):
+        nix, hix = tuple(elem['node_idx']), tuple(elem['head_idx'])
+
+
+        if nix not in node_dict:
+            node_dict[nix] = len(node_dict)
+        if hix not in node_dict:
+            node_dict[hix] = len(node_dict)
+        
+        edges.append((node_dict[nix], node_dict[hix]))
+
+        if elem['ent_mask'] == 1:
+            ent1_idxs.append(node_dict[nix])
+        if elem['ent_mask'] == 2:
+            ent2_idxs.append(node_dict[nix])
+
+        node2word[node_dict[nix]] = elem['text']
+        edges2rel[(node_dict[nix], node_dict[hix])] = elem['deprel']
+
+    G = nx.Graph()
+    G.add_edges_from(edges)
+
+    filtered_tuples = set()
+
+    for src in ent1_idxs:
+        for tgt in ent2_idxs:
+            if nx.has_path(G, src, tgt):
+                path = nx.shortest_path(G, source=src, target=tgt)
+
+                for i in range(len(path)-1):
+                    if (path[i], path[i+1]) in edges2rel:
+                        filtered_tuples.add((node2word[path[i]], node2word[path[i+1]], edges2rel[(path[i], path[i+1])]))
+                    elif (path[i+1], path[i]) in edges2rel:
+                        filtered_tuples.add((node2word[path[i]], node2word[path[i+1]], edges2rel[(path[i+1], path[i])]))
+    
+    
+    return list(filtered_tuples)
+
 
 
 def create_indore_prompt_data():
@@ -1122,12 +1293,9 @@ def create_indore_prompt_data():
     
     # code to check if a given file exists or not
 
-    if os.path.exists(f'{args.rel_dir}/indore/{args.lang}_prompt_{args.dep_model}.json'):
-        print("File exists")
-        exit()    
-
-    splitwise_data                                                = ddict(list)                  
-    
+    # if os.path.exists(f'{args.rel_dir}/indore/{args.lang}_prompt_{args.dep_model}_test_split.json'):
+    #     print("File exists")
+    #     exit()    
     indore_dir = '/data/shire/data/NO-BACKUP/multilingual_KGQA/IndoRE/data'
 
     indore_data = ddict(lambda: ddict(list))
@@ -1135,6 +1303,7 @@ def create_indore_prompt_data():
     lang_sents_path                        = f'../data/indore/dataset.dill'
     if os.path.exists(lang_sents_path):
         lines_dict                         = load_dill(lang_sents_path)
+        print("Loading {lang_sents_path}")
     else:
         lines_dict                         = ddict(lambda:ddict(list))
         for lang in ['en','hi','te']:
@@ -1146,58 +1315,163 @@ def create_indore_prompt_data():
 
         dump_dill(lines_dict, lang_sents_path)
     
-    
-    lang_data = load_dill(lang_sents_path)[args.lang]
-
-    if args.dep_model == 'stanza':
-        dep_nlp      = stanza.Pipeline(lang=args.lang, processors='tokenize,pos,lemma,depparse', use_gpu=False)
-
-    elif args.dep_model == 'trankit':
-        dep_nlp     = Pipeline(lang_code_dict[args.lang], gpu=False)
-
-    deprel_dict                         = load_deprels(enhanced=False)
-    entity_dict                         = load_pickle(f'{indore_dir}/ents.pkl')
-    relation_dict                       = load_pickle(f'{indore_dir}/rels.pkl')
-
-    lang                                = args.lang
-
-    splits = ['train', 'validation', 'test']
+    # splits = ['train', 'validation', 'test']
     # splits = ['validation']
 
-    for split in splits:
+    splits = ['test']
 
-        data                                                      = lang_data[split]
+    for lang in ['en','hi','te']:
 
-        for line in tqdm(data, desc=f'{lang}_{split}'):
+        args.lang                            = lang
 
-            rel, sent, ent_1, ent_2                                  = line.strip().split('\t')
-            orig_sent                                                = sent
-            doc_text                                                 = sent.strip().replace('<e1>','').replace('</e1>','').replace('<e2>','').replace('</e2>','')
-            dep_graph_arr                                            = get_dep_graph(doc_text, dep_nlp)                    
-            
-            
-            splitwise_data[split].append({
-                    'ent1'       : ent_1,
-                    'ent2'       : ent_2,
-                    'doc_text'   : doc_text,
-                    'dep_graph'  : dep_graph_arr,
-                    'label'      : rel,
-                    'orig_sent'  : orig_sent
-                })
+        if args.dep_model == 'stanza':
+            dep_nlp      = stanza.Pipeline(lang=args.lang, processors='tokenize,pos,lemma,depparse', use_gpu=False)
+
+        elif args.dep_model == 'trankit':
+            dep_nlp     = Pipeline(lang_code_dict[args.lang], gpu=False)
+
+        deprel_dict                         = load_deprels(enhanced=False)
+        entity_dict                         = load_pickle(f'{indore_dir}/ents.pkl')
+        relation_dict                       = load_pickle(f'{indore_dir}/rels.pkl')
+
+
+        lang_data                                                       = load_dill(lang_sents_path)[lang]
+
+        splitwise_data                                                  = ddict(list)                  
+
+        for split in splits:
+
+            data                                                        = lang_data[split]
+
+            for line in tqdm(data, desc=f'{lang}_{split}'):
+
+                rel, sent, ent_1, ent_2                                  = line.strip().split('\t')
+
+                e1_start,   e2_start                                     = sent.index('<e1>')+4, sent.index('<e2>')+4
+                e1_end,     e2_end                                       = sent.index('</e1>'), sent.index('</e2>')
+                e1_span,    e2_span                                      = sent[e1_start:e1_end], sent[e2_start:e2_end]
+
+                orig_sent                                                = sent
+
+                if e1_start > e2_end:
+                    e2_start                                             = sent.index('<e2>')
+                    sent                                                 = sent.replace('<e2>','')
+                    e2_end                                               = sent.index('</e2>')
+                    sent                                                 = sent.replace('</e2>','')    
+                    e1_start                                             = sent.index('<e1>')
+                    sent                                                 = sent.replace('<e1>','')
+                    e1_end                                               = sent.index('</e1>')
+                    sent                                                 = sent.replace('</e1>','')
+                else:
+                    e1_start                                             = sent.index('<e1>')
+                    sent                                                 = sent.replace('<e1>','')
+                    e1_end                                               = sent.index('</e1>')
+                    sent                                                 = sent.replace('</e1>','')
+                    e2_start                                             = sent.index('<e2>')
+                    sent                                                 = sent.replace('<e2>','')
+                    e2_end                                               = sent.index('</e2>')
+                    sent                                                 = sent.replace('</e2>','')    
                 
-        dump_json(splitwise_data, f'{args.rel_dir}/indore/{args.lang}_prompt_{args.dep_model}.json')        
+                assert e1_span == sent[e1_start:e1_end] and e2_span == sent[e2_start:e2_end]
 
 
+                # doc_text                                                 = sent.strip().replace('<e1>','').replace('</e1>','').replace('<e2>','').replace('</e2>','')
+                dep_graph_arr                                            = get_dep_graph_arr(sent, dep_nlp, e1_start, e1_end, e2_start, e2_end)                    
+                
+                filtered_tuples                                          = get_filtered_tuples(dep_graph_arr)
+                
+                splitwise_data[split].append({
+                        'ent1'       : e1_span,
+                        'ent2'       : e2_span,
+                        'doc_text'   : sent,
+                        'dep_graph'  : dep_graph_arr,
+                        'label'      : rel,
+                        'orig_sent'  : orig_sent,
+                        'filtered_tuples': filtered_tuples
+                    })
+                    
+            dump_json(splitwise_data, f'../prompt_data/indore/{args.lang}_prompt_{args.dep_model}_test.json')        
 
-        # print(f'{model} : {tokenizer(sent)["input_ids"]}')
 
-    # if args.ml_model == 'mbert-base':
-    #     tokenizer = AutoTokenizer.from_pretrained('bert-base-multilingual-uncased')
-    #     model     = AutoModel.from_pretrained('bert-base-multilingual-uncased')
+def filter_tuples():
 
-    # elif args.ml_model == 'xlmr-base':
-    #     tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-base')
-    #     model     = AutoModel.from_pretrained('xlm-roberta-base')
+    for dataset in ['indore', 'redfm']:
+
+        if dataset == 'indore':
+            langs = ['en', 'hi', 'te']
+        else:
+            langs = ['it', 'zh', 'es', 'en', 'de', 'ar', 'fr']
+        
+        for lang in langs:
+
+            for dep_model in ['stanza', 'trankit']:
+                
+                filtered_data = []
+
+                json_file = f'../prompt_data/{dataset}/{lang}_prompt_{dep_model}_test_split.json'
+                data = load_json(json_file)['test']
+
+                for item in data:
+
+                    # import pdb; pdb.set_trace()
+                    dep_graph = item['dep_graph']
+
+                    # 'node_idx': (sent_cnt, word.id),
+                    # 'text': word.text,
+                    # 'head_idx': (sent_cnt, word.head),
+                    # 'deprel': word.deprel,
+                    # 'ent_mask': dep_val,
+
+                    node_dict = {}
+                    edges     = []
+                    ent1_idxs = []
+                    ent2_idxs = [] 
+                    node2word = {}
+                    edges2rel = {}
+
+                    for idx, elem in enumerate(dep_graph):
+                        nix, hix = tuple(elem['node_idx']), tuple(elem['head_idx'])
+
+
+                        if nix not in node_dict:
+                            node_dict[nix] = len(node_dict)
+                        if hix not in node_dict:
+                            node_dict[hix] = len(node_dict)
+                        
+                        edges.append((node_dict[nix], node_dict[hix]))
+
+                        if elem['ent_mask'] == 1:
+                            ent1_idxs.append(node_dict[nix])
+                        if elem['ent_mask'] == 2:
+                            ent2_idxs.append(node_dict[nix])
+
+                        node2word[node_dict[nix]] = elem['text']
+                        edges2rel[(node_dict[nix], node_dict[hix])] = elem['deprel']
+
+                    G = nx.Graph()
+                    G.add_edges_from(edges)
+
+                    filtered_tuples = set()
+
+                    for src in ent1_idxs:
+                        for tgt in ent2_idxs:
+                            if nx.has_path(G, src, tgt):
+                                path = nx.shortest_path(G, source=src, target=tgt)
+
+                                for i in range(len(path)-1):
+                                    if (path[i], path[i+1]) in edges2rel:
+                                        filtered_tuples.add((node2word[path[i]], node2word[path[i+1]], edges2rel[(path[i], path[i+1])]))
+                                    elif (path[i+1], path[i]) in edges2rel:
+                                        filtered_tuples.add((node2word[path[i]], node2word[path[i+1]], edges2rel[(path[i+1], path[i])]))
+                    
+                    item['filtered_tuples'] = list(filtered_tuples)
+                    filtered_data.append(item)
+                
+                dump_json(filtered_data, f'../prompt_data/{dataset}/{lang}_prompt_{dep_model}_test_filtered.json')
+
+                assert len(filtered_data) == len(data)
+                                
+
 
 
 if __name__ =='__main__':
@@ -1243,3 +1517,6 @@ if __name__ =='__main__':
     
     if args.step == 'create_indore_prompt':
         create_indore_prompt_data()
+    
+    if args.step == 'filter_tuples':
+        filter_tuples()

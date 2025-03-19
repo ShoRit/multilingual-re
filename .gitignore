@@ -88,6 +88,8 @@ data/
 code/wandb/
 code/cache
 mulco*/
+prompt_data/
+promtpting_predictions_backup/
 
 prompting_predictions.zip
 
