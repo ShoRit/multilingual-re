@@ -91,6 +91,7 @@ mulco*/
 prompt_data/
 promtpting_predictions_backup/
 
+prompt_data.zip
 prompting_predictions.zip
 
 prompting_predictions/*
