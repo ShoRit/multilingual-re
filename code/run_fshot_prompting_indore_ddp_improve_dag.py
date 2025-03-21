@@ -172,14 +172,14 @@ def main(rank, world_size, args):
     args                            =   get_args()
 
     if args.dep_parser.lower() != 'none':
-        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}_test_filtered.json'
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}_test.json'
     else:
-        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_trankit_test_filtered.json'
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_trankit_test.json'
 
     with open(annot_file) as f:
         data = json.load(f)
 
-    split_data = data
+    split_data = data[args.split]
 
     with open('dependency_mapping.json', 'r') as file:
         dependency_definitions = json.load(file)
@@ -290,4 +290,5 @@ def main(rank, world_size, args):
 if __name__ == '__main__':
     args = get_args()
     world_size = torch.cuda.device_count()
+    print(f"Number of GPUs: {world_size}")
     torch.multiprocessing.spawn(main, args=(world_size, args), nprocs=world_size, join=True)

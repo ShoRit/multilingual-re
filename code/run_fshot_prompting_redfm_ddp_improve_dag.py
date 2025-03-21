@@ -318,14 +318,14 @@ def main(rank, world_size, args):
     args = get_args()
 
     if args.dep_parser.lower() != 'none':
-        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}_test_filtered.json'
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_{args.dep_parser}_test.json'
     else:
-        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_trankit_test_filtered.json'
+        annot_file = f'../prompt_data/{args.dataset}/{args.src_lang}_prompt_trankit_test.json'
 
     with open(annot_file) as f:
         data = json.load(f)
 
-    split_data = data
+    split_data = data[args.split]
 
     with open(f"../data/{args.dataset}/relation_dict.json") as f:
         relation_labels = json.load(f)

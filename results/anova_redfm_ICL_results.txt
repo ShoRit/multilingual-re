@@ -1,0 +1,99 @@
+Anova Results:
+
+                         sum_sq     df          F        PR(>F)
+C(src)      6123.018297    6.0   4.671409  2.770424e-04
+C(DEP)         5.094645    1.0   0.023321  8.788952e-01
+C(model)    4945.813676    2.0  11.319868  3.278588e-05
+C(prompt)  12473.391855    2.0  28.548820  8.885204e-11
+Residual   24904.123322  114.0        NaN           NaN
+
+        ====================================================================================
+
+        Regression Model Parameters:
+
+        Intercept                     15.435100
+C(src)[T.de]                  -0.089774
+C(src)[T.en]                   2.433389
+C(src)[T.es]                  -2.373459
+C(src)[T.fr]                  13.190226
+C(src)[T.it]                 -11.409267
+C(src)[T.zh]                  -5.104721
+C(DEP)[T.trankit]              0.402163
+C(model)[T.mistral]           -9.971140
+C(model)[T.qwen]             -15.088465
+C(prompt)[T.deptext]         -19.169615
+C(prompt)[T.simple_prompt]   -22.618329
+dtype: float64
+
+        Anova Results:
+
+                        sum_sq    df          F        PR(>F)
+C(src)               6123.018297   6.0  13.336598  2.906503e-10
+C(DEP)                  5.094645   1.0   0.066580  7.970802e-01
+C(model)             4945.813676   2.0  32.317557  6.971934e-11
+C(prompt)           12473.391855   2.0  81.505204  1.233325e-19
+C(src):C(DEP)         178.967541   6.0   0.389811  8.834155e-01
+C(src):C(model)     13819.118632  12.0  15.049770  1.458366e-15
+C(src):C(prompt)     1727.374461  12.0   1.881205  5.009603e-02
+C(DEP):C(model)       131.029107   2.0   0.856187  4.288347e-01
+C(DEP):C(prompt)      101.875796   2.0   0.665690  5.168896e-01
+C(model):C(prompt)   3130.314499   4.0  10.227247  1.116714e-06
+Residual             5815.443286  76.0        NaN           NaN
+
+        ====================================================================================
+
+        Regression Model Parameters:
+
+        Intercept                                         35.410251
+C(src)[T.de]                                      -9.577914
+C(src)[T.en]                                     -10.478568
+C(src)[T.es]                                     -23.042884
+C(src)[T.fr]                                      34.733188
+C(src)[T.it]                                     -43.801447
+C(src)[T.zh]                                     -30.205820
+C(DEP)[T.trankit]                                  1.927439
+C(model)[T.mistral]                              -32.998989
+C(model)[T.qwen]                                 -42.087417
+C(prompt)[T.deptext]                             -39.139559
+C(prompt)[T.simple_prompt]                       -40.894757
+C(src)[T.de]:C(DEP)[T.trankit]                    -0.880338
+C(src)[T.en]:C(DEP)[T.trankit]                     4.500216
+C(src)[T.es]:C(DEP)[T.trankit]                    -0.878445
+C(src)[T.fr]:C(DEP)[T.trankit]                    -2.719069
+C(src)[T.it]:C(DEP)[T.trankit]                    -3.555191
+C(src)[T.zh]:C(DEP)[T.trankit]                    -0.438405
+C(src)[T.de]:C(model)[T.mistral]                  16.315417
+C(src)[T.en]:C(model)[T.mistral]                   7.773954
+C(src)[T.es]:C(model)[T.mistral]                  29.457183
+C(src)[T.fr]:C(model)[T.mistral]                 -30.623991
+C(src)[T.it]:C(model)[T.mistral]                  45.157449
+C(src)[T.zh]:C(model)[T.mistral]                  32.738532
+C(src)[T.de]:C(model)[T.qwen]                     11.009879
+C(src)[T.en]:C(model)[T.qwen]                      8.851140
+C(src)[T.es]:C(model)[T.qwen]                     31.249711
+C(src)[T.fr]:C(model)[T.qwen]                    -26.789773
+C(src)[T.it]:C(model)[T.qwen]                     40.908707
+C(src)[T.zh]:C(model)[T.qwen]                     21.923633
+C(src)[T.de]:C(prompt)[T.deptext]                  7.127594
+C(src)[T.en]:C(prompt)[T.deptext]                  5.618052
+C(src)[T.es]:C(prompt)[T.deptext]                  6.490873
+C(src)[T.fr]:C(prompt)[T.deptext]                  8.370164
+C(src)[T.it]:C(prompt)[T.deptext]                 10.490403
+C(src)[T.zh]:C(prompt)[T.deptext]                 12.194716
+C(src)[T.de]:C(prompt)[T.simple_prompt]           -4.667964
+C(src)[T.en]:C(prompt)[T.simple_prompt]            9.742399
+C(src)[T.es]:C(prompt)[T.simple_prompt]           -3.871825
+C(src)[T.fr]:C(prompt)[T.simple_prompt]          -11.506683
+C(src)[T.it]:C(prompt)[T.simple_prompt]            5.952770
+C(src)[T.zh]:C(prompt)[T.simple_prompt]            9.104024
+C(DEP)[T.trankit]:C(model)[T.mistral]             -4.422360
+C(DEP)[T.trankit]:C(model)[T.qwen]                -4.223764
+C(DEP)[T.trankit]:C(prompt)[T.deptext]             1.445760
+C(DEP)[T.trankit]:C(prompt)[T.simple_prompt]       4.326492
+C(model)[T.mistral]:C(prompt)[T.deptext]          14.116566
+C(model)[T.qwen]:C(prompt)[T.deptext]             22.070996
+C(model)[T.mistral]:C(prompt)[T.simple_prompt]    18.392572
+C(model)[T.qwen]:C(prompt)[T.simple_prompt]       27.910093
+dtype: float64
+
+        

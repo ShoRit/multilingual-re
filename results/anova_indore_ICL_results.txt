@@ -1,0 +1,71 @@
+Anova Results:
+
+                        sum_sq    df          F    PR(>F)
+C(src)       48.586339   2.0   0.240473  0.787259
+C(DEP)        0.750586   1.0   0.007430  0.931692
+C(model)   1242.991000   2.0   6.152065  0.004346
+C(prompt)  3087.606507   2.0  15.281812  0.000009
+Residual   4546.001794  45.0        NaN       NaN
+
+        ====================================================================================
+
+        Regression Model Parameters:
+
+        Intercept                     -9.973371
+C(src)[T.hi]                   0.070757
+C(src)[T.te]                  -2.019124
+C(DEP)[T.trankit]              0.238344
+C(model)[T.mistral]            9.559559
+C(model)[T.qwen]              10.826874
+C(prompt)[T.deptext]           0.850025
+C(prompt)[T.simple_prompt]   -15.696750
+dtype: float64
+
+        Anova Results:
+
+                        sum_sq    df          F        PR(>F)
+C(src)                58.413056   2.0   0.657141  5.264241e-01
+C(DEP)                 2.137937   1.0   0.048103  8.280470e-01
+C(model)            1260.287337   2.0  14.178110  6.175384e-05
+C(prompt)           3042.529868   2.0  34.228166  3.944998e-08
+C(src):C(DEP)         16.708353   2.0   0.187967  8.297168e-01
+C(src):C(model)      543.711679   4.0   3.058352  3.356187e-02
+C(src):C(prompt)     426.945611   4.0   2.401548  7.459937e-02
+C(DEP):C(model)       62.332792   2.0   0.701238  5.047800e-01
+C(DEP):C(prompt)      48.362153   2.0   0.544070  5.866118e-01
+C(model):C(prompt)  2205.379182   4.0  12.405151  7.471867e-06
+Residual            1200.010341  27.0        NaN           NaN
+
+        ====================================================================================
+
+        Regression Model Parameters:
+
+        Intercept                                         -3.487438
+C(src)[T.hi]                                      -3.528265
+C(src)[T.te]                                      -7.069226
+C(DEP)[T.trankit]                                 -2.085387
+C(model)[T.mistral]                                7.516289
+C(model)[T.qwen]                                   9.012225
+C(prompt)[T.deptext]                              -3.525609
+C(prompt)[T.simple_prompt]                       -34.244072
+C(src)[T.hi]:C(DEP)[T.trankit]                     0.607827
+C(src)[T.te]:C(DEP)[T.trankit]                     2.685171
+C(src)[T.hi]:C(model)[T.mistral]                 -11.339855
+C(src)[T.te]:C(model)[T.mistral]                   2.577150
+C(src)[T.hi]:C(model)[T.qwen]                     -1.194325
+C(src)[T.te]:C(model)[T.qwen]                     -5.127259
+C(src)[T.hi]:C(prompt)[T.deptext]                 13.178785
+C(src)[T.te]:C(prompt)[T.deptext]                 11.929354
+C(src)[T.hi]:C(prompt)[T.simple_prompt]            9.240719
+C(src)[T.te]:C(prompt)[T.simple_prompt]            0.783714
+C(DEP)[T.trankit]:C(model)[T.mistral]              2.617530
+C(DEP)[T.trankit]:C(model)[T.qwen]                -2.784653
+C(DEP)[T.trankit]:C(prompt)[T.deptext]             4.262476
+C(DEP)[T.trankit]:C(prompt)[T.simple_prompt]       0.222570
+C(model)[T.mistral]:C(prompt)[T.deptext]         -11.529356
+C(model)[T.qwen]:C(prompt)[T.deptext]             -7.805184
+C(model)[T.mistral]:C(prompt)[T.simple_prompt]    22.495576
+C(model)[T.qwen]:C(prompt)[T.simple_prompt]       22.788103
+dtype: float64
+
+        

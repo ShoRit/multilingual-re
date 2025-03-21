@@ -740,6 +740,8 @@ def get_overall_results():
     config_df = pd.DataFrame(config_dict)
     config_df.to_csv(f'../configs/{args.dataset}_eval_missing_config.csv',  index=False, sep=' ')
 
+    ## requires the None elements in the script to be replaced with '-'
+
 
 
 def agg_results_old():
@@ -924,18 +926,19 @@ def agg_results():
                 indomain_dict['ENC'].append(ml_model)
 
                 for lang in src_langs:
-                    result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == dep_model) & (indomain_df['GNN'] == gnn_model) & (indomain_df['ENC'] == ml_model)]['F1'].values[0]
-                    
+                    result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == dep_model) & (indomain_df['GNN'] == gnn_model) & (indomain_df['ENC'] == ml_model)]['F1'].values[0]                    
                     indomain_dict[lang].append(result)
-
+                
         indomain_dict['DEP'].append('-')
         indomain_dict['GNN'].append('-')
         indomain_dict['ENC'].append(ml_model)
 
+        
         for lang in src_langs:
-            result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == '-') & (indomain_df['GNN'] == '-') & (indomain_df['ENC'] == ml_model)]['F1'].values[0]
-                                    
-            indomain_dict[lang].append(result)                    
+            result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == '-') & (indomain_df['GNN'] == '-') & (indomain_df['ENC'] == ml_model)]['F1'].values[0]             
+            indomain_dict[lang].append(result)
+
+                
         
     # import pdb; pdb.set_trace()
 
@@ -1142,7 +1145,7 @@ def get_anova_ICL_results():
 
     for dataset in ['indore', 'redfm']:
 
-        df = pd.read_csv(f'../results/{dataset}_LLM.csv', sep='\t')
+        df = pd.read_csv(f'../results/{dataset}_LLM.csv', sep=',')
 
         if dataset == 'redfm':
             src_langs   = ['en', 'es', 'fr', 'it', 'de']
@@ -1154,21 +1157,21 @@ def get_anova_ICL_results():
 
         print(df.columns)
 
-        baseline_df  = df[df['Parser'] == 'baseline']
+        baseline_df  = df[df['Prompting'] == 'baseline']
 
         baseline_model_f1 = {}
 
         for idx, row in baseline_df.iterrows():
-            baseline_model_f1[f"{row['Model']-{row['Language']}}"] = row['Macro F1 Score']
+            baseline_model_f1[f"{row['Model']}_{row['Language']}"] = row['Macro F1 Score']
 
 
-        dep_df       = df[df['Parser'] != 'baseline']
+        dep_df       = df[df['Prompting'] != 'baseline']
 
         results_df   = ddict(list)
 
         for idx, row in dep_df.iterrows():
 
-            key = f"{row['Model']-{row['Language']}}"
+            key = f"{row['Model']}_{row['Language']}"
             baseline_f1 = baseline_model_f1[key]
             f1_diff = 100* (row['Macro F1 Score'] - baseline_f1)/(baseline_f1 + eps)
 
@@ -1208,12 +1211,227 @@ def get_anova_ICL_results():
         with open(f'../results/anova_{dataset}_ICL_results.txt', 'w') as f:
             f.write(results_text)
 
+
+def get_prompting_scores():
+
+    df = pd.read_csv(f'../prompting_predictions.csv')
+
+    # Filename,Accuracy,Precision,Recall,F1 Score,Macro F1 Score
+    # indore-en-llama3_zshot_prompt-stanza-test-better_prompt.json,0.9744636678200692,0.3895098882201204,0.5329411764705883,0.4500745156482861,0.4797139056498998
+    # indore-en-llama3_zshot_prompt-trankit-test-better_prompt.json,0.973679354094579,0.37679932260795934,0.5235294117647059,0.4382077794190054,0.4619065762714632
+
+    results_dict = ddict(list)
+    display_dict = ddict(list)
+
+    for idx, row in df.iterrows():
+        filename    = row['Filename']
+        macro_f1    = row['Macro F1 Score']
+
+        details     = filename.split('-')
+        dataset     = details[0]
+        lang        = details[1]
+        LLM         = details[2].split('_')[0]
+        dep_model   = details[3]
+
+        results_dict['dataset'].append(dataset)
+        results_dict['lang'].append(lang)
+        results_dict['LLM'].append(LLM)
+        results_dict['dep_model'].append(dep_model)
+        results_dict['macro_f1'].append(macro_f1)
+
+        if f'{dep_model}_{LLM}' not in display_dict['Framework']:
+            display_dict['Framework'].append(f'{dep_model}_{LLM}')
         
+        display_dict[f'{lang}_{dataset[0]}'].append(round(100*macro_f1,1))
         
+    display_df = pd.DataFrame(display_dict)
+
+    # \textbf{ar} & \textbf{de} & \textbf{en} & \textbf{es} & \textbf{fr} & \textbf{it} & \textbf{zh} & \textbf{en} & \textbf{hi} & \textbf{te}
+
+    display_df.to_csv(f'../results/display_prompting_results.csv', index=False, sep ='&')
     
+    
+    results_df = pd.DataFrame(results_dict)
+    results_df.to_csv(f'../results/prompting_results.csv', index=False)
 
 
-    pass
+
+def agg_lang_results():
+
+    stats_df = pd.read_csv(f'../results/{args.dataset}_overall_results.csv')
+
+    # identify the common set of source and target languages
+
+    if args.dataset == 'redfm':
+        src_langs   = ['en', 'es', 'fr', 'it', 'de']
+        tgt_langs   = ['en', 'es', 'fr', 'it', 'de', 'ar', 'zh']
+
+    if args.dataset == 'indore':
+        src_langs   = ['en', 'hi', 'te']
+        tgt_langs   = ['en', 'hi', 'te']
+
+
+    ### create a simple csv file for the indomain and cross domain results
+
+    indomain_dict   = ddict(list)
+    aggregated_dict = ddict(list)
+
+    for src_lang in src_langs:
+        for tgt_lang in tgt_langs:
+
+            for ml_model in ['mbert-base', 'xlmr-base']:        
+                for dep_model in ['stanza', 'trankit']:
+                    for gnn_model in ['rgcn', 'rgat']:
+
+                        dep_dict    = {}
+                        
+                        for seed in [11737, 98105, 98109, 15232, 15123]:
+
+
+                            dep_f1 = stats_df[(stats_df['src'] == src_lang) & (stats_df['tgt'] == tgt_lang) & (stats_df['dep_model'] == dep_model) & (stats_df['gnn_model'] == gnn_model) & (stats_df['ml_model'] == ml_model) & (stats_df['seed'] == seed)]['f1'].values[0]
+
+                            dep_dict[seed] = dep_f1
+                        
+                        # select the top 3 seeds for each src_tgt pair
+                        top_seeds  = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
+                        f1s    = [dep_dict[seed] for seed in top_seeds]
+                        
+
+                        mean_f1 = np.mean(f1s)
+                        std_f1  = np.std(f1s) 
+
+                        aggregated_dict['src'].append(src_lang)
+                        aggregated_dict['tgt'].append(tgt_lang)
+                        aggregated_dict['DEP'].append(dep_model)
+                        aggregated_dict['GNN'].append(gnn_model)
+                        aggregated_dict['ENC'].append(ml_model)
+                        
+                        # result  = f'{round(100*mean_f1, 1)}\pm{round(100*std_f1, 1)}'
+                        
+                        aggregated_dict['F1'].append(mean_f1)
+                
+                dep_dict    = {}
+                for seed in [11737, 98105, 98109, 15232, 15123]:
+
+                    try:
+                        dep_f1 = stats_df[(stats_df['src'] == src_lang) & (stats_df['tgt'] == tgt_lang) & (stats_df['dep_model'] == '-') & (stats_df['gnn_model'] == '-') & (stats_df['ml_model'] == ml_model) & (stats_df['seed'] == seed)]['f1'].values[0]
+
+
+                        dep_dict[seed] = dep_f1
+                    except Exception as e:
+                        import pdb; pdb.set_trace()
+                        print(f"Absent File: {src_lang} - {tgt_lang} - None - None - {ml_model} - {seed}")
+                
+                top_seeds  = sorted(dep_dict, key=dep_dict.get, reverse=True)[:3]
+                f1s    = [dep_dict[seed] for seed in top_seeds]
+
+                mean_f1 = np.mean(f1s)
+                std_f1  = np.std(f1s) 
+
+                aggregated_dict['src'].append(src_lang)
+                aggregated_dict['tgt'].append(tgt_lang)
+                aggregated_dict['DEP'].append('-')
+                aggregated_dict['GNN'].append('-')
+                aggregated_dict['ENC'].append(ml_model)
+                
+                result  = f'{round(100*mean_f1, 1)}\pm{round(100*std_f1, 1)}'
+
+                aggregated_dict['F1'].append(mean_f1)
+
+    aggregated_df = pd.DataFrame(aggregated_dict)
+
+
+
+    indomain_dict   = ddict(list)
+    indomain_df     = aggregated_df[(aggregated_df['src'] == aggregated_df['tgt'])]
+
+    
+    for ml_model in ['mbert-base', 'xlmr-base']:        
+        for dep_model in ['stanza', 'trankit']:
+            for gnn_model in ['rgcn', 'rgat']:
+                indomain_dict['DEP'].append(dep_model)
+                indomain_dict['GNN'].append(gnn_model)
+                indomain_dict['ENC'].append(ml_model)
+
+                result_arr = []
+                for lang in src_langs:
+                    result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == dep_model) & (indomain_df['GNN'] == gnn_model) & (indomain_df['ENC'] == ml_model)]['F1'].values[0]                    
+                    indomain_dict[lang].append(result)
+                    result_arr.append(result)
+                
+                indomain_dict['ALL'].append(np.mean(result_arr))
+                
+                
+        indomain_dict['DEP'].append('-')
+        indomain_dict['GNN'].append('-')
+        indomain_dict['ENC'].append(ml_model)
+
+        result_arr = []
+        for lang in src_langs:
+            result = indomain_df[(indomain_df['src'] == lang) & (indomain_df['tgt'] == lang) & (indomain_df['DEP'] == '-') & (indomain_df['GNN'] == '-') & (indomain_df['ENC'] == ml_model)]['F1'].values[0]             
+            indomain_dict[lang].append(result)
+            result_arr.append(result)
+
+        indomain_dict['ALL'].append(np.mean(result_arr))
+
+    indomain_df = pd.DataFrame(indomain_dict)
+    # get the indomain_results now
+    indomain_df.to_csv(f'../results/{args.dataset}_indomain_results_ALL.csv', index=False)
+
+
+    cross_domain_dict       = ddict(list)
+
+    cross_domain_df         = aggregated_df
+    # cross_domain_df         = aggregated_df[(aggregated_df['src'] != aggregated_df['tgt'])]
+
+    for ml_model in ['mbert-base', 'xlmr-base']:
+        for src_lang in src_langs:        
+            for dep_model in ['stanza', 'trankit']:
+                for gnn_model in ['rgcn', 'rgat']:
+                    
+
+                    cross_domain_dict['DEP'].append(dep_model)
+                    cross_domain_dict['GNN'].append(gnn_model)
+                    cross_domain_dict['ENC'].append(ml_model)
+                    cross_domain_dict['Src'].append(src_lang)
+
+                    result_arr = []
+                    for tgt_lang in tgt_langs:
+                        if src_lang == tgt_lang:
+                            cross_domain_dict[f'{tgt_lang}'].append('-')
+                        else:
+                            result = cross_domain_df[(cross_domain_df['src'] == src_lang) & (cross_domain_df['tgt'] == tgt_lang) & (cross_domain_df['DEP'] == dep_model) & (cross_domain_df['GNN'] == gnn_model) & (cross_domain_df['ENC'] == ml_model)]['F1'].values[0]                            
+                            cross_domain_dict[f'{tgt_lang}'].append(result)
+                            result_arr.append(result)
+                    
+                    cross_domain_dict['ALL'].append(np.mean(result_arr))
+
+        
+            cross_domain_dict['DEP'].append('-')
+            cross_domain_dict['GNN'].append('-')
+            cross_domain_dict['ENC'].append(ml_model)
+            cross_domain_dict['Src'].append(src_lang)
+            result_arr = []
+            for tgt_lang in tgt_langs:
+                if src_lang == tgt_lang: 
+                    cross_domain_dict[f'{tgt_lang}'].append('-')
+                else:
+                    result = cross_domain_df[(cross_domain_df['src'] == src_lang) & (cross_domain_df['tgt'] == tgt_lang) & (cross_domain_df['DEP'] == '-') & (cross_domain_df['GNN'] == '-') & (cross_domain_df['ENC'] == ml_model)]['F1'].values[0]
+                    cross_domain_dict[f'{tgt_lang}'].append(result)
+                    result_arr.append(result)
+            cross_domain_dict['ALL'].append(np.mean(result_arr))
+
+    # get the cross domain results now
+    cross_domain_df = pd.DataFrame(cross_domain_dict)
+    cross_domain_df.to_csv(f'../results/{args.dataset}_cross_domain_results_ALL.csv', index=False)
+
+
+            
+        
+
+         
+
+
 
 
 if __name__ =='__main__':	
@@ -1248,3 +1466,8 @@ if __name__ =='__main__':
         get_anova_ICL_results()
         
 
+    elif args.step                  == 'ICL_scores':
+        get_prompting_scores()
+    
+    elif args.step                 == 'agg_lang':
+        agg_lang_results()

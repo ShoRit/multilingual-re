@@ -1211,6 +1211,8 @@ def create_redfm_prompt_data():
                     dep_graph_arr                                     = get_dep_graph_arr(sent, dep_nlp, e1_start, e1_end, e2_start, e2_end)                    
                 
                     # import pdb; pdb.set_trace()
+
+                    filtered_tuples                                   = get_filtered_tuples(dep_graph_arr)
                     
                     splitwise_data[split].append({
                             'ent1'       : e1,
@@ -1218,10 +1220,11 @@ def create_redfm_prompt_data():
                             'doc_text'   : sent,
                             'dep_graph'  : dep_graph_arr,
                             'label'      : rel,
-                            'orig_sent'  : sent
+                            'orig_sent'  : sent,
+                            'filtered_tuples' : filtered_tuples
                         })
 
-        dump_json(splitwise_data, f'../prompt_data/indore/{args.lang}_prompt_{args.dep_model}_test.json')        
+        dump_json(splitwise_data, f'../prompt_data/redfm/{args.lang}_prompt_{args.dep_model}_test.json')        
 
 
 def get_filtered_tuples(dep_graph):
